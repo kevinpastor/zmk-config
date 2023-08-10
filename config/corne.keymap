@@ -12,7 +12,14 @@
 
 / {
   behaviors {
-    LSHIFT_MOD_MORPH(pars, <&kp LS(N9)>, <&kp LS(N0)>)
+    SHIFT_MOD_MORPH(quotes, <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTES>) // "'`
+    SHIFT_MOD_MORPH(colon, <&kp SEMICOLON>, <&kp COLON>) // ;:
+    SHIFT_MOD_MORPH(brcs, <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>) // {}
+    SHIFT_MOD_MORPH(pars, <&kp LS(N9)>, <&kp LS(N0)>) // ()
+    SHIFT_MOD_MORPH(slhs, <&kp SLASH>, <&kp BACKSLASH>) // /\
+    SHIFT_MOD_MORPH(comps, <&kp LESS_THAN>, <&kp GREATER_THAN>) // <>
+    SHIFT_MOD_MORPH(dash, <&kp MINUS>, <&kp UNDERSCORE>) // -_
+    SHIFT_MOD_MORPH(brks, <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>) // []
   };
 
   keymap {
@@ -23,7 +30,7 @@
 // |       SHFT |          A |          S |          D |          F |          G |    | H          | J          | K          | L          | ;          | '          |
 // |       CTRL |          Z |          X |          C |          V |          B |    | N          | M          | ,          | .          | /          | ALT        |
 //                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
-      bindings = <
+      bindings = <&kp LEFT_BRACKET
     &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T             &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BKSP
     &kp LSHFT    &kp A        &kp S        &kp D        &kp F        &kp G             &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp V        &kp B             &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RALT
@@ -33,14 +40,14 @@
 
     symbol_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |            |            |            |            |            |            |    |            | !          | "          | /          | $          |            |
-// |            |            |            |            |            |            |    |            | %          | ?          | &          | *          |            |
-// |            |            |            |            |            |            |    |            | (          |            | _          | +          |            |
+// |            |            |            |            |            |            |    |            | !          | ()         | &          | $          |            |
+// |            |            |            |            |       SHFT |            |    |            | "'         | {}         | /\         | *          |            |
+// |            |            |            |            |            |            |    |            | ;:         | []         | -_         | +          |            |
 //                                        |            |            |            |    |            |            |            |
       bindings = <
-    &none        &none        &none        &none        &none        &none             &none        &kp LS(N1)   &kp LS(N2)   &kp LS(N3)   &kp LS(N4)   &none
-    &none        &none        &none        &none        &none        &none             &none        &kp LS(N5)   &kp LS(N6)   &kp LS(N7)   &kp LS(N8)   &none
-    &none        &none        &none        &none        &none        &none             &none        &pars        &none        &kp LS(MINUS) &kp LS(EQUAL) &none
+    &none        &none        &none        &none        &none        &none             &none        &kp LS(N1)   &pars        &kp LS(N7)   &kp LS(N4)   &none
+    &none        &none        &none        &none        &kp LSHFT    &none             &none        &quotes      &brcs        &slhs        &kp LS(N8)   &none
+    &none        &none        &none        &none        &none        &none             &none        &colon       &brks        &dash        &kp LS(EQUAL) &none
                                            &none        &none        &none             &none        &none        &none
       >;
     };

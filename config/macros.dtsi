@@ -1,4 +1,4 @@
-#define LSHIFT_MOD_MORPH(name, default, shifted) \
+#define SHIFT_MOD_MORPH(name, default, shifted) \
 name: name { \
     label = ZMK_MACRO_STRINGIFY(ZM_ ## name); \
     compatible = "zmk,behavior-mod-morph"; \
