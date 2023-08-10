@@ -8,39 +8,34 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define DEFAULT 0
-#define SECONDARY 1
-#define TERTIARY 2
-
 / {
   keymap {
     compatible = "zmk,keymap";
-
     default_layer {
 // ----------------------------------------------------------------------------------------------------------------------
-// |    ESC |      Q |      W |      E |      R |      T |        | Y      | U      | I      | O      | P      | BKSP   |
-// |   SHFT |      A |      S |      D |      F |      G |        | H      | J      | K      | L      | ;      |  '     |
-// |   CTRL |      Z |      X |      C |      V |      B |        | N      | M      | ,      | .      | /      |        |
-//                            |    GUI |    LWR |    SPC |        | ENTER  | RSE    | ALT    |
+// |      ESC |        Q |        W |        E |        R |        T |          | Y        | U        | I        | O        | P        | BKSP     |
+// |     SHFT |        A |        S |        D |        F |        G |          | H        | J        | K        | L        | ;        | '        |
+// |     CTRL |        Z |        X |        C |        V |        B |          | N        | M        | ,        | .        | /        |          |
+//                                  |      GUI |      LWR |      SPC |          | ENTER    | RSE      | ALT      |
       bindings = <
-        &kp ESC   &kp Q &kp W &kp E    &kp R             &kp T     &kp Y     &kp U             &kp I     &kp O   &kp P    &kp BKSP
-        &kp LSHFT &kp A &kp S &kp D    &kp F             &kp G     &kp H     &kp J             &kp K     &kp L   &kp SEMI &kp SQT
-        &kp LCTRL &kp Z &kp X &kp C    &kp V             &kp B     &kp N     &kp M             &kp COMMA &kp DOT &kp FSLH &none
-                              &kp LGUI &lt SECONDARY TAB &kp SPACE &kp ENTER &lt TERTIARY BKSP &kp DEL
+    &kp ESC    &kp Q      &kp W      &kp E      &kp R      &kp T                 &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BKSP
+    &kp LSHFT  &kp A      &kp S      &kp D      &kp F      &kp G                 &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
+    &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B                 &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
+                                     &kp LGUI   &lt 3 TAB  &kp SPACE             &kp ENTER  &lt 2 BKSP &kp DEL
       >;
     };
 
     lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR | BT1 | BT2 |     |     |     |   |     | LFT |  UP | DWN | RGT |      |
-// | SHFT  |     |     |     |     |     |   |     |     |     |     |     |      |
-//                     | GUI |     | SPC |   | ENT |     | ALT |
+// |      TAB |        1 |        2  |        3 |        4 |        5 |          | 6        | 7        | 8        | 9        | 0       | BKSP     |
+// |    BTCLR |      BT1 |       BT2 |          |          |          |          |          | LFT      | UP       | DWN      | RGT     |          |
+// |     SHFT |          |           |          |          |          |          |          |          |          |          |         |          |
+//                                   |      GUI |          |      SPC |          | ENT      |          | ALT      |
       bindings = <
-        &kp TAB    &kp N1       &kp N2       &kp N3   &kp N4 &kp N5    &kp N6  &kp N7   &kp N8   &kp N9   &kp N0    &kp BKSP
-        &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &trans   &trans &trans    &trans  &kp LEFT &kp UP   &kp DOWN &kp RIGHT &trans
-        &kp LSHFT  &trans       &trans       &trans   &trans &trans    &trans  &trans   &trans   &trans   &trans    &trans
-                                             &kp LGUI &trans &kp SPACE &kp RET &trans   &kp RALT
+    &trans     &kp N1     &kp N2      &kp N3     &kp N4     &kp N5                &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp BKSP
+    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &trans  &trans     &trans                &trans     &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &trans
+    &trans     &trans     &trans      &trans     &trans     &trans                &trans     &trans     &trans     &trans     &trans    &trans
+                                      &kp LGUI   &trans     &kp SPACE             &kp RET    &trans     &kp RALT
       >;
     };
 
@@ -55,6 +50,20 @@
         &kp LCTRL &trans   &trans &trans   &trans   &trans     &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
         &kp LSHFT &trans   &trans &trans   &trans   &trans     &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
                                   &kp LGUI &trans   &kp SPACE  &kp RET   &trans    &kp RALT
+      >;
+    };
+
+    navigation_layer {
+// ----------------------------------------------------------------------------------------------------------------------
+// |          |          |          |          |          |          |          |          |          |          |          |          |          |
+// |          |          |          |          |          |          |          |          | LEFT     | UP       | DOWN     | RIGHT    |          |
+// |          |          |          |          |          |          |          |          |          |          |          |          |          |
+//                                  |          |          |          |          |          |          |          |
+      bindings = <
+    &none      &none      &none      &none      &none      &none                 &none      &none      &none      &none      &none      &none
+    &none      &none      &none      &none      &none      &none                 &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
+    &none      &none      &none      &none      &none      &none                 &none      &none      &none      &none      &none      &none
+                                     &none      &none      &none                 &none      &none      &none
       >;
     };
   };
