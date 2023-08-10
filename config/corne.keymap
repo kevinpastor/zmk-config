@@ -9,61 +9,99 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+  behaviors {
+    gresc: braces {
+      compatible = "zmk,behavior-mod-morph";
+      label = "BRACES";
+      #binding-cells = <0>;
+      bindings = <&kp LBRC>, <&kp RBRC>;
+      mods = <(MOD_LSFT)>;
+    };
+  };
+
   keymap {
     compatible = "zmk,keymap";
     default_layer {
-// ----------------------------------------------------------------------------------------------------------------------
-// |      ESC |        Q |        W |        E |        R |        T |          | Y        | U        | I        | O        | P        | BKSP     |
-// |     SHFT |        A |        S |        D |        F |        G |          | H        | J        | K        | L        | ;        | '        |
-// |     CTRL |        Z |        X |        C |        V |        B |          | N        | M        | ,        | .        | /        |          |
-//                                  |      GUI |      LWR |      SPC |          | ENTER    | RSE      | ALT      |
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// |        ESC |          Q |          W |          E |          R |          T |    | Y          | U          | I          | O          | P          | BKSP       |
+// |       SHFT |          A | ALT      S | CTRL     D | SHFT     F |          G |    | H     SHFT | J     CTRL | K      ALT | L          | ;          | '          |
+// |       CTRL |          Z |          X |          C |          V |          B |    | N          | M          | ,          | .          | /          | !          |
+//                                        | ACCENT GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
       bindings = <
-    &kp ESC    &kp Q      &kp W      &kp E      &kp R      &kp T                 &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BKSP
-    &kp LSHFT  &kp A      &kp S      &kp D      &kp F      &kp G                 &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
-    &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B                 &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
-                                     &kp LGUI   &lt 3 TAB  &kp SPACE             &kp ENTER  &lt 2 BKSP &kp DEL
+    &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T             &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BKSP
+    &kp LSHFT    &kp A        &mt LALT S   &mt LCTRL D  &mt LSHFT F  &kp G             &kp H        &mt RSHFT J  &mt RCTRL K  &mt RALT L   &kp SEMI     &kp SQT
+    &kp LCTRL    &kp Z        &kp X        &kp C        &kp V        &kp B             &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp EXCL
+                                           &lt 5 LGUI   &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
       >;
     };
 
-    lower_layer {
-// -----------------------------------------------------------------------------------------
-// |      TAB |        1 |        2  |        3 |        4 |        5 |          | 6        | 7        | 8        | 9        | 0       | BKSP     |
-// |    BTCLR |      BT1 |       BT2 |          |          |          |          |          | LFT      | UP       | DWN      | RGT     |          |
-// |     SHFT |          |           |          |          |          |          |          |          |          |          |         |          |
-//                                   |      GUI |          |      SPC |          | ENT      |          | ALT      |
+    symbol_layer {
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |          |          |          |          |          |          |    | \        | '        | :        |          | )        | ]        |
+// |          |          |          |          |          |          |    | /        | "        | ;        | {}       | (        | [        |
+// |          |          |          |          |          |          |    | <        | >        | -        | &        | $        |          |
+//                                  |          |          |          |    |          |          |          |
       bindings = <
-    &trans     &kp N1     &kp N2      &kp N3     &kp N4     &kp N5                &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp BKSP
-    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &trans  &trans     &trans                &trans     &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &trans
-    &trans     &trans     &trans      &trans     &trans     &trans                &trans     &trans     &trans     &trans     &trans    &trans
-                                      &kp LGUI   &trans     &kp SPACE             &kp RET    &trans     &kp RALT
+    &none      &none      &none      &none      &none      &none           &kp BSLH   &kp SQT    &kp COLON  &none      &kp RPAR   &kp RBKT
+    &none      &none      &none      &none      &none      &none           &kp FSLH   &kp DQT    &kp SEMI   &braces    &kp LPAR   &kp LBKT
+    &none      &none      &none      &none      &none      &none           &kp LT     &kp GT     &kp MINUS  &kp AMPS   &kp DOLLAR &none
+                                     &none      &none      &none           &none      &none      &none
       >;
     };
-
-    raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+    
+    number_layer {
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+// |          |        1 |        2 |        3 |        4 |        5 |    | 6        | 7        | 8        | 9        | 0        |          |
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+//                                  |          |          |          |    |          |          |          |
       bindings = <
-        &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT  &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BKSP
-        &kp LCTRL &trans   &trans &trans   &trans   &trans     &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-        &kp LSHFT &trans   &trans &trans   &trans   &trans     &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                                  &kp LGUI &trans   &kp SPACE  &kp RET   &trans    &kp RALT
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+    &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5          &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+                                     &none      &none      &none           &none      &none      &none
       >;
     };
 
     navigation_layer {
-// ----------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          |          |          |          |          |          |          |          |          |
-// |          |          |          |          |          |          |          |          | LEFT     | UP       | DOWN     | RIGHT    |          |
-// |          |          |          |          |          |          |          |          |          |          |          |          |          |
-//                                  |          |          |          |          |          |          |          |
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+// |          |          |          |          |          |          |    |          | LEFT     | UP       | DOWN     | RIGHT    |          |
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+//                                  |          |          |          |    |          |          |          |
       bindings = <
-    &none      &none      &none      &none      &none      &none                 &none      &none      &none      &none      &none      &none
-    &none      &none      &none      &none      &none      &none                 &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
-    &none      &none      &none      &none      &none      &none                 &none      &none      &none      &none      &none      &none
-                                     &none      &none      &none                 &none      &none      &none
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+    &none      &none      &none      &none      &none      &none           &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+                                     &none      &none      &none           &none      &none      &none
+      >;
+    };
+    
+    function_layer {
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+// |       F1 |       F2 |       F3 |       F4 |       F5 |       F6 |    | F7       | F8       | F9       | F10      | F11      | F12      |
+// |      F13 |      F14 |      F15 |      F16 |      F17 |      F18 |    | F19      | F20      | F21      | F22      | F23      | F24      |
+//                                  |          |          |          |    |          |          |          |
+      bindings = <
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+    &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6          &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
+    &kp F13    &kp F14    &kp F1     &kp F16    &kp F17    &kp F18         &kp F19    &kp F20    &kp F21    &kp F22    &kp F23    &kp F24
+                                     &none      &none      &none           &none      &none      &none
+      >;
+    };
+    
+    accent_layer {
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+// |          |          |          |          |          |          |    |          | é        | `        | ¸        | ^        |          |
+// |          |          |          |          |          |          |    |          |          |          |          |          |          |
+//                                  |          |          |          |    |          |          |          |
+      bindings = <
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+    &none      &none      &none      &none      &none      &none           &none      &none      &kp GRAVE  &none      &kp CARET  &none
+    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
+                                     &none      &none      &none           &none      &none      &none
       >;
     };
   };
