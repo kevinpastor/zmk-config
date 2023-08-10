@@ -10,7 +10,7 @@
 
 / {
   behaviors {
-    gresc: braces {
+    braces: braces {
       compatible = "zmk,behavior-mod-morph";
       label = "BRACES";
       #binding-cells = <0>;
