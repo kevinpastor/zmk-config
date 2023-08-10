@@ -12,7 +12,7 @@
 
 / {
   behaviors {
-    LSHIFT_MOD_MORPH("pars", LS(N9), LS(N0))
+    LSHIFT_MOD_MORPH(pars, bindings = <&kp default>, <&kp shifted>;)
   };
 
   keymap {
