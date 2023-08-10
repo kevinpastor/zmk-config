@@ -1,8 +1,8 @@
-#define LSHIFT_MOD_MORPH(name,...) \
+#define LSHIFT_MOD_MORPH(name, default, shifted) \
 name: name { \
     label = ZMK_MACRO_STRINGIFY(ZM_ ## name); \
     compatible = "zmk,behavior-mod-morph"; \
     #binding-cells = <0>; \
     mods = <(MOD_LSFT)>; \
-    __VA_ARGS__ \
+    bindings = default, shifted; \
 };
