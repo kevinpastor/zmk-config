@@ -11,16 +11,16 @@
 #include "./macros.dtsi"
 
 / {
-  behaviors {
-    SHIFT_MOD_MORPH(quotes, <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTES>) // "'`
-    SHIFT_MOD_MORPH(colon, <&kp SEMICOLON>, <&kp COLON>) // ;:
-    SHIFT_MOD_MORPH(brcs, <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>) // {}
-    SHIFT_MOD_MORPH(pars, <&kp LS(N9)>, <&kp LS(N0)>) // ()
-    SHIFT_MOD_MORPH(slhs, <&kp SLASH>, <&kp BACKSLASH>) // /\
-    SHIFT_MOD_MORPH(comps, <&kp LESS_THAN>, <&kp GREATER_THAN>) // <>
-    SHIFT_MOD_MORPH(dash, <&kp MINUS>, <&kp UNDERSCORE>) // -_
-    SHIFT_MOD_MORPH(brks, <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>) // []
-  };
+//   behaviors {
+//     SHIFT_MOD_MORPH(quotes, <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTES>) // "'`
+//     SHIFT_MOD_MORPH(colon, <&kp SEMICOLON>, <&kp COLON>) // ;:
+//     SHIFT_MOD_MORPH(brcs, <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>) // {}
+//     SHIFT_MOD_MORPH(pars, <&kp LS(N9)>, <&kp LS(N0)>) // ()
+//     SHIFT_MOD_MORPH(slhs, <&kp SLASH>, <&kp BACKSLASH>) // /\
+//     SHIFT_MOD_MORPH(comps, <&kp LESS_THAN>, <&kp GREATER_THAN>) // <>
+//     SHIFT_MOD_MORPH(dash, <&kp MINUS>, <&kp UNDERSCORE>) // -_
+//     SHIFT_MOD_MORPH(brks, <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>) // []
+//   };
 
   keymap {
     compatible = "zmk,keymap";
@@ -37,22 +37,22 @@
                                            &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
       >;
     };
-
-    symbol_layer {
+  
+    symbols_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |            |            |            |            |            |            |    |            | !          | ()         | &          | $          |            |
-// |            |            |            |            |       SHFT |            |    |            | "'         | {}         | /\         | *          |            |
-// |            |            |            |            |            |            |    |            | ;:         | []         | -_         | +          |            |
+// |            |            |            |            |            |            |    | ^   [      | !          | "          | /          | $          | ; : ~      |
+// |            |            | ALT        |            |       SHFT |            |    | ¸ ¨ ]      | %          | ?          | &          | *          | `   {      |
+// |            |            |            |            |            |            |    |            | (          | )          | _          | +          | < > }      |
 //                                        |            |            |            |    |            |            |            |
       bindings = <
-    &none        &none        &none        &none        &none        &none             &none        &kp LS(N1)   &pars        &kp LS(N7)   &kp LS(N4)   &none
-    &none        &none        &none        &none        &kp LSHFT    &none             &none        &quotes      &brcs        &slhs        &kp LS(N8)   &none
-    &none        &none        &none        &none        &none        &none             &none        &colon       &brks        &dash        &kp LS(EQUAL) &none
+    &none        &none        &none        &none        &none        &none             &kp LBKT     &kp LS(N1)   &kp LS(N2)   &kp LS(N3)   &kp LS(N4)   &kp SEMI
+    &none        &none        &kp RALT     &none        &kp LSHIFT   &none             &kp RBKT     &kp LS(N5)   &kp LS(N6)   &kp LS(N7)   &kp LS(N8)   &kp SQT
+    &none        &none        &none        &none        &none        &none             &none        &kp LS(N9)   &kp LS(N0)   &kp LS(MINUS) &kp LS(EQUAL) &kp BSLH
                                            &none        &none        &none             &none        &none        &none
       >;
     };
     
-    number_layer {
+    numbers_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 // |          |        1 |        2 |        3 |        4 |        5 |    | 6        | 7        | 8        | 9        | 0        |          |
@@ -80,7 +80,7 @@
       >;
     };
     
-    function_layer {
+    functions_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 // |       F1 |       F2 |       F3 |       F4 |       F5 |       F6 |    | F7       | F8       | F9       | F10      | F11      | F12      |
@@ -94,7 +94,7 @@
       >;
     };
     
-    accent_layer {
+    accents_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 // |          |          |          |          |          |          |    |          | é        | `        | ¸        | ^        |          |
