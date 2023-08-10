@@ -10,6 +10,17 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+  macros {
+    excl: excl {
+      wait-ms = <40>;
+      tap-ms = <40>;
+      bindings =
+        <&macro_press   &kp LALT>,
+        <&macro_tap     &kp KP_N4 &kp KP_N7>,
+        <&macro_release &kp LALT>;
+    };
+  };
+
   behaviors {
     hm: homerow_mods {
       compatible = "zmk,behavior-hold-tap";
@@ -64,7 +75,7 @@
 // |        ESC |          Q |          W |          E |          R |          T |    | Y          | U          | I          | O          | P          | BKSP       |
 // |       SHFT |          A |          S |          D |          F |          G |    | H          | J          | K          | L          | ;          | '          |
 // |       CTRL |          Z |          X |          C |          V |          B |    | N          | M          | ,          | .          | /          | ALT        |
-//                                        | ACCENT GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
+//                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
       bindings = <
     &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T             &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BKSP
     &kp LSHFT    &kp A        &kp S        &kp D        &kp F        &kp G             &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
@@ -77,12 +88,12 @@
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |          |          |          |          |          |    |          | '        |          |          |          |          |
 // |          |          |          |          |          |          |    | /\       | "        | ;:       | {}       | ()       | []       |
-// |          |          |          |          |          |          |    | <        | >        | -        | &        | $        |          |
+// |          |          |          |          |          |          |    | <        | !        | -        | &        | $        |          |
 //                                  |          |          |          |    |          |          |          |
       bindings = <
     &none      &none      &none      &none      &none      &none           &none      &kp SQT    &none      &none      &none      &none
     &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &slashes   &kp DQT    &colons    &braces    &pars      &brackets
-    &none      &none      &none      &none      &none      &none           &kp LT     &kp GT     &kp MINUS  &kp AMPS   &kp DOLLAR &none
+    &none      &none      &none      &none      &none      &none           &kp LT     &excl      &kp MINUS  &kp AMPS   &kp DOLLAR &none
                                      &none      &none      &none           &none      &none      &none
       >;
     };
@@ -103,7 +114,7 @@
 
     navigation_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          | VCC      |    |          |          |          |          |          |          |
+// |          |          |          |          |          |          |    | VCC      |          |          |          |          |          |
 // |          |          |          |          |          |          |    |          | LEFT     | UP       | DOWN     | RIGHT    |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
