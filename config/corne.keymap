@@ -8,12 +8,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include "./behaviors.dtsi"
+#include "./macros.dtsi"
 
 / {
   behaviors {
     LSHIFT_MOD_MORPH(pars,
-      bindings = <&kp default>, <&kp shifted>;
+      bindings = <&kp LS(N9)>, <&kp LS(N0)>;
     )
   };
 
