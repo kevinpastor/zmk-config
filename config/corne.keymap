@@ -10,67 +10,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-  macros {
-    excl: excl {
-      compatible = "zmk,behavior-macro";
-      label = "exclamation";
-      #binding-cells = <0>;
-      wait-ms = <40>;
-      tap-ms = <40>;
-      bindings =
-        <&macro_press   &kp LALT>,
-        <&macro_tap     &kp KP_N4 &kp KP_N7>,
-        <&macro_release &kp LALT>;
-    };
-  };
-
-  behaviors {
-    hm: homerow_mods {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS";
-      #binding-cells = <2>;
-      tapping-term-ms = <250>;
-      quick-tap-ms = <0>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-    };
-    braces: braces {
-      compatible = "zmk,behavior-mod-morph";
-      label = "BRACES";
-      #binding-cells = <0>;
-      bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
-      mods = <(MOD_LSFT)>;
-    };
-    colons: colons {
-      compatible = "zmk,behavior-mod-morph";
-      label = "COLONS";
-      #binding-cells = <0>;
-      bindings = <&kp SEMICOLON>, <&kp COLON>;
-      mods = <(MOD_LSFT)>;
-    };
-    pars: parentheses {
-      compatible = "zmk,behavior-mod-morph";
-      label = "PARENTHESES";
-      #binding-cells = <0>;
-      bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
-      mods = <(MOD_LSFT)>;
-    };
-    brackets: brackets {
-      compatible = "zmk,behavior-mod-morph";
-      label = "BRACKETS";
-      #binding-cells = <0>;
-      bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
-      mods = <(MOD_LSFT)>;
-    };
-    slashes: slashes {
-      compatible = "zmk,behavior-mod-morph";
-      label = "SLASHES";
-      #binding-cells = <0>;
-      bindings = <&kp SLASH>, <&kp BACKSLASH>;
-      mods = <(MOD_LSFT)>;
-    };
-  };
-
   keymap {
     compatible = "zmk,keymap";
     default_layer {
@@ -89,15 +28,15 @@
 
     symbol_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          |          |    |          | '        |          |          |          |          |
-// |          |          |          |          |          |          |    | /\       | "        | ;:       | {}       | ()       | []       |
-// |          |          |          |          |          |          |    | <        | !        | -        | &        | $        |          |
-//                                  |          |          |          |    |          |          |          |
+// |          |          |          |          |          |          |    |            | !          | "          | /          | $          |            |
+// |          |          |          |          |          |          |    |            | %          | ?          | &          | *          |            |
+// |          |          |          |          |          |          |    |            | (          | )          | _          | +          |            |
+//                                  |          |          |          |    |            |            |            |
       bindings = <
-    &none      &none      &none      &none      &none      &none           &none      &kp SQT    &none      &none      &none      &none
-    &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &slashes   &kp DQT    &colons    &braces    &pars      &brackets
-    &none      &none      &none      &none      &none      &none           &kp LT     &excl      &kp MINUS  &kp AMPS   &kp DOLLAR &none
-                                     &none      &none      &none           &none      &none      &none
+    &none      &none      &none      &none      &none      &none           &none        &kp LS(N1)   &kp LS(N2)   &kp LS(N3)   &kp LS(N4)   &none
+    &none      &none      &none      &none      &none      &none           &none        &kp LS(N5)   &kp LS(N6)   &kp LS(N7)   &kp LS(N8)   &none
+    &none      &none      &none      &none      &none      &none           &none        &kp LS(N9)   &kp LS(N0)   &kp LS(MINUS) &kp LS(EQUAL) &none
+                                     &none      &none      &none           &none        &none        &none
       >;
     };
     
