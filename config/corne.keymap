@@ -61,14 +61,14 @@
     default_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // |        ESC |          Q |          W |          E |          R |          T |    | Y          | U          | I          | O          | P          | BKSP       |
-// |       SHFT |          A | ALT      S | CTRL     D | SHFT     F |          G |    | H     SHFT | J     CTRL | K      ALT | L          | ;          | '          |
-// |       CTRL |          Z |          X |          C |          V |          B |    | N          | M          | ,          | .          | /          | !          |
+// |       SHFT |          A |          S |          D |          F |          G |    | H          | J          | K          | L          | ;          | '          |
+// |       CTRL |          Z |          X |          C |          V |          B |    | N          | M          | ,          | .          | /          | ALT        |
 //                                        | ACCENT GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
       bindings = <
     &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T             &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BKSP
-    &kp LSHFT    &kp A        &mt LALT S   &mt LCTRL D  &mt LSHFT F  &kp G             &kp H        &mt RSHFT J  &mt RCTRL K  &mt RALT L   &kp SEMI     &kp SQT
-    &kp LCTRL    &kp Z        &kp X        &kp C        &kp V        &kp B             &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp EXCL
-                                           &lt 5 LGUI   &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
+    &kp LSHFT    &kp A        &kp S        &kp D        &kp F        &kp G             &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
+    &kp LCTRL    &kp Z        &kp X        &kp C        &kp V        &kp B             &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RALT
+                                           &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
       >;
     };
 
