@@ -108,7 +108,7 @@
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
       bindings = <
-    &none      &none      &none      &none      &none      &ext_power EP_ON &none     &none      &none      &none      &none      &none
+    &none      &none      &none      &none      &none      &none           &ext_power EP_ON &none &none     &none      &none      &none
     &none      &none      &none      &none      &none      &none           &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
