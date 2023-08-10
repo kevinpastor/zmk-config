@@ -23,7 +23,35 @@
       compatible = "zmk,behavior-mod-morph";
       label = "BRACES";
       #binding-cells = <0>;
-      bindings = <&kp LBRC>, <&kp RBRC>;
+      bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+      mods = <(MOD_LSFT)>;
+    };
+    colons: colons {
+      compatible = "zmk,behavior-mod-morph";
+      label = "COLONS";
+      #binding-cells = <0>;
+      bindings = <&kp SEMICOLON>, <&kp COLON>;
+      mods = <(MOD_LSFT)>;
+    };
+    pars: parentheses {
+      compatible = "zmk,behavior-mod-morph";
+      label = "PARENTHESES";
+      #binding-cells = <0>;
+      bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+      mods = <(MOD_LSFT)>;
+    };
+    brackets: brackets {
+      compatible = "zmk,behavior-mod-morph";
+      label = "BRACKETS";
+      #binding-cells = <0>;
+      bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+      mods = <(MOD_LSFT)>;
+    };
+    slashes: slashes {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SLASHES";
+      #binding-cells = <0>;
+      bindings = <&kp SLASH>, <&kp BACKSLASH>;
       mods = <(MOD_LSFT)>;
     };
   };
@@ -46,13 +74,13 @@
 
     symbol_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          |          |    | \        | '        | :        |          | )        | ]        |
-// |          |          |          |          |          |          |    | /        | "        | ;        | {}       | (        | [        |
+// |          |          |          |          |          |          |    | \        | '        |          |          |          |          |
+// |          |          |          |          |          |          |    | /        | "        | ;:       | {}       | ()       | []       |
 // |          |          |          |          |          |          |    | <        | >        | -        | &        | $        |          |
 //                                  |          |          |          |    |          |          |          |
       bindings = <
-    &none      &none      &none      &none      &none      &none           &kp BSLH   &kp SQT    &kp COLON  &none      &kp RPAR   &kp RBKT
-    &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &kp FSLH   &kp DQT    &kp SEMI   &braces    &kp LPAR   &kp LBKT
+    &none      &none      &none      &none      &none      &none           &none      &kp SQT    &none      &none      &none      &none
+    &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &slashes   &kp DQT    &colons    &braces    &pars      &brackets
     &none      &none      &none      &none      &none      &none           &kp LT     &kp GT     &kp MINUS  &kp AMPS   &kp DOLLAR &none
                                      &none      &none      &none           &none      &none      &none
       >;
