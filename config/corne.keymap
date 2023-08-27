@@ -26,14 +26,14 @@
     compatible = "zmk,keymap";
     default_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |        ESC |          Q |          W |          E |          R |          T |    | Y          | U          | I          | O          | P          | BKSP       |
-// |       SHFT |          A |          S |          D |          F |          G |    | H          | J          | K          | L          | ;          | '          |
-// |       CTRL |          Z |          X |          C |          V |          B |    | N          | M          | ,          | .          | /          | ALT        |
+// |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BKSP       |
+// |       SHFT |          A |          R |          S |          T |          G |    | M          | N          | E          | I          | O          | '          |
+// |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | /          | ALT        |
 //                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
       bindings = <
-    &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T             &kp Y        &kp U        &kp I        &kp O        &kp P        &kp BKSP
-    &kp LSHFT    &kp A        &kp S        &kp D        &kp F        &kp G             &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
-    &kp LCTRL    &kp Z        &kp X        &kp C        &kp V        &kp B             &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RALT
+    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BKSP
+    &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp SQT
+    &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp RALT
                                            &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
       >;
     };
@@ -42,7 +42,7 @@
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // |            |            |            |            |            |            |    | ^   [      | !          | "          | /          | $          | ; : ~      |
 // |            |            | ALT        |            |       SHFT |            |    | ¸ ¨ ]      | %          | ?          | &          | *          | `   {      |
-// |            |            |            |            |            |            |    |            | (          | )          |   _        |   +        | < > }      |
+// |            |            |            |            |            |            |    |            | (          | )          | - _        | = +        | < > }      |
 //                                        |            |            |            |    |            |            |            |
       bindings = <
     &none        &none        &none        &none        &none        &none             &kp LBKT     &kp LS(N1)   &kp LS(N2)   &kp LS(N3)   &kp LS(N4)   &kp SEMI
@@ -69,12 +69,12 @@
     navigation_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |          |          |          |          |          |    | VCC      |          |          |          |          |          |
-// |          |          |          |          |          |          |    |          | LEFT     | UP       | DOWN     | RIGHT    |          |
+// |          |          | ALT      | CTRL     | SHFT     |          |    |          | LEFT     | UP       | DOWN     | RIGHT    |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
       bindings = <
     &none      &none      &none      &none      &none      &none           &ext_power EP_ON &none &none     &none      &none      &none
-    &none      &none      &none      &none      &none      &none           &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
+    &none      &none      &kp RALT   &kp LCTRL  &kp LSHFT  &none           &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
       >;
