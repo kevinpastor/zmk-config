@@ -10,7 +10,18 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include "./macros.dtsi"
 
+#define GAMING 6
+
 / {
+  behaviors {
+    gaming: gaming_layer {
+      compatible = "zmk,behavior-mod-morph";
+      label = "GAMING_LAYER";
+      #binding-cells = <0>;
+      bindings = <&kp DEL>, <&tog GAMING>;
+      mods = <(MOD_LGUI)>;
+    };
+  };
 //   behaviors {
 //     SHIFT_MOD_MORPH(quotes, <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTES>) // "'`
 //     SHIFT_MOD_MORPH(colon, <&kp SEMICOLON>, <&kp COLON>) // ;:
@@ -29,12 +40,12 @@
 // |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BKSP       |
 // |       SHFT |          A |          R |          S |          T |          G |    | M          | N          | E          | I          | O          | '          |
 // |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | /          | ALT        |
-//                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL        |
+//                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL GAMING |
       bindings = <
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BKSP
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp SQT
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp RALT
-                                           &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
+                                           &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &gaming
       >;
     };
 
@@ -51,30 +62,30 @@
                                            &none        &none        &none             &none        &none        &none
       >;
     };
-    
+
     numbers_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          |          |    |          |          |          |          |          |          |
-// |          |        1 |        2 |        3 |        4 |        5 |    | 6        | 7        | 8        | 9        | 0        |          |
-// |          |          |          |          |          |          |    |          |          |          |          |          |          |
-//                                  |          |          |          |    |          |          |          |
+// |          |          |        7 |        8 |        9 |          |    |          |          |          |          |          |          |
+// |          |          |        4 |        5 |        6 |          |    |          |          | CTRL     | ALT      |          |          |
+// |          |          |        1 |        2 |        3 |          |    |          |          |          |          |          |          |
+//                                  |          |        0 |        . |    |          |          |          |
       bindings = <
-    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
-    &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5          &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none
-    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
-                                     &none      &none      &none           &none      &none      &none
+    &none      &none      &kp N7     &kp N8     &kp N9     &none           &none      &none      &none      &none      &none      &none
+    &none      &none      &kp N4     &kp N5     &kp N6     &none           &none      &none      &kp LCTRL  &kp LALT   &none      &none
+    &none      &none      &kp N1     &kp N2     &kp N3     &none           &none      &none      &none      &none      &none      &none
+                                     &none      &kp N0     &kp DOT         &none      &none      &none
       >;
     };
 
     navigation_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |          |          |          |          |          |    | VCC      |          |          |          |          |          |
-// |          |          | ALT      | CTRL     | SHFT     |          |    |          | LEFT     | UP       | DOWN     | RIGHT    |          |
+// |          |          | ALT      | CTRL     | SHFT     |          |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
       bindings = <
     &none      &none      &none      &none      &none      &none           &ext_power EP_ON &none &none     &none      &none      &none
-    &none      &none      &kp RALT   &kp LCTRL  &kp LSHFT  &none           &none      &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT  &none
+    &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
       >;
@@ -82,15 +93,15 @@
     
     functions_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          |          |    |          |          |          |          |          |          |
-// |       F1 |       F2 |       F3 |       F4 |       F5 |       F6 |    | F7       | F8       | F9       | F10      | F11      | F12      |
-// |      F13 |      F14 |      F15 |      F16 |      F17 |      F18 |    | F19      | F20      | F21      | F22      | F23      | F24      |
-//                                  |          |          |          |    |          |          |          |
+// |          |      F12 |       F7 |       F8 |       F9 |          |    |          |          |          |          |          |          |
+// |          |      F11 |       F4 |       F5 |       F6 |          |    |          |          |          |          |          |          |
+// |          |      F10 |       F1 |       F2 |       F3 |          |    |          |          |          |          |          |          |
+//                                  |      F15 |      F14 |      F13 |    |          |          |          |
       bindings = <
-    &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
-    &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6          &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
-    &kp F13    &kp F14    &kp F1     &kp F16    &kp F17    &kp F18         &kp F19    &kp F20    &kp F21    &kp F22    &kp F23    &kp F24
-                                     &none      &none      &none           &none      &none      &none
+    &none      &kp F12    &kp F7     &kp F8     &kp F9     &none           &none      &none      &none      &none      &none      &none
+    &none      &kp F11    &kp F4     &kp F5     &kp F6     &none           &none      &none      &none      &none      &none      &none
+    &none      &kp F10    &kp F1     &kp F2     &kp F3     &none           &none      &none      &none      &none      &none      &none
+                                     &kp F15    &kp F14    &kp F13         &none      &none      &none
       >;
     };
     
@@ -105,6 +116,20 @@
     &none      &none      &none      &none      &none      &none           &none      &none      &kp GRAVE  &none      &kp CARET  &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
+      >;
+    };
+    
+    gaming_layer {
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |      ESC |        Q |        W |        E |        R |        T |    |          |          |          |          |          |          |
+// |     SHFT |        A |        S |        D |        F |        G |    |          |          |          |          |          |          |
+// |     CTRL |        Z |        X |        C |        V |        B |    |          |          |          |          |          |          |
+//                                  |      GUI |      TAB |    SPACE |    |          |          |   GAMING |
+      bindings = <
+    &kp ESC    &kp Q      &kp W      &kp E      &kp R      &kp T           &none      &none      &none      &none      &none      &none
+    &kp LSHFT  &kp A      &kp S      &kp D      &kp F      &kp G           &none      &none      &none      &none      &none      &none
+    &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B           &none      &none      &none      &none      &none      &none
+                                     &kp LGUI   &kp TAB    &kp SPACE       &none      &none      &gaming
       >;
     };
   };
