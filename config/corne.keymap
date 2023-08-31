@@ -20,6 +20,7 @@
       #binding-cells = <0>;
       bindings = <&kp DEL>, <&tog GAMING>;
       mods = <(MOD_LGUI)>;
+      keep-mods = 0;
     };
   };
 //   behaviors {
@@ -38,27 +39,27 @@
     default_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BKSP       |
-// |       SHFT |          A |          R |          S |          T |          G |    | M          | N          | E          | I          | O          | '          |
+// |       SHFT |          A |          R |          S |          T |          G |    | M          | N          | E          | I          | O          | «          |
 // |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | /          | ALT        |
 //                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL GAMING |
       bindings = <
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BKSP
-    &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp SQT
-    &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp RALT
+    &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
+    &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
                                            &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &gaming
       >;
     };
 
     symbols_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |            |            |            |            |            |            |    | ^   [      | !          | "          | /          | $          | ; : ~      |
-// |            |            | ALT        |            |       SHFT |            |    | ¸ ¨ ]      | %          | ?          | &          | *          | `   {      |
-// |            |            |            |            |            |            |    |            | (          | )          | - _        | = +        | < > }      |
+// |            |          ' |          < |          > |          " |          ` |    | &          | :          | (          | )          | %          |            |
+// |            |          ! |          - |          + |          = |          @ |    | |          | ;          | {          | }          | ?          |            |
+// |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            |            |    |            |            |            |
       bindings = <
-    &none        &none        &none        &none        &none        &none             &kp LBKT     &kp LS(N1)   &kp LS(N2)   &kp LS(N3)   &kp LS(N4)   &kp SEMI
-    &none        &none        &kp RALT     &none        &kp LSHIFT   &none             &kp RBKT     &kp LS(N5)   &kp LS(N6)   &kp LS(N7)   &kp LS(N8)   &kp SQT
-    &none        &none        &none        &none        &none        &none             &none        &kp LS(N9)   &kp LS(N0)   &kp MINUS    &kp EQUAL    &kp BSLH
+    &none        &kp SQT      &kp LT       &kp GT       &kp DQT      &kp GRAVE         &kp AMPS     &kp COLON    &kp LPAR     &kp RPAR     &kp PERCENT  &none
+    &none        &kp EXCL     &kp MINUS    &kp PLUS     &kp EQUAL    &kp AT            &kp PIPE     &kp SEMI     &kp LBRC     &kp RBRC     &kp QMARK    &none
+    &none        &kp CARET    &kp /        &kp *        &kp BSLH     &kp UNDERSCORE    &kp TILDE    &kp DOLLAR   &kp LBKT     &kp RBKT     &kp HASH     &none
                                            &none        &none        &none             &none        &none        &none
       >;
     };
