@@ -8,9 +8,17 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include "./macros.dtsi"
 
 #define GAMING 6
+
+// #define SHIFT_MOD_MORPH(name, default, shifted) \
+// name: name { \
+//     label = ZMK_MACRO_STRINGIFY(ZM_ ## name); \
+//     compatible = "zmk,behavior-mod-morph"; \
+//     #binding-cells = <0>; \
+//     mods = <(MOD_LSFT)>; \
+//     bindings = default, shifted; \
+// };
 
 / {
   behaviors {

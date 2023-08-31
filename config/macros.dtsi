@@ -1,8 +1,0 @@
-#define SHIFT_MOD_MORPH(name, default, shifted) \
-name: name { \
-    label = ZMK_MACRO_STRINGIFY(ZM_ ## name); \
-    compatible = "zmk,behavior-mod-morph"; \
-    #binding-cells = <0>; \
-    mods = <(MOD_LSFT)>; \
-    bindings = default, shifted; \
-};
