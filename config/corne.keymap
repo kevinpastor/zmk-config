@@ -67,7 +67,7 @@
       bindings = <
     &none        &kp SQT      &kp LT       &kp GT       &kp DQT      &kp GRAVE         &kp AMPS     &kp COLON    &kp LPAR     &kp RPAR     &kp PERCENT  &none
     &none        &kp EXCL     &kp MINUS    &kp PLUS     &kp EQUAL    &kp AT            &kp PIPE     &kp SEMI     &kp LBRC     &kp RBRC     &kp QMARK    &none
-    &none        &kp CARET    &kp /        &kp *        &kp BSLH     &kp UNDERSCORE    &kp TILDE    &kp DOLLAR   &kp LBKT     &kp RBKT     &kp HASH     &none
+    &none        &kp CARET    &kp SLASH    &kp ASTRK    &kp BSLH     &kp UNDERSCORE    &kp TILDE    &kp DOLLAR   &kp LBKT     &kp RBKT     &kp HASH     &none
                                            &none        &none        &none             &none        &none        &none
       >;
     };
