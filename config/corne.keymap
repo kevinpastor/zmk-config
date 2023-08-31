@@ -28,7 +28,7 @@
       #binding-cells = <0>;
       bindings = <&kp DEL>, <&tog GAMING>;
       mods = <(MOD_LGUI)>;
-      keep-mods = 0;
+      keep-mods = <0>;
     };
   };
 //   behaviors {
