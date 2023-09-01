@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+#define DEFAULT 0
 #define GAMING 6
 
 // #define MOD_MORPH(NAME, KEY, MOD_KEY) \
@@ -20,6 +21,13 @@
 //     mods = <(MOD_LSFT|MOD_RSFT)>; \
 //   };
 
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+  combo_##NAME { \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+  };
+
 / {
   // KEY POSITION REFERENCE
   // ------------------------------------------------------------------------
@@ -29,11 +37,7 @@
   //                | 37 | 38 | 39 |          | 40 | 41 | 42 |
   combos {
     compatible = "zmk,combos";
-    combo_gaming_layer {
-      timeout-ms = <50>;
-      key-positions = <37 42>;
-      bindings = <&tog GAMING>;
-    };
+    COMBO(gaming_layer_toggle, &kp GAMING, 37, 42, DEFAULT)
   };
 
   keymap {
