@@ -94,13 +94,13 @@
 
     miscellaneous_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// | VCC      |          |          |          |          |          |    |          | é        | `        | ¸        | ^        |          |
+// |          |          |          |          |          |          |    |          | é        | `        | ¸        | ^        |          |
 // |          |          | ALT      | CTRL     | SHFT     |          |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
       label = "Misc";
       bindings = <
-    &ext_power EP_ON&none &none      &none      &none      &none           &none      &kp FSLH   &kp GRAVE  &kp SQT    &kp LBKT   &none
+    &none      &none      &none      &none      &none      &none           &none      &kp FSLH   &kp SQT    &kp RBKT   &kp LBKT   &none
     &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
