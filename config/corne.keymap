@@ -12,6 +12,14 @@
 #define DEFAULT 0
 #define GAMING 6
 
+
+// Helpers
+// #define COMBO(NAME, BINDINGS, KEYPOS) \
+//   combo_##NAME { \
+//     bindings = <BINDINGS>; \
+//     key-positions = <KEYPOS>; \
+//   };
+
 // #define MOD_MORPH(NAME, KEY, MOD_KEY) \
 //   mm_##NAME: mm_##NAME { \
 //     compatible = "zmk,behavior-mod-morph"; \
@@ -20,12 +28,6 @@
 //     bindings = <&kp KEY>, <&kp MOD_KEY>; \
 //     mods = <(MOD_LSFT|MOD_RSFT)>; \
 //   };
-
-#define COMBO(NAME, BINDINGS, KEYPOS) \
-  combo_##NAME { \
-    bindings = <BINDINGS>; \
-    key-positions = <KEYPOS>; \
-  };
 
 / {
   // KEY POSITION REFERENCE
@@ -36,7 +38,12 @@
   //                | 37 | 38 | 39 |          | 40 | 41 | 42 |
   combos {
     compatible = "zmk,combos";
-    COMBO(gaming_layer_toggle, &tog GAMING, 37 42)
+    // COMBO(gaming_layer_toggle, &tog GAMING, 37 42)
+    combo_gaming_layer_toggle {
+      timeout-ms = <50>;
+      key-positions = <37 42>;
+      bindings = <&tog GAMING>;
+    };
   };
 
   keymap {
