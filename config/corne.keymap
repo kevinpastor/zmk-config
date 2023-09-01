@@ -11,36 +11,30 @@
 
 #define GAMING 6
 
-// #define SHIFT_MOD_MORPH(name, default, shifted) \
-// name: name { \
-//     label = ZMK_MACRO_STRINGIFY(ZM_ ## name); \
+// #define MOD_MORPH(NAME, KEY, MOD_KEY) \
+//   mm_##NAME: mm_##NAME { \
 //     compatible = "zmk,behavior-mod-morph"; \
+//     label = #NAME; \
 //     #binding-cells = <0>; \
-//     mods = <(MOD_LSFT)>; \
-//     bindings = default, shifted; \
-// };
+//     bindings = <&kp KEY>, <&kp MOD_KEY>; \
+//     mods = <(MOD_LSFT|MOD_RSFT)>; \
+//   };
 
 / {
-  behaviors {
-    gaming: gaming_layer {
-      compatible = "zmk,behavior-mod-morph";
-      label = "GAMING_LAYER";
-      #binding-cells = <0>;
-      bindings = <&kp DEL>, <&tog GAMING>;
-      mods = <(MOD_LGUI)>;
-      keep-mods = <0>;
+  // KEY POSITION REFERENCE
+  // ------------------------------------------------------------------------
+  // | 00 | 01 | 02 | 03 | 04 | 05 |          | 06 | 07 | 08 | 09 | 10 | 11 |
+  // | 12 | 13 | 14 | 15 | 16 | 17 |          | 18 | 19 | 20 | 21 | 22 | 23 |
+  // | 24 | 25 | 26 | 27 | 28 | 29 |          | 30 | 31 | 32 | 33 | 34 | 35 |
+  //                | 37 | 38 | 39 |          | 40 | 41 | 42 |
+  combos {
+    compatible = "zmk,combos";
+    combo_gaming_layer {
+      timeout-ms = <50>;
+      key-positions = <37 42>;
+      bindings = <&tog GAMING>;
     };
   };
-//   behaviors {
-//     SHIFT_MOD_MORPH(quotes, <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTES>) // "'`
-//     SHIFT_MOD_MORPH(colon, <&kp SEMICOLON>, <&kp COLON>) // ;:
-//     SHIFT_MOD_MORPH(brcs, <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>) // {}
-//     SHIFT_MOD_MORPH(pars, <&kp LS(N9)>, <&kp LS(N0)>) // ()
-//     SHIFT_MOD_MORPH(slhs, <&kp SLASH>, <&kp BACKSLASH>) // /\
-//     SHIFT_MOD_MORPH(comps, <&kp LESS_THAN>, <&kp GREATER_THAN>) // <>
-//     SHIFT_MOD_MORPH(dash, <&kp MINUS>, <&kp UNDERSCORE>) // -_
-//     SHIFT_MOD_MORPH(brks, <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>) // []
-//   };
 
   keymap {
     compatible = "zmk,keymap";
@@ -54,7 +48,7 @@
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BKSP
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
-                                           &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &gaming
+                                           &kp LGUI     &lt 3 TAB    &lt 1 SPACE       &lt 2 ENTER  &lt 4 BKSP   &kp DEL
       >;
     };
 
@@ -65,7 +59,7 @@
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            |            |    |            |            |            |
       bindings = <
-    &none        &kp LS(LT)   &kp BSLH     &kp LS(BSLH) &kp LS(N2)   &kp SQT           &kp LS(N7)   &kp LS(COLON)&kp LS(N9)   &kp LS(N0)   &kp LS(N5)   &none
+    &none        &kp LS(LT)   &kp BSLH     &kp LS(BSLH) &kp LS(N2)   &kp SQT           &kp LS(N7)   &kp LS(SEMI) &kp LS(N9)   &kp LS(N0)   &kp LS(N5)   &none
     &none        &kp LS(N1)   &kp MINUS    &kp LS(EQUAL)&kp EQUAL    &kp RA(N2)        &kp LS(GRAVE)&kp SEMI     &kp RA(SQT)  &kp RA(BSLH) &kp LS(N6)   &none
     &none        &kp LBKT     &kp LS(N3)   &kp LS(N8)   &kp RA(GRAVE)&kp LS(MINUS)     &kp RA(SEMI) &kp LS(N4)   &kp RA(LBKT) &kp RA(RBKT) &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
