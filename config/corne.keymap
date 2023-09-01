@@ -37,7 +37,7 @@
   //                | 37 | 38 | 39 |          | 40 | 41 | 42 |
   combos {
     compatible = "zmk,combos";
-    COMBO(gaming_layer_toggle, &tog GAMING, 37 42, DEFAULT)
+    COMBO(gaming_layer_toggle, &tog GAMING, 37 42, DEFAULT GAMING)
   };
 
   keymap {
