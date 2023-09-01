@@ -44,6 +44,7 @@
 // |       SHFT |          A |          R |          S |          T |          G |    | M          | N          | E          | I          | O          | «          |
 // |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | /          | ALT        |
 //                                        |        GUI | NAV    TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL GAMING |
+      label = "Default";
       bindings = <
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BKSP
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
@@ -58,6 +59,7 @@
 // |            |          ! |          - |          + |          = |          @ |    | |          | ;          | {          | }          | ?          |            |
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            |            |    |            |            |            |
+      label = "Symbols";
       bindings = <
     &none        &kp LS(LT)   &kp BSLH     &kp LS(BSLH) &kp LS(N2)   &kp SQT           &kp LS(N7)   &kp LS(SEMI) &kp LS(N9)   &kp LS(N0)   &kp LS(N5)   &none
     &none        &kp LS(N1)   &kp MINUS    &kp LS(EQUAL)&kp EQUAL    &kp RA(N2)        &kp LS(GRAVE)&kp SEMI     &kp RA(SQT)  &kp RA(BSLH) &kp LS(N6)   &none
@@ -72,6 +74,7 @@
 // |          |          |        4 |        5 |        6 |          |    |          |          | CTRL     | ALT      |          |          |
 // |          |          |        1 |        2 |        3 |          |    |          |          |          |          |          |          |
 //                                  |          |        0 |        . |    |          |          |          |
+      label = "Numbers";
       bindings = <
     &none      &none      &kp N7     &kp N8     &kp N9     &none           &none      &none      &none      &none      &none      &none
     &none      &none      &kp N4     &kp N5     &kp N6     &none           &none      &none      &kp LCTRL  &kp LALT   &none      &none
@@ -86,6 +89,7 @@
 // |          |          | ALT      | CTRL     | SHFT     |          |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
+      label = "Navigation";
       bindings = <
     &none      &none      &none      &none      &none      &none           &ext_power EP_ON &none &none     &none      &none      &none
     &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
@@ -100,6 +104,7 @@
 // |          |      F11 |       F4 |       F5 |       F6 |          |    |          |          |          |          |          |          |
 // |          |      F10 |       F1 |       F2 |       F3 |          |    |          |          |          |          |          |          |
 //                                  |      F15 |      F14 |      F13 |    |          |          |          |
+      label = "Functions";
       bindings = <
     &none      &kp F12    &kp F7     &kp F8     &kp F9     &none           &none      &none      &none      &none      &none      &none
     &none      &kp F11    &kp F4     &kp F5     &kp F6     &none           &none      &none      &none      &none      &none      &none
@@ -114,9 +119,10 @@
 // |          |          |          |          |          |          |    |          | é        | `        | ¸        | ^        |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          |          |          |    |          |          |          |
+      label = "Accents";
       bindings = <
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
-    &none      &none      &none      &none      &none      &none           &none      &none      &kp GRAVE  &none      &kp CARET  &none
+    &none      &none      &none      &none      &none      &none           &none      &kp FSLH   &kp GRAVE  &kp SQT    &kp LBKT   &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
       >;
@@ -124,15 +130,31 @@
     
     gaming_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |      ESC |        Q |        W |        E |        R |        T |    |          |          |          |          |          |          |
-// |     SHFT |        A |        S |        D |        F |        G |    |          |          |          |          |          |          |
-// |     CTRL |        Z |        X |        C |        V |        B |    |          |          |          |          |          |          |
-//                                  |      GUI |      TAB |    SPACE |    |          |          |   GAMING |
+// |      GUI |      TAB |        Q |        W |        E |        R |    |          |          |          |          |          |          |
+// |      ESC |     SHFT |        A |        S |        D |        F |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
+// |          |     CTRL |        Z |        X |        C |        V |    |          |          |          |          |          |          |
+//                                  |    ENTER |      ALT |    SPACE |    |          |          |   GAMING |
+      label = "Gaming";
       bindings = <
-    &kp ESC    &kp Q      &kp W      &kp E      &kp R      &kp T           &none      &none      &none      &none      &none      &none
-    &kp LSHFT  &kp A      &kp S      &kp D      &kp F      &kp G           &none      &none      &none      &none      &none      &none
-    &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B           &none      &none      &none      &none      &none      &none
-                                     &kp LGUI   &kp TAB    &kp SPACE       &none      &none      &gaming
+    &kp LGUI   &kp TAB    &kp Q      &kp W      &kp E      &kp R           &none      &none      &none      &none      &none      &none
+    &kp ESC    &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
+    &none      &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &none      &none      &none      &none      &none      &none
+                                     &kp ENTER  &lt 7 LALT &kp SPACE       &none      &none      &none
+      >;
+    };
+
+    gaming_layer_2 {
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// |        3 |        4 |          |          |          |        T |    |          |          |          |          |          |          |
+// |        2 |          |          |          |          |        G |    |          |          |          |          |          |          |
+// |        1 |          |          |          |          |        B |    |          |          |          |          |          |          |
+//                                  |          |          |          |    |          |          |   GAMING |
+      label = "Gaming Raised";
+      bindings = <
+    &kp N3     &kp N4     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp N2     &trans     &trans     &trans     &trans     &kp G           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp N1     &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
+                                     &trans     &trans     &trans          &trans     &trans     &trans
       >;
     };
   };
