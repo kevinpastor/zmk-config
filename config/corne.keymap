@@ -125,15 +125,15 @@
     gaming_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |      ESC |      TAB |        Q |        W |        E |        R |    |          |          |          |          |          |          |
-// |          |     SHFT |        A |        S |        D |        F |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
+// |      ALT |     SHFT |        A |        S |        D |        F |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
 // |      GUI |     CTRL |        Z |        X |        C |        V |    |          |          |          |          |          |          |
-//                                  |    ENTER |      ALT |    SPACE |    |          |          |   GAMING |
+//                                  |    ENTER |    G_ALT |    SPACE |    |          |          |   GAMING |
       label = "Gaming";
       bindings = <
     &kp ESC    &kp TAB    &kp Q      &kp W      &kp E      &kp R           &none      &none      &none      &none      &none      &none
-    &none      &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
+    &kp LALT   &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
     &kp LGUI   &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &none      &none      &none      &none      &none      &none
-                                     &kp ENTER  &lt GAMING_ALT LALT &kp SPACE &none   &none      &none
+                                     &kp ENTER  &mo GAMING_ALT &kp SPACE   &none      &none      &none
       >;
     };
 
