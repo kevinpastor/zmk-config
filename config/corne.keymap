@@ -124,31 +124,31 @@
     
     gaming_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |      ESC |      TAB |        Q |        W |        E |        R |    |          |          |          |          |          |          |
-// |      ALT |     SHFT |        A |        S |        D |        F |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
-// |      GUI |     CTRL |        Z |        X |        C |        V |    |          |          |          |          |          |          |
-//                                  |    ENTER |    G_ALT |    SPACE |    |          |          |   GAMING |
+// |      ESC |      TAB |        Q |        W |        E |        R |    | Y        | U        | I        | O        | P        |          |
+// |    ENTER |     SHFT |        A |        S |        D |        F |    | H        | J        | K        | L        | ;        |          |
+// |      GUI |     CTRL |        Z |        X |        C |        V |    | N        | M        | ,        | .        | é        |          |
+//                                  |    G_ALT |      ALT |    SPACE |    |          |          |   GAMING |
       label = "Gaming";
       bindings = <
-    &kp ESC    &kp TAB    &kp Q      &kp W      &kp E      &kp R           &none      &none      &none      &none      &none      &none
-    &kp LALT   &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
-    &kp LGUI   &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &none      &none      &none      &none      &none      &none
-                                     &kp ENTER  &mo GAMING_ALT &kp SPACE   &none      &none      &none
+    &kp ESC    &kp TAB    &kp Q      &kp W      &kp E      &kp R           &kp Y      &kp U      &kp I      &kp O      &kp P      &none
+    &kp ENTER  &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
+    &kp LGUI   &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &kp N      &kp M      &kp COMMA  &kp PERIOD &kp FSLH   &none
+                                     &mo GAMING_ALT &kp LALT &kp SPACE     &none      &none      &none
       >;
     };
 
     gaming_layer_2 {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |        3 |        4 |          |          |          |        T |    |          |          |          |          |          |          |
-// |        2 |          |          |          |          |        G |    |          |          |          |          |          |          |
+// |        2 |          |          |          |          |        G |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
 // |        1 |          |          |          |          |        B |    |          |          |          |          |          |          |
-//                                  |          | -------- |          |    |          |          |   GAMING |
+//                                  | -------- |      F14 |      F13 |    |          |          |   GAMING |
       label = "Alt";
       bindings = <
     &kp N3     &kp N4     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
-    &kp N2     &trans     &trans     &trans     &trans     &kp G           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp N2     &trans     &trans     &trans     &trans     &kp G           &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
     &kp N1     &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
-                                     &trans     &trans     &trans          &trans     &trans     &trans
+                                     &trans     &kp F14    &kp F13         &trans     &trans     &trans
       >;
     };
   };
