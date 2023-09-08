@@ -49,16 +49,16 @@
     compatible = "zmk,keymap";
     alpha_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BKSP       |
+// |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BSPC       |
 // |       SHFT |          A |          R |          S |          T |          G |    | M          | N          | E          | I          | O          | «          |
-// |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | /          | ALT        |
-//                                        |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BKSP   FUN | DEL GAMING |
+// |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
+//                                        |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
       label = "Alpha";
       bindings = <
-    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BKSP
+    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
-                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BKSP &kp DEL
+                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
       >;
     };
 
@@ -106,7 +106,7 @@
                                      &none      &none      &none           &none      &none      &none
       >;
     };
-    
+
     functions_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |          |      F12 |       F7 |       F8 |       F9 |          |    |          |          |          |          |          |          |
@@ -121,19 +121,19 @@
                                      &kp F15    &kp F14    &kp F13         &none      &none      &none
       >;
     };
-    
+
     gaming_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // |      ESC |      TAB |        Q |        W |        E |        R |    | Y        | U        | I        | O        | P        |          |
 // |    ENTER |     SHFT |        A |        S |        D |        F |    | H        | J        | K        | L        | ;        |          |
 // |      GUI |     CTRL |        Z |        X |        C |        V |    | N        | M        | ,        | .        | é        |          |
-//                                  |    G_ALT |      ALT |    SPACE |    |          |          |   GAMING |
+//                                  |    G_ALT |      ALT |    SPACE |    | ENTER    | BSPC     | DEL      |
       label = "Gaming";
       bindings = <
     &kp ESC    &kp TAB    &kp Q      &kp W      &kp E      &kp R           &kp Y      &kp U      &kp I      &kp O      &kp P      &none
     &kp ENTER  &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
-    &kp LGUI   &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &kp N      &kp M      &kp COMMA  &kp PERIOD &kp FSLH   &none
-                                     &mo GAMING_ALT &kp LALT &kp SPACE     &none      &none      &none
+    &kp LGUI   &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
+                                     &mo GAMING_ALT &kp LALT &kp SPACE     &kp ENTER  &kp BSPC   &kp DEL
       >;
     };
 
@@ -148,7 +148,7 @@
     &kp N3     &kp N4     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
     &kp N2     &trans     &trans     &trans     &trans     &kp G           &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
     &kp N1     &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
-                                     &trans     &kp F14    &kp F13         &trans     &trans     &trans
+                                     &trans     &kp F14    &kp F13         &trans     &trans     &tog GAMING
       >;
     };
   };
