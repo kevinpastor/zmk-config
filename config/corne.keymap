@@ -40,9 +40,19 @@
   // | 12 | 13 | 14 | 15 | 16 | 17 |          | 18 | 19 | 20 | 21 | 22 | 23 |
   // | 24 | 25 | 26 | 27 | 28 | 29 |          | 30 | 31 | 32 | 33 | 34 | 35 |
   //                | 36 | 37 | 38 |          | 39 | 40 | 41 |
-  combos {
-    compatible = "zmk,combos";
-    COMBO(gaming_layer_toggle, &tog GAMING, 36 41)
+  // combos {
+  //   compatible = "zmk,combos";
+  //   COMBO(gaming_layer_toggle, &tog GAMING, 36 41)
+  // };
+
+  behaviors {
+    gresc: grave_escape {
+      compatible = "zmk,behavior-mod-morph";
+      label = "GRAVE_ESCAPE";
+      #binding-cells = <0>;
+      bindings = <&kp DEL>, <&tog GAMING>;
+      mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
+    };
   };
 
   keymap {
@@ -58,7 +68,7 @@
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
-                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
+                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &gresc
       >;
     };
 
