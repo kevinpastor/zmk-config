@@ -48,7 +48,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
-ZMK_UNICODE_SINGLE(colon, N5, N8)
+ZMK_UNICODE_SINGLE(colon, N0, N0, N3, NA) // ;
 
 // Layers
 
