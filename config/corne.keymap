@@ -52,7 +52,7 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
 #define MODIFIED(NAME, MOD, CODE) \
     ZMK_BEHAVIOR(NAME, macro, \
-        wait-ms = <50>; \
+        wait-ms = <75>; \
         bindings = \
             <&macro_press &kp MOD>, \
             <&macro_press &kp CODE>, \
@@ -61,7 +61,29 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
             <&macro_release &kp CODE>; \
     )
 
+MODIFIED(apostrophe, LSHFT, LT)
+MODIFIED(gt, LSHFT, BSLH)
+MODIFIED(quotes, LSHFT, N2)
+MODIFIED(ampersand, LSHFT, N7)
 MODIFIED(colon, LSHFT, SEMI)
+MODIFIED(lpar, LSHFT, N9)
+MODIFIED(rpar, LSHFT, N0)
+MODIFIED(percent, LSHFT, N5)
+MODIFIED(excl, LSHFT, N1)
+MODIFIED(plus, LSHFT, EQUAL)
+MODIFIED(at, RALT, N2)
+MODIFIED(pipe, LSHFT, GRAVE)
+MODIFIED(lbrc, RALT, SQT)
+MODIFIED(rbrc, RALT, BSLH)
+MODIFIED(question, LSHFT, N6)
+MODIFIED(slash, LSHFT, N3)
+MODIFIED(asterisk, LSHFT, N8)
+MODIFIED(backslash, RALT, GRAVE)
+MODIFIED(underscore, LSHFT, MINUS)
+MODIFIED(tilde, RALT, SEMI)
+MODIFIED(dollar, LSHFT, N4)
+MODIFIED(lbkt, RALT, LBKT)
+MODIFIED(rbkt, RALT, RBKT)
 
 // Layers
 
@@ -84,9 +106,9 @@ ZMK_LAYER(Symbols,
 // |            | GUI      ! | ALT      - | CTRL     + | SHFT     = |          @ |    | |          | ;     SHFT | {     CTRL | }      ALT | ?      GUI |            |
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
-    &none        &kp LS(LT)   &kp BSLH     &kp LS(BSLH) &kp LS(N2)   &kp SQT           &kp LS(N7)   &colon       &kp LS(N9)   &kp LS(N0)   &kp LS(N5)   &none
-    &none &hml LGUI LS(N1)&hml LALT MINUS&hml LCTRL LS(EQUAL)&hml LSHFT EQUAL&kp RA(N2)&kp LS(GRAVE)&hmr LSHFT SEMI&hmr LCTRL RA(SQT)&hmr LALT RA(BSLH)&hmr LGUI LS(N6)&none
-    &none        &kp LBKT     &kp LS(N3)   &kp LS(N8)   &kp RA(GRAVE)&kp LS(MINUS)     &kp RA(SEMI) &kp LS(N4)   &kp RA(LBKT) &kp RA(RBKT) &kp GRAVE    &none
+    &none        &apostrophe  &kp BSLH     &gt          &quotes      &kp SQT           &ampersand   &colon       &lpar        &rpar        &percent     &none
+    &none        &hml LGUI excl&hml LALT MINUS&hml LCTRL plus&hml LSHFT EQUAL&at       &pipe        &hmr LSHFT SEMI&hmr LCTRL lbrc&hmr LALT rbrc&hmr LGUI question&none
+    &none        &kp LBKT     &slash       &asterisk    &backslash   &underscore       &tilde       &dollar      &lbkt        &rbkt        &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
 )
 
