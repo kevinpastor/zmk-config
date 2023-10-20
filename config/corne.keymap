@@ -45,16 +45,11 @@
   //   COMBO(gaming_layer_toggle, &tog GAMING, 36 41)
   // };
 
-  behaviors {
-    gresc: grave_escape {
-      compatible = "zmk,behavior-mod-morph";
-      label = "GRAVE_ESCAPE";
-      #binding-cells = <0>;
-      bindings = <&kp DEL>, <&tog GAMING>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
-    };
+  combos {
+    compatible = "zmk,combos";
+    COMBO(gaming_layer_toggle, &tog GAMING, 36 41)
   };
-
+  
   keymap {
     compatible = "zmk,keymap";
     alpha_layer {
@@ -68,7 +63,7 @@
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
-                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &gresc
+                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
       >;
     };
 
