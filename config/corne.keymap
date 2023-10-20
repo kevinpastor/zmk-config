@@ -50,7 +50,18 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
-ZMK_UNICODE_SINGLE(colon, N0, N0, N3, A) // ;
+#define MODIFIED(NAME, MOD, CODE) \
+    ZMK_BEHAVIOR(NAME, macro, \
+        wait-ms = <50>; \
+        bindings = \
+            <&macro_press &kp MOD>, \
+            <&macro_press &kp CODE>, \
+            <&macro_release &kp MOD>, \
+            <&macro_pause_for_release>, \
+            <&macro_release &kp CODE>; \
+    )
+
+MODIFIED(colon, LSHFT, SEMI)
 
 // Layers
 
