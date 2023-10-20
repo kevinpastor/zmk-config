@@ -48,12 +48,17 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
+ZMK_UNICODE_SINGLE(colon, N5, N8)
+
+// Layers
+
 ZMK_LAYER(Alpha,
-// ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BSPC       |
-// |       SHFT | GUI      A | ALT      R | LCTRL    S | SHFT     T |          G |    | M          | N     SHFT | E     CTRL | I      ALT | O      GUI | «          |
-// |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
-//                                        |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BSPC       |
+  |       SHFT | GUI      A | ALT      R | LCTRL    S | SHFT     T |          G |    | M          | N     SHFT | E     CTRL | I      ALT | O      GUI | «          |
+  |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
+                                         |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
+*/
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
@@ -66,7 +71,7 @@ ZMK_LAYER(Symbols,
 // |            | GUI      ! | ALT      - | CTRL     + | SHFT     = |          @ |    | |          | ;     SHFT | {     CTRL | }      ALT | ?      GUI |            |
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
-    &none        &kp LS(LT)   &kp BSLH     &kp LS(BSLH) &kp LS(N2)   &kp SQT           &kp LS(N7)   &kp LS(SEMI) &kp LS(N9)   &kp LS(N0)   &kp LS(N5)   &none
+    &none        &kp LS(LT)   &kp BSLH     &kp LS(BSLH) &kp LS(N2)   &kp SQT           &kp LS(N7)   &colon       &kp LS(N9)   &kp LS(N0)   &kp LS(N5)   &none
     &none &hml LGUI LS(N1)&hml LALT MINUS&hml LCTRL LS(EQUAL)&hml LSHFT EQUAL&kp RA(N2)&kp LS(GRAVE)&hmr LSHFT SEMI&hmr LCTRL RA(SQT)&hmr LALT RA(BSLH)&hmr LGUI LS(N6)&none
     &none        &kp LBKT     &kp LS(N3)   &kp LS(N8)   &kp RA(GRAVE)&kp LS(MINUS)     &kp RA(SEMI) &kp LS(N4)   &kp RA(LBKT) &kp RA(RBKT) &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
