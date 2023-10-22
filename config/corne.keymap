@@ -29,31 +29,20 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
 // RDP Compatible Modifiers
 
-ZMK_BEHAVIOR(modifier, macro_two_param, \
-    wait-ms = <45>; \
-    tap-ms = <90>; \
-    bindings = \
-        <&macro_param_1to1>, \
-        <&macro_press &kp MACRO_PLACEHOLDER>, \
-        <&macro_param_2to1>, \
-        <&macro_press &kp MACRO_PLACEHOLDER>, \
-        <&macro_param_2to1>, \
-        <&macro_release &kp MACRO_PLACEHOLDER>, \
-        <&macro_param_1to1>, \
-        <&macro_release &kp MACRO_PLACEHOLDER>; \
-)
-
-ZMK_BEHAVIOR(ls, macro_one_param, \
-    bindings = \
-        <&macro_param_1to2>, \
-        <&modifier LSHFT MACRO_PLACEHOLDER>, \
-)
-
-ZMK_BEHAVIOR(ralt, macro_one_param, \
-    bindings = \
-        <&macro_param_1to2>, \
-        <&modifier RALT MACRO_PLACEHOLDER>, \
-)
+#define MAKE_MODIFIER(NAME, MODIFIER) \
+    ZMK_BEHAVIOR(NAME, macro_one_param, \
+        wait-ms = <45>; \
+        tap-ms = <90>; \
+        bindings = \
+            <&macro_press &kp MODIFIER>, \
+            <&macro_param_1to1>, \
+            <&macro_press &kp MACRO_PLACEHOLDER>, \
+            <&macro_param_1to1>, \
+            <&macro_release &kp MACRO_PLACEHOLDER>, \
+            <&macro_release &kp MODIFIER>; \
+    )
+MAKE_MODIFIER(ls, LSHFT)
+MAKE_MODIFIER(ralt, RALT)
 
 // Homerow mods
 
