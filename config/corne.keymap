@@ -25,77 +25,43 @@
 #define GAMING 5
 #define GAMING_ALT 6
 
-// Constants
-
-#define QUICK_TAP_MS 175
-
-// Misc
-
 ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
-// Symbols
+// RDP Compatible Modifiers
 
-#define MODIFIED(NAME, MOD, CODE) \
-    ZMK_BEHAVIOR(NAME, macro, \
-        bindings = \
-            <&macro_press &kp MOD>, \
-            <&macro_wait_time 100>, \
-            <&macro_press &kp CODE>, \
-            <&macro_release &kp MOD>, \
-            <&macro_release &kp CODE>; \
-    )
-
-MODIFIED(apostrophe, LSHFT, LT)
-MODIFIED(gt, LSHFT, BSLH)
-MODIFIED(quotes, LSHFT, N2)
-MODIFIED(ampersand, LSHFT, N7)
-MODIFIED(colon, LSHFT, SEMI)
-MODIFIED(lpar, LSHFT, N9)
-MODIFIED(rpar, LSHFT, N0)
-MODIFIED(percent, LSHFT, N5)
-MODIFIED(excl, LSHFT, N1)
-MODIFIED(plus, LSHFT, EQUAL)
-MODIFIED(at, RALT, N2)
-MODIFIED(pipe, LSHFT, GRAVE)
-MODIFIED(lbrc, RALT, SQT)
-MODIFIED(rbrc, RALT, BSLH)
-MODIFIED(question, LSHFT, N6)
-MODIFIED(slash, LSHFT, N3)
-MODIFIED(asterisk, LSHFT, N8)
-MODIFIED(backslash, RALT, GRAVE)
-MODIFIED(underscore, LSHFT, MINUS)
-MODIFIED(tilde, RALT, SEMI)
-MODIFIED(dollar, LSHFT, N4)
-MODIFIED(lbkt, RALT, LBKT)
-MODIFIED(rbkt, RALT, RBKT)
-
-// Homerow mods
-
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
+ZMK_BEHAVIOR(modifier, macro_two_param, \
+    wait-ms = <45>; \
+    tap-ms = <90>; \
+    bindings = \
+        <&macro_param_1to1>, \
+        <&macro_press &kp MACRO_PLACEHOLDER>, \
+        <&macro_param_2to1>, \
+        <&macro_press &kp MACRO_PLACEHOLDER>, \
+        <&macro_param_2to1>, \
+        <&macro_release &kp MACRO_PLACEHOLDER>, \
+        <&macro_param_1to1>, \
+        <&macro_release &kp MACRO_PLACEHOLDER>; \
+)
 
 ZMK_BEHAVIOR(ls, macro_one_param, \
     bindings = \
-        <&macro_press &kp LSHFT>, \
-        <&macro_wait_time 100>, \
-        <&macro_param_1to1>, \
-        <&macro_press &kp MACRO_PLACEHOLDER >, \
-        <&macro_release &kp LSHFT>, \
-        <&macro_param_1to1>, \
-        <&macro_release &kp MACRO_PLACEHOLDER >; \
+        <&macro_param_1to2>, \
+        <&modifier LSHFT MACRO_PLACEHOLDER>, \
 )
 
 ZMK_BEHAVIOR(ralt, macro_one_param, \
     bindings = \
-        <&macro_press &kp RALT>, \
-        <&macro_wait_time 100>, \
-        <&macro_param_1to1>, \
-        <&macro_press &kp MACRO_PLACEHOLDER >, \
-        <&macro_release &kp RALT>, \
-        <&macro_param_1to1>, \
-        <&macro_release &kp MACRO_PLACEHOLDER >; \
+        <&macro_param_1to2>, \
+        <&modifier RALT MACRO_PLACEHOLDER>, \
 )
+
+// Homerow mods
+
+#define QUICK_TAP_MS 175
+
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
 
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
@@ -117,12 +83,11 @@ MAKE_HRM(hmr_ralt, &kp, &ralt, KEYS_L THUMBS)
 // Layers
 
 ZMK_LAYER(Alpha,
-/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  |        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BSPC       |
-  |       SHFT | GUI      A | ALT      R | LCTRL    S | SHFT     T |          G |    | M          | N     SHFT | E     CTRL | I      ALT | O      GUI | «          |
-  |       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
-                                         |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
-*/
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//|        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BSPC       |
+//|       SHFT | GUI      A | ALT      R | LCTRL    S | SHFT     T |          G |    | M          | N     SHFT | E     CTRL | I      ALT | O      GUI | «          |
+//|       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
+//                                       |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
@@ -135,9 +100,9 @@ ZMK_LAYER(Symbols,
 // |            | GUI      ! | ALT      - | CTRL     + | SHFT     = |          @ |    | |          | ;     SHFT | {     CTRL | }      ALT | ?      GUI |            |
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
-    &none        &apostrophe  &kp BSLH     &gt          &quotes      &kp SQT           &ampersand   &colon       &lpar        &rpar        &percent     &none
-    &none        &hml_ls LGUI N1 &hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&at &pipe        &hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6&none
-    &none        &kp LBKT     &slash       &asterisk    &backslash   &underscore       &tilde       &dollar      &lbkt        &rbkt        &kp GRAVE    &none
+    &none        &ls LT       &kp BSLH     &ls BSLH     &ls N2       &kp SQT           &ls N7       &ls SEMI     &ls N9       &ls N0       &ls N5       &none
+    &none        &hml_ls LGUI N1 &hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&ralt N2&ls GRAVE&hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6&none
+    &none        &kp LBKT     &ls N3       &ls N8       &ralt GRAVE  &ls MINUS         &ralt SEMI   &ls N4       &ralt LBKT   &ralt RBKT   &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
 )
 
