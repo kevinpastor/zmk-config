@@ -29,32 +29,17 @@
 
 #define QUICK_TAP_MS 175
 
-// Homerow mods
-
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
-
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    ZMK_BEHAVIOR(NAME, hold_tap, \
-        flavor = "balanced"; \
-        tapping-term-ms = <280>; \
-        quick-tap-ms = <QUICK_TAP_MS>; \
-        require-prior-idle-ms = <150>; \
-        bindings = <HOLD>, <TAP>; \
-        hold-trigger-key-positions = <TRIGGER_POS>; \
-        hold-trigger-on-release; \
-    )
-MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
+// Misc
 
 ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
+
+// Symbols
 
 #define MODIFIED(NAME, MOD, CODE) \
     ZMK_BEHAVIOR(NAME, macro, \
         bindings = \
             <&macro_press &kp MOD>, \
-            <&macro_wait_time 50>, \
+            <&macro_wait_time 100>, \
             <&macro_press &kp CODE>, \
             <&macro_release &kp MOD>, \
             <&macro_release &kp CODE>; \
@@ -84,6 +69,30 @@ MODIFIED(dollar, LSHFT, N4)
 MODIFIED(lbkt, RALT, LBKT)
 MODIFIED(rbkt, RALT, RBKT)
 
+// Homerow mods
+
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
+
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        require-prior-idle-ms = <150>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
+MAKE_HRM(hm_l4, &kp, &excl, KEYS_R THUMBS)
+MAKE_HRM(hm_l2, &kp, &plus, KEYS_R THUMBS)
+MAKE_HRM(hm_r2, &kp, &lbrc, KEYS_L THUMBS)
+MAKE_HRM(hm_r3, &kp, &rbrc, KEYS_L THUMBS)
+MAKE_HRM(hm_r4, &kp, &question, KEYS_L THUMBS)
+
 // Layers
 
 ZMK_LAYER(Alpha,
@@ -96,7 +105,7 @@ ZMK_LAYER(Alpha,
     &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
-                                            &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
+                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
 )
 
 ZMK_LAYER(Symbols,
@@ -106,7 +115,7 @@ ZMK_LAYER(Symbols,
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
     &none        &apostrophe  &kp BSLH     &gt          &quotes      &kp SQT           &ampersand   &colon       &lpar        &rpar        &percent     &none
-    &none        &hml LGUI &excl&hml LALT MINUS&hml LCTRL &plus&hml LSHFT EQUAL&at     &pipe        &hmr LSHFT SEMI&hmr LCTRL &lbrc&hmr LALT &rbrc&hmr LGUI &question&none
+    &none        &hm_l4 LGUI  &hml LALT MINUS&hm_l2 LCTRL&hml LSHFT EQUAL&at           &pipe        &hmr LSHFT SEMI&hm_r2 LCTRL&hm_r3 LALT &hm_r4 LGUI  &none
     &none        &kp LBKT     &slash       &asterisk    &backslash   &underscore       &tilde       &dollar      &lbkt        &rbkt        &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
 )
