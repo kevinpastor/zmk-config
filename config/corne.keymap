@@ -107,7 +107,7 @@ ZMK_LAYER(Symbols,
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
     &none        &apostrophe  &kp BSLH     &gt          &quotes      &kp SQT           &ampersand   &colon       &lpar        &rpar        &percent     &none
-    &none        &hml LGUI excl&hml LALT MINUS&hml LCTRL plus&hml LSHFT EQUAL&at       &pipe        &hmr LSHFT SEMI&hmr LCTRL lbrc&hmr LALT rbrc&hmr LGUI question&none
+    &none        &hml LGUI &excl&hml LALT MINUS&hml LCTRL &plus&hml LSHFT EQUAL&at     &pipe        &hmr LSHFT SEMI&hmr LCTRL &lbrc&hmr LALT &rbrc&hmr LGUI &question&none
     &none        &kp LBKT     &slash       &asterisk    &backslash   &underscore       &tilde       &dollar      &lbkt        &rbkt        &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
 )
