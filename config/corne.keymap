@@ -54,9 +54,8 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
     ZMK_BEHAVIOR(NAME, macro, \
         bindings = \
             <&macro_press &kp MOD>, \
-            <&macro_wait_time 100>, \
+            <&macro_wait_time 50>, \
             <&macro_press &kp CODE>, \
-            <&macro_pause_for_release>, \
             <&macro_release &kp MOD>, \
             <&macro_release &kp CODE>; \
     )
