@@ -35,6 +35,7 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
         tap-ms = <175>; \
         bindings = \
             <&macro_press &kp MODIFIER>, \
+            <&macro_press &kp MODIFIER>, \
             <&macro_wait_time 50>, \
             <&macro_param_1to1>, \
             <&macro_tap &kp MACRO_PLACEHOLDER>, \
