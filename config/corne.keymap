@@ -31,14 +31,12 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 
 #define MAKE_MODIFIER(NAME, MODIFIER) \
     ZMK_BEHAVIOR(NAME, macro_one_param, \
-        wait-ms = <0>; \
+        wait-ms = <16>; \
         tap-ms = <16>; \
         bindings = \
             <&macro_press &kp MODIFIER>, \
-            <&macro_wait_time 16>, \
             <&macro_param_1to1>, \
             <&macro_tap &kp MACRO_PLACEHOLDER>, \
-            <&macro_wait_time 16>, \
             <&macro_release &kp MODIFIER>; \
     )
 MAKE_MODIFIER(ls, LSHFT)
