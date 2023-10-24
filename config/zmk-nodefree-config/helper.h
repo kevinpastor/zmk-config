@@ -122,14 +122,15 @@
     #endif
 #endif
 
+// Delays odified from 0 for compatibility with RDP
 #define UC_MACRO(name, unicode_bindings) \
     / { \
         macros { \
             name: name { \
                 compatible = "zmk,behavior-macro"; \
                 label = ZMK_HELPER_STRINGIFY(UC_MACRO_ ## name); \
-                wait-ms = <0>; \
-                tap-ms = <0>; \
+                wait-ms = <25>; \
+                tap-ms = <25>; \
                 #binding-cells = <0>; \
                 bindings = <OS_UNICODE_LEAD>, <&macro_tap unicode_bindings>, <OS_UNICODE_TRAIL>; \
             }; \
