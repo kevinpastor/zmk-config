@@ -73,6 +73,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 MAKE_HRM(hmr_ls, &kp, &ls, KEYS_L THUMBS)
 MAKE_HRM(hmr_ralt, &kp, &ralt, KEYS_L THUMBS)
 
+// Symbols
+
+ZMK_UNICODE_SINGLE(ampersand, KP_N0, KP_N0, KP_N3, KP_N8)
+
 // Layers
 
 ZMK_LAYER(Alpha,
@@ -93,7 +97,7 @@ ZMK_LAYER(Symbols,
 // |            | GUI      ! | ALT      - | CTRL     + | SHFT     = |          @ |    | |          | ;     SHFT | {     CTRL | }      ALT | ?      GUI |            |
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
-    &none        &ls LT       &kp BSLH     &ls BSLH     &ls N2       &kp SQT           &ls N7       &ls SEMI     &ls N9       &ls N0       &ls N5       &none
+    &none        &ls LT       &kp BSLH     &ls BSLH     &ls N2       &kp SQT           &ampersand   &ls SEMI     &ls N9       &ls N0       &ls N5       &none
     &none        &hml_ls LGUI N1 &hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&ralt N2&ls GRAVE&hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6&none
     &none        &kp LBKT     &ls N3       &ls N8       &ralt GRAVE  &ls MINUS         &ralt SEMI   &ls N4       &ralt LBKT   &ralt RBKT   &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
