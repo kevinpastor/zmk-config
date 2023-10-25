@@ -42,8 +42,8 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
             <&macro_release &kp MODIFIER>; \
     )
 ZMK_BEHAVIOR(ls, macro_one_param, \
-    wait-ms = <25>; \
-    tap-ms = <25>; \
+    wait-ms = <15>; \
+    tap-ms = <15>; \
     bindings = \
         <&macro_press &kp RSHIFT>, \
         <&macro_press &kp LSHFT>, \
@@ -53,8 +53,8 @@ ZMK_BEHAVIOR(ls, macro_one_param, \
         <&macro_release &kp RSHFT>; \
 )
 ZMK_BEHAVIOR(ralt, macro_one_param, \
-    wait-ms = <25>; \
-    tap-ms = <25>; \
+    wait-ms = <15>; \
+    tap-ms = <15>; \
     bindings = \
         <&macro_press &kp LCTRL>, \
         <&macro_press &kp LALT>, \
