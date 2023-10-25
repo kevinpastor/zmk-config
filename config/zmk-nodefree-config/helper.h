@@ -129,8 +129,8 @@
             name: name { \
                 compatible = "zmk,behavior-macro"; \
                 label = ZMK_HELPER_STRINGIFY(UC_MACRO_ ## name); \
-                wait-ms = <25>; \
-                tap-ms = <25>; \
+                wait-ms = <50>; \
+                tap-ms = <50>; \
                 #binding-cells = <0>; \
                 bindings = <OS_UNICODE_LEAD>, <&macro_tap unicode_bindings>, <OS_UNICODE_TRAIL>; \
             }; \
