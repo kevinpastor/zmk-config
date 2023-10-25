@@ -46,14 +46,14 @@ ZMK_BEHAVIOR(ls, macro_one_param, \
     tap-ms = <0>; \
     bindings = \
         <&macro_press &kp RSHIFT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_press &kp LSHFT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_param_1to1>, \
         <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_release &kp LSHFT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_release &kp RSHFT>; \
 )
 ZMK_BEHAVIOR(ralt, macro_one_param, \
@@ -61,18 +61,18 @@ ZMK_BEHAVIOR(ralt, macro_one_param, \
     tap-ms = <0>; \
     bindings = \
         <&macro_press &kp LCTRL>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_press &kp LALT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_press &kp RALT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_param_1to1>, \
         <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_release &kp RALT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_release &kp LALT>, \
-        <&macro_wait_time 15>, \
+        <&macro_wait_time 30>, \
         <&macro_release &kp LCTRL>; \
 )
 
