@@ -75,7 +75,7 @@ ZMK_BEHAVIOR(ralt, macro_one_param, \
         <&macro_wait_time 25>, \
         <&macro_release &kp LCTRL>; \
 )
-&&&&&&&&&&&
+
 // Homerow mods
 
 #define QUICK_TAP_MS 175
