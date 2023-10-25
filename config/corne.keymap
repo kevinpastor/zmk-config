@@ -41,8 +41,40 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
             <&macro_wait_time 250>, \
             <&macro_release &kp MODIFIER>; \
     )
-MAKE_MODIFIER(ls, LSHFT)
-MAKE_MODIFIER(ralt, RALT)
+ZMK_BEHAVIOR(ls, macro_one_param, \
+    wait-ms = <0>; \
+    tap-ms = <0>; \
+    bindings = \
+        <&macro_press &kp RSHIFT>, \
+        <&macro_wait_time 125>, \
+        <&macro_press &kp LSHFT>, \
+        <&macro_wait_time 125>, \
+        <&macro_param_1to1>, \
+        <&macro_tap &kp MACRO_PLACEHOLDER>, \
+        <&macro_wait_time 125>, \
+        <&macro_release &kp LSHFT>, \
+        <&macro_wait_time 125>, \
+        <&macro_release &kp RSHFT>; \
+)
+ZMK_BEHAVIOR(ralt, macro_one_param, \
+    wait-ms = <0>; \
+    tap-ms = <0>; \
+    bindings = \
+        <&macro_press &kp LCTRL>, \
+        <&macro_wait_time 125>, \
+        <&macro_press &kp LALT>, \
+        <&macro_wait_time 125>, \
+        <&macro_press &kp RALT>, \
+        <&macro_wait_time 125>, \
+        <&macro_param_1to1>, \
+        <&macro_tap &kp MACRO_PLACEHOLDER>, \
+        <&macro_wait_time 125>, \
+        <&macro_release &kp RALT>, \
+        <&macro_wait_time 125>, \
+        <&macro_release &kp LALT>, \
+        <&macro_wait_time 125>, \
+        <&macro_release &kp LCTRL>; \
+)
 
 // Homerow mods
 
