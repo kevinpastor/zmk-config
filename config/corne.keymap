@@ -32,17 +32,13 @@ ZMK_COMBO(gaming_layer_toggle, &tog GAMING, LH2 RH2, ALPHA)
 #define MAKE_MODIFIER(NAME, MODIFIER) \
     ZMK_BEHAVIOR(NAME, macro_one_param, \
         wait-ms = <0>; \
-        tap-ms = <100>; \
+        tap-ms = <0>; \
         bindings = \
             <&macro_press &kp MODIFIER>, \
-            <&macro_wait_time 50>, \
-            <&macro_press &kp MODIFIER>, \
-            <&macro_wait_time 50>, \
+            <&macro_wait_time 250>, \
             <&macro_param_1to1>, \
             <&macro_tap &kp MACRO_PLACEHOLDER>, \
-            <&macro_wait_time 50>, \
-            <&macro_release &kp MODIFIER>, \
-            <&macro_wait_time 50>, \
+            <&macro_wait_time 250>, \
             <&macro_release &kp MODIFIER>; \
     )
 MAKE_MODIFIER(ls, LSHFT)
@@ -97,7 +93,7 @@ ZMK_LAYER(Symbols,
 // |            | GUI      ! | ALT      - | CTRL     + | SHFT     = |          @ |    | |          | ;     SHFT | {     CTRL | }      ALT | ?      GUI |            |
 // |            |          ^ |          / |          * |          \ |          _ |    | ~          | $          | [          | ]          | #          |            |
 //                                        |            |            | ---------- |    |            |            |            |
-    &none        &ls LT       &kp BSLH     &ls BSLH     &ls N2       &kp SQT           &ampersand   &ls SEMI     &ls N9       &ls N0       &ls N5       &none
+    &none        &ls LT       &kp BSLH     &ls BSLH     &ls N2       &kp SQT           &ls N7       &ls SEMI     &ls N9       &ls N0       &ls N5       &none
     &none        &hml_ls LGUI N1 &hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&ralt N2&ls GRAVE&hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6&none
     &none        &kp LBKT     &ls N3       &ls N8       &ralt GRAVE  &ls MINUS         &ralt SEMI   &ls N4       &ralt LBKT   &ralt RBKT   &kp GRAVE    &none
                                            &none        &none        &none             &none        &none        &none
