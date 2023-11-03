@@ -97,11 +97,11 @@ ZMK_BEHAVIOR(spaced, macro_one_param, \
 
 ZMK_LAYER(Alpha,
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//|        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          | BSPC       |
+//|        ESC |          Q |          W |          F |          P |          B |    | J          | L          | U          | Y          | ;          |            |
 //|       SHFT | GUI      A | ALT      R | LCTRL    S | SHFT     T |          G |    | M          | N     SHFT | E     CTRL | I      ALT | O      GUI | «          |
 //|       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
 //                                       |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
-    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp BSPC
+    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &none
     &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
     &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
                                            &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
@@ -133,11 +133,11 @@ ZMK_LAYER(Numbers,
 
 ZMK_LAYER(Misc,
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |          |          |          |          |          |          |    |          | é        | `        | ¸        | ^        |          |
+// |          |          |          |          |          |          |    | ¨        | `        | é        | ^        | ¸        |          |
 // |          |          | ALT      | CTRL     | SHFT     |          |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
 // |          |          |          |          |          |          |    |          |          |          |          |          |          |
 //                                  |          | -------- |          |    |          |          |          |
-    &none      &none      &none      &none      &none      &none           &none      &kp FSLH   &kp SQT    &kp RBKT   &kp LBKT   &none
+    &none      &none      &none      &none      &none      &none           &ls RBKT   &kp SQT    &kp FSLH   &kp LBKT   &kp RBKT   &none
     &none      &none      &kp LALT   &kp LCTRL  &kp LSHFT  &none           &none      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &none
     &none      &none      &none      &none      &none      &none           &none      &none      &none      &none      &none      &none
                                      &none      &none      &none           &none      &none      &none
@@ -148,33 +148,33 @@ ZMK_LAYER(Fn,
 // |          |      F12 |       F7 |       F8 |       F9 |          |    |          |          |          |          |          |          |
 // |          |      F11 |       F4 |       F5 |       F6 |          |    |          |          |          |          |          |          |
 // |          |      F10 |       F1 |       F2 |       F3 |          |    |          |          |          |          |          |          |
-//                                  |      F15 |      F14 |      F13 |    |          | -------- |          |
+//                                  |          |      F14 |      F13 |    |          | -------- |          |
     &none      &kp F12    &kp F7     &kp F8     &kp F9     &none           &none      &none      &none      &none      &none      &none
     &none      &kp F11    &kp F4     &kp F5     &kp F6     &none           &none      &none      &none      &none      &none      &none
     &none      &kp F10    &kp F1     &kp F2     &kp F3     &none           &none      &none      &none      &none      &none      &none
-                                     &kp F15    &kp F14    &kp F13         &none      &none      &none
+                                     &none    &kp F14    &kp F13         &none      &none      &none
 )
 
 ZMK_LAYER(Gaming,
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |      ESC |      TAB |        Q |        W |        E |        R |    | Y        | U        | I        | O        | P        |          |
-// |    ENTER |     SHFT |        A |        S |        D |        F |    | H        | J        | K        | L        | ;        |          |
-// |      GUI |     CTRL |        Z |        X |        C |        V |    | N        | M        | ,        | .        | é        |          |
+// |        3 |      TAB |        Q |        W |        E |        R |    | Y        | U        | I        | O        | P        |          |
+// |        2 |     SHFT |        A |        S |        D |        F |    | H        | J        | K        | L        | ;        |          |
+// |        1 |     CTRL |        Z |        X |        C |        V |    | N        | M        | ,        | .        | é        |          |
 //                                  |    G_ALT |      ALT |    SPACE |    | ENTER    | BSPC     | DEL      |
-    &kp ESC    &kp TAB    &kp Q      &kp W      &kp E      &kp R           &kp Y      &kp U      &kp I      &kp O      &kp P      &none
-    &kp ENTER  &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
-    &kp LGUI   &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
+    &kp N3     &kp TAB    &kp Q      &kp W      &kp E      &kp R           &kp Y      &kp U      &kp I      &kp O      &kp P      &none
+    &kp N2     &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
+    &kp N1     &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
                                      &mo GAMING_ALT &kp LALT &kp SPACE     &kp ENTER  &kp BSPC   &kp DEL
 )
 
 ZMK_LAYER(Alt,
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |        3 |        4 |          |          |          |        T |    |          |          |          |          |          |          |
-// |        2 |          |          |          |          |        G |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
-// |        1 |          |          |          |          |        B |    |          |          |          |          |          |          |
+// |      ESC |          |          |          |          |        T |    |          |          |          |          |          |          |
+// |    ENTER |          |          |          |          |        G |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
+// |      GUI |          |          |          |          |        B |    |          |          |          |          |          |          |
 //                                  | -------- |      F14 |      F13 |    |          |          |   GAMING |
-    &kp N3     &kp N4     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
-    &kp N2     &trans     &trans     &trans     &trans     &kp G           &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-    &kp N1     &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp ESC    &trans     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp ENTER  &trans     &trans     &trans     &trans     &kp G           &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+    &kp LGUI   &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
                                      &trans     &kp F14    &kp F13         &trans     &trans     &tog GAMING
 )
