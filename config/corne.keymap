@@ -101,10 +101,10 @@ ZMK_LAYER(Alpha,
 //|       SHFT | GUI      A | ALT      R | LCTRL    S | SHFT     T |          G |    | M          | N     SHFT | E     CTRL | I      ALT | O      GUI | «          |
 //|       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
 //                                       |        GUI | MISC   TAB | SYMBOL SPC |    | ENTER  NUM | BSCP   FUN | DEL GAMING |
-    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &none
-    &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
-    &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
-                                           &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
+   &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &none
+   &kp LSHFT    &hml LGUI A  &hml LALT R  &hml LCTRL S &hml LSHFT T &kp G             &kp M        &hmr LSHFT N &hmr LCTRL E &hmr LALT I  &hmr LGUI O  &kp NUBS
+   &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
+                                          &kp LGUI     &lt MISC TAB &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt FUNCTIONS BSPC &kp DEL
 )
 
 ZMK_LAYER(Symbols,
