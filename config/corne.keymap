@@ -157,11 +157,11 @@ ZMK_LAYER(Fn,
 
 ZMK_LAYER(Gaming,
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |        3 |      TAB |        Q |        W |        E |        R |    | Y        | U        | I        | O        | P        |          |
+// |      ESC |      TAB |        Q |        W |        E |        R |    | Y        | U        | I        | O        | P        |          |
 // |        2 |     SHFT |        A |        S |        D |        F |    | H        | J        | K        | L        | ;        |          |
 // |        1 |     CTRL |        Z |        X |        C |        V |    | N        | M        | ,        | .        | é        |          |
 //                                  |    G_ALT |      ALT |    SPACE |    | ENTER    | BSPC     | DEL      |
-    &kp N3     &kp TAB    &kp Q      &kp W      &kp E      &kp R           &kp Y      &kp U      &kp I      &kp O      &kp P      &none
+    &kp ESC    &kp TAB    &kp Q      &kp W      &kp E      &kp R           &kp Y      &kp U      &kp I      &kp O      &kp P      &none
     &kp N2     &kp LSHFT  &kp A      &kp S      &kp D      &kp F           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
     &kp N1     &kp LCTRL  &kp Z      &kp X      &kp C      &kp V           &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
                                      &mo GAMING_ALT &kp LALT &kp SPACE     &kp ENTER  &kp BSPC   &kp DEL
@@ -169,12 +169,12 @@ ZMK_LAYER(Gaming,
 
 ZMK_LAYER(Alt,
 // ------------------------------------------------------------------------------------------------------------------------------------------
-// |      ESC |          |          |          |          |        T |    |          |          |          |          |          |          |
-// |    ENTER |          |          |          |          |        G |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
-// |      GUI |          |          |          |          |        B |    |          |          |          |          |          |          |
+// |      GUI |          |          |          |          |        T |    |          |          |          |          |          |          |
+// |        4 |          |          |          |          |        G |    |          | LEFT     | DOWN     | UP       | RIGHT    |          |
+// |        3 |          |          |          |          |        B |    |          |          |          |          |          |          |
 //                                  | -------- |      F14 |      F13 |    |          |          |   GAMING |
-    &kp ESC    &trans     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
-    &kp ENTER  &trans     &trans     &trans     &trans     &kp G           &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-    &kp LGUI   &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp LGUI   &trans     &trans     &trans     &trans     &kp T           &trans     &trans     &trans     &trans     &trans     &trans
+    &kp N4     &trans     &trans     &trans     &trans     &kp G           &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+    &kp N3     &trans     &trans     &trans     &trans     &kp B           &trans     &trans     &trans     &trans     &trans     &trans
                                      &trans     &kp F14    &kp F13         &trans     &trans     &tog GAMING
 )
