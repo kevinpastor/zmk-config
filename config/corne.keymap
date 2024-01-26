@@ -101,7 +101,7 @@ ZMK_LAYER(Alpha,
 //|       CTRL |          Z |          X |          C |          D |          V |    | K          | H          | ,          | .          | é          | ALT        |
 //                                       | FUN        |        TAB | SYMBOL SPC |    | ENTER  NUM | BSCP  MISC | DEL GAMING |
    &kp ESC      &kp Q        &kp W        &kp F        &kp P        &kp B             &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &none
-   &kp LSHFT    &kp A        &kp R        &kp S        &kp T        &kp G             &kp M        &kp N        &kp E        &kp I        &kp O        &kp NUBS
+   &kp LSHFT    &kp A        &kp R        &kp S        &hml LSHFT T &kp G             &kp M        &hmr LSHFT N &kp E        &kp I        &kp O        &kp NUBS
    &kp LCTRL    &kp Z        &kp X        &kp C        &kp D        &kp V             &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH     &kp LALT
                                           &mo FUNCTIONS&kp TAB      &lt SYMBOLS SPACE &lt NUMBERS ENTER &lt MISC BSPC &kp DEL
 )
