@@ -26,7 +26,7 @@
 #define SECOND 6
 #define THIRD 7
 
-#define XXX &none  
+#define XXX &none
 #define ___ &trans
 
 /* RDP Compatible Modifiers */
@@ -93,7 +93,7 @@ ZMK_BEHAVIOR(spaced, macro_one_param, \
 
 ZMK_LAYER(Alpha,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp ESC       &kp Q         &kp W         &kp F         &kp P         &kp B                    &kp J         &kp L         &kp U         &kp Y         &kp SEMI      XXX  
+    &kp ESC       &kp Q         &kp W         &kp F         &kp P         &kp B                    &kp J         &kp L         &kp U         &kp Y         &kp SEMI      XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼ « ──────────┤
     &kp LSHFT     &kp A         &kp R         &kp S         &hml LSHFT T  &kp G                    &kp M         &hmr RSHFT N  &kp E         &kp I         &kp O         &kp NUBS
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─ é ─────────┼─────────────┤
@@ -105,13 +105,13 @@ ZMK_LAYER(Alpha,
 
 ZMK_LAYER(Symbols,
 //╭─────────────┬─ ' ─────────┬─ < ─────────┬─ > ─────────┬─ " ─────────┬─ ` ─────────╮          ╭─ & ─────────┬─ : ─────────┬─ ( ─────────┬─ ) ─────────┬─ % ─────────┬─────────────╮
-    XXX           &ls LT        &kp BSLH      &ls BSLH      &ls N2        &spaced SQT              &ls N7        &ls SEMI      &ls N9        &ls N0        &ls N5        XXX  
+    XXX           &ls LT        &kp BSLH      &ls BSLH      &ls N2        &spaced SQT              &ls N7        &ls SEMI      &ls N9        &ls N0        &ls N5        XXX
 //├─────────────┼─ ! ─────────┼─ - ─────────┼─ + ─────────┼─ = ─────────┼─ @ ─────────┤          ├─ | ─────────┼─ ; ─────────┼─ { ─────────┼─ } ─────────┼─ ? ─────────┼─────────────┤
-   &kp LSHFT      &hml_ls LGUI N1&hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&ralt N2        &ls GRAVE     &hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6 XXX  
+   &kp LSHFT      &hml_ls LGUI N1&hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&ralt N2        &ls GRAVE     &hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6 XXX
 //├─────────────┼─ ^ ─────────┼─ / ─────────┼─ * ─────────┼─ \ ─────────┼─ _ ─────────┤          ├─ ~ ─────────┼─ $ ─────────┼─ [ ─────────┼─ ] ─────────┼─ # ─────────┼─────────────┤
     &kp LCTRL     &spaced LBKT  &ls N3        &ls N8        &ralt GRAVE   &ls MINUS                &ralt SEMI    &ls N4        &ralt LBKT    &ralt RBKT    &kp GRAVE     &kp LALT
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              XXX           XXX           XXX                      XXX           XXX           XXX  
+                                              XXX           XXX           XXX                      XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -129,11 +129,11 @@ ZMK_LAYER(Numbers,
 
 ZMK_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp LGUI      &kp F14       &kp F7        &kp F8        &kp F9        &kp F12                  XXX           XXX           XXX           XXX           XXX           XXX  
+    &kp LGUI      &kp F14       &kp F7        &kp F8        &kp F9        &kp F12                  XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           &kp F13       &kp F4        &kp F5        &kp F6        &kp F11                  XXX           XXX           XXX           XXX           XXX           XXX  
+    XXX           &kp F13       &kp F4        &kp F5        &kp F6        &kp F11                  XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp F1        &kp F2        &kp F3        &kp F10                  XXX           XXX           XXX           XXX           XXX           XXX  
+    XXX           XXX           &kp F1        &kp F2        &kp F3        &kp F10                  XXX           XXX           XXX           XXX           XXX           XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               XXX           XXX           XXX                      XXX           XXX           &tog GAMING
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
@@ -141,25 +141,25 @@ ZMK_LAYER(Fn,
 
 ZMK_LAYER(Misc,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─ ¨ ─────────┬─ ` ─────────┬─ é ─────────┬─ ^ ─────────┬─ ¸ ─────────┬─────────────╮
-    XXX           XXX           XXX           XXX           XXX           XXX                      &ls RBKT      &kp SQT       &kp FSLH      &kp LBKT      &kp RBKT      XXX  
+    XXX           XXX           XXX           XXX           XXX           XXX                      &ls RBKT      &kp SQT       &kp FSLH      &kp LBKT      &kp RBKT      XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp LALT      &kp LCTRL     &kp LSHFT     XXX                      XXX           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX  
+    XXX           XXX           &kp LALT      &kp LCTRL     &kp LSHFT     XXX                      XXX           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           XXX           XXX           XXX           XXX                      XXX           XXX           XXX           XXX           XXX           XXX  
+    XXX           XXX           XXX           XXX           XXX           XXX                      XXX           XXX           XXX           XXX           XXX           XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              XXX           XXX           XXX                      XXX           XXX           XXX  
+                                              XXX           XXX           XXX                      XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )
 
 ZMK_LAYER(Gaming,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp ESC       &kp TAB       &kp Q         &kp W         &kp E         &kp R                    &kp Y         &kp U         &kp I         &kp O         &kp P         XXX  
+    &kp ESC       &kp TAB       &kp Q         &kp W         &kp E         &kp R                    &kp Y         &kp U         &kp I         &kp O         &kp P         XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp N2        &kp LSHFT     &kp A         &kp S         &kp D         &kp F                    &kp H         &kp J         &kp K         &kp L         &kp SEMI      XXX  
+    &kp N2        &kp LSHFT     &kp A         &kp S         &kp D         &kp F                    &kp H         &kp J         &kp K         &kp L         &kp SEMI      XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─ é ─────────┼─────────────┤
-    &kp N1        &kp LCTRL     &kp Z         &kp X         &kp C         &kp V                    &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      XXX  
+    &kp N1        &kp LCTRL     &kp Z         &kp X         &kp C         &kp V                    &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &mo THIRD     &mo SECOND    &kp SPACE                &kp ENTER     &kp BSCP      &kp DEL
+                                              &mo THIRD     &mo SECOND    &kp SPACE                &kp ENTER     &kp BSPC      &kp DEL
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )
 
