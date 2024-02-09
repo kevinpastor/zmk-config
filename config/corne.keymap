@@ -70,12 +70,16 @@ ZMK_BEHAVIOR(ralt, macro_one_param, \
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
-MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-MAKE_HRM(hml_ls, &kp, &ls, KEYS_R THUMBS)
-MAKE_HRM(hml_ralt, &kp, &ralt, KEYS_R THUMBS)
-MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
-MAKE_HRM(hmr_ls, &kp, &ls, KEYS_L THUMBS)
-MAKE_HRM(hmr_ralt, &kp, &ralt, KEYS_L THUMBS)
+
+// left-hand HRMs
+MAKE_HRM(hl, &kp, &kp, KEYS_R THUMBS) // `hl` somewhat stands for "home row mod on the left side". 
+MAKE_HRM(hls, &kp, &ls, KEYS_R THUMBS) // With Shift
+// MAKE_HRM(hla, &kp, &ralt, KEYS_R THUMBS) // With Alt Gr
+
+// right-hand HRMs
+MAKE_HRM(hr, &kp, &kp, KEYS_L THUMBS) // `hr` somewhat stands for "home row mod on the right side". 
+MAKE_HRM(hrs, &kp, &ls, KEYS_L THUMBS) // With Shift
+MAKE_HRM(hra, &kp, &ralt, KEYS_L THUMBS) // With Alt Gr
 
 /* Macros */
 
@@ -87,16 +91,15 @@ ZMK_BEHAVIOR(spaced, macro_one_param, \
 )
 
 /* Layers */
-// TODO Add ) on base layer.
 ZMK_LAYER(Alpha,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─ - ─────────┬─ ? ─────────╮
     &kp ESC       &kp Q         &kp W         &kp F         &kp P         &kp B                    &kp J         &kp L         &kp U         &kp Y         &kp MINUS     &ls N6 
 //├─ « ─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼ ( ──────────┤
-    &kp NUBS      &kp A         &kp R         &kp S         &hml LSHFT T  &kp G                    &kp M         &hmr RSHFT N  &kp E         &kp I         &kp O         &ls N9
-//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─ , ─────────┼─ . ─────────┼─ ; ─────────┼─ ! ─────────┤
-    &kp LCTRL     &kp Z         &kp X         &kp C         &kp D         &kp V                    &kp K         &kp H         &kp COMMA     &kp DOT       &kp SEMI      &ls N1
+    &kp NUBS      &hl LGUI A    &hl LALT R    &hl LCTRL S   &hl LSHFT T   &kp G                    &kp M         &hr RSHFT N   &hr RCTRL E   &hr LALT I    &hr RGUI O    &ls N9
+//├─ " ─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─ , ─────────┼─ . ─────────┼─ ; ─────────┼─ ! ─────────┤
+    &ls N2        &kp Z         &kp X         &kp C         &kp D         &kp V                    &kp K         &kp H         &kp COMMA     &kp DOT       &kp SEMI      &ls N1
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &mo FUN       &kp TAB       &lt SYM SPACE            &lt NUM ENTER &lt MISC BSPC &kp DEL
+                                              &mo FUN       &lt MISC TAB  &lt SYM SPACE            &lt SYM ENTER &lt NUM BSPC  &lt FUN DEL
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -104,7 +107,7 @@ ZMK_LAYER(Symbols,
 //╭─────────────┬─ ' ─────────┬─ < ─────────┬─ > ─────────┬─ " ─────────┬─ ` ─────────╮          ╭─ & ─────────┬─ : ─────────┬─ ( ─────────┬─ ) ─────────┬─ % ─────────┬─────────────╮
     XXX           &ls LT        &kp BSLH      &ls BSLH      &ls N2        &spaced SQT              &ls N7        &ls SEMI      &ls N9        &ls N0        &ls N5        XXX
 //├─────────────┼─ ! ─────────┼─ - ─────────┼─ + ─────────┼─ = ─────────┼─ @ ─────────┤          ├─ | ─────────┼─ ; ─────────┼─ { ─────────┼─ } ─────────┼─ ? ─────────┼─────────────┤
-   &kp LSHFT      &hml_ls LGUI N1&hml LALT MINUS&hml_ls LCTRL EQUAL&hml LSHFT EQUAL&ralt N2        &ls GRAVE     &hmr LSHFT SEMI&hmr_ralt LCTRL SQT&hmr_ralt LALT BSLH&hmr_ls LGUI N6 XXX
+    &kp LSHFT     &hls LGUI N1  &hl LALT MINUS&hls LCTRL EQUAL&hl LSHFT EQUAL&ralt N2             &ls GRAVE     &hr LSHFT SEMI &hra LCTRL SQT&hra LALT BSLH&hrs LGUI N6  XXX
 //├─────────────┼─ ^ ─────────┼─ / ─────────┼─ * ─────────┼─ \ ─────────┼─ _ ─────────┤          ├─ ~ ─────────┼─ $ ─────────┼─ [ ─────────┼─ ] ─────────┼─ # ─────────┼─────────────┤
     &kp LCTRL     &spaced LBKT  &ls N3        &ls N8        &ralt GRAVE   &ls MINUS                &ralt SEMI    &ls N4        &ralt LBKT    &ralt RBKT    &kp GRAVE     &kp LALT
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -126,7 +129,7 @@ ZMK_LAYER(Numbers,
 
 ZMK_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp LGUI      &kp F14       &kp F7        &kp F8        &kp F9        &kp F12                  XXX           XXX           XXX           XXX           XXX           XXX
+    XXX           &kp F14       &kp F7        &kp F8        &kp F9        &kp F12                  XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           &kp F13       &kp F4        &kp F5        &kp F6        &kp F11                  XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
