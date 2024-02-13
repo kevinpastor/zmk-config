@@ -17,11 +17,12 @@ This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configur
 ![Standard layers preview](img/standard-keymap.png)
 *Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/14c5c6b4de6c618dfc265b5b77a0cff0)*
 
-The Colemak-DH layout is used on the alpha layer. Apart from that, the overall design of the standard layers has been greatly influenced by the gaming layers. The reasoning behind this is to keep the same muscle memory across both groups of layers.
+The Colemak-DH layout is used on the alpha layer. The position of the symbols on that layer has been influenced by their usage frequency in both French and English according to [an article from Wikipedia](https://en.wikipedia.org/wiki/English_punctuation) and [an article from bépo](https://bepo.fr/wiki/Fr%C3%A9quence_des_caract%C3%A8res).
+
+Apart from that, the overall design of the standard layers has been greatly influenced by the gaming layers. The reasoning behind this is to keep the same muscle memory across both groups of layers.
 
 Some macros have been used for symbols because of an issue when using Windows RDP with the keyboard over Bluetooth.
 
-To go to the gaming layers (G), hold the leftmost thumb key and then tap the rightmost thumb key.
 
 ### Gaming Layers
 
@@ -30,4 +31,4 @@ To go to the gaming layers (G), hold the leftmost thumb key and then tap the rig
 
 To avoid having to remap every game because of Colemak-DH layout, the gaming layers are setup with QWERTY. The catch: the lefthand side is shifted right by one key to center the navigation keys (WASD) on the home row keys. This leads to better ergonomy at the expense of key compromises: some alpha keys are repositioned on another layer.
 
-To go back to the standard layers (S), hold the leftmost thumb key and then tap the rightmost thumb key, same as the other way around.
+To go to the gaming layers (G) from the standard layers, hold the leftmost thumb key and then tap the rightmost thumb key. To go back to the standard layers (S), hold the leftmost thumb key and then tap the rightmost thumb key, same as the other way around.
