@@ -4,9 +4,9 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #include "./zmk-nodefree-config/helper.h"
-#include "./zmk-nodefree-config/keypos_def/keypos_42keys.h"
 
 #include "./helpers.h"
+#include "./keys"
 
 /* Layers */
 
@@ -21,37 +21,49 @@
 
 /* RDP Compatible Modifiers */
 
-// Hold left Shift, hold right Shift, press a key, and then release all modifiers.
+// // Hold left Shift, hold right Shift, press a key, and then release all modifiers.
+// ZMK_BEHAVIOR(ls, macro_one_param, \
+//     bindings = \
+//         <&macro_press &kp LSHFT>, \
+//         <&macro_press &kp RSHFT>, \
+//         <&macro_param_1to1>, \
+//         <&macro_tap &kp MACRO_PLACEHOLDER>, \
+//         <&macro_wait_time 0>, \
+//         <&macro_release &kp RSHFT>, \
+//         <&macro_release &kp LSHFT>; \
+// )
+
+// // Hold left Control, hold right Alt, hold left Alt, press a key, and then release all modifiers.
+// ZMK_BEHAVIOR(ralt, macro_one_param, \
+//     bindings = \
+//         <&macro_press &kp LCTRL>, \
+//         <&macro_press &kp RALT>, \
+//         <&macro_press &kp LALT>, \
+//         <&macro_param_1to1>, \
+//         <&macro_tap &kp MACRO_PLACEHOLDER>, \
+//         <&macro_wait_time 0>, \
+//         <&macro_release &kp LALT>, \
+//         <&macro_release &kp RALT>, \
+//         <&macro_release &kp LCTRL>; \
+// )
+
 ZMK_BEHAVIOR(ls, macro_one_param, \
     bindings = \
         <&macro_press &kp LSHFT>, \
-        <&macro_press &kp RSHFT>, \
         <&macro_param_1to1>, \
         <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_wait_time 0>, \
-        <&macro_release &kp RSHFT>, \
         <&macro_release &kp LSHFT>; \
 )
 
-// Hold left Control, hold right Alt, hold left Alt, press a key, and then release all modifiers.
 ZMK_BEHAVIOR(ralt, macro_one_param, \
     bindings = \
-        <&macro_press &kp LCTRL>, \
         <&macro_press &kp RALT>, \
-        <&macro_press &kp LALT>, \
         <&macro_param_1to1>, \
         <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_wait_time 0>, \
-        <&macro_release &kp LALT>, \
-        <&macro_release &kp RALT>, \
-        <&macro_release &kp LCTRL>; \
+        <&macro_release &kp RALT>; \
 )
 
 /* Home Row Mods */
-
-#define LEFT_SIDE_KEYS LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 
-#define RIGHT_SIDE_KEYS RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4
-#define THUMB_KEYS LH2 LH1 LH0 RH0 RH1 RH2
 
 // Left-hand side home row mod. The prefix `hl` somewhat stands for "home row mod on the left side".
 MAKE_HRM(hl, &kp, &kp, RIGHT_SIDE_KEYS THUMB_KEYS)
@@ -75,12 +87,12 @@ ZMK_BEHAVIOR(spaced, macro_one_param, \
 
 /* Bluetooth */
 
-// Select a Bluetooth profile, or clear it when Shift is held.
-ZMK_SHIFT_MACRO(bt_sel_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
-ZMK_SHIFT_MACRO(bt_sel_1, &bt BT_SEL 1, &bt BT_SEL 1 &bt BT_CLR)
-ZMK_SHIFT_MACRO(bt_sel_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
-ZMK_SHIFT_MACRO(bt_sel_3, &bt BT_SEL 3, &bt BT_SEL 3 &bt BT_CLR)
-ZMK_SHIFT_MACRO(bt_sel_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
+// Select a Bluetooth profile, or clear it when held.
+ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
+ZMK_HELD(bt_1, &bt BT_SEL 1, &bt BT_SEL 1 &bt BT_CLR)
+ZMK_HELD(bt_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
+ZMK_HELD(bt_3, &bt BT_SEL 3, &bt BT_SEL 3 &bt BT_CLR)
+ZMK_HELD(bt_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
 
 /* Layers */
 
@@ -100,33 +112,34 @@ ZMK_LAYER(Symbols,
 //╭─────────────┬─ ' ─────────┬─ < ─────────┬─ > ─────────┬─ " ─────────┬─ ` ─────────╮          ╭─ & ─────────┬─ : ─────────┬─ ( ─────────┬─ ) ─────────┬─ % ─────────┬─────────────╮
     XXX           &ls LT        &kp BSLH      &ls BSLH      &ls N2        &spaced SQT              &ls N7        &ls SEMI      &ls N9        &ls N0        &ls N5        XXX
 //├─────────────┼─ ! ─────────┼─ - ─────────┼─ + ─────────┼─ = ─────────┼─ @ ─────────┤          ├─ | ─────────┼─ ; ─────────┼─ { ─────────┼─ } ─────────┼─ ? ─────────┼─────────────┤
-    &kp LSHFT     &hls LGUI N1  &hl LALT MINUS&hls LCTRL EQUAL&hl LSHFT EQUAL&ralt N2              &ls GRAVE     &hr LSHFT SEMI&hra LCTRL SQT&hra LALT BSLH&hrs LGUI N6  XXX
+    XXX           &hls LGUI N1  &hl LALT MINUS&hls LCTRL EQUAL&hl LSHFT EQUAL&ralt N2              &ls GRAVE     &hr LSHFT SEMI&hra LCTRL SQT&hra LALT BSLH&hrs LGUI N6  XXX
 //├─────────────┼─ ^ ─────────┼─ / ─────────┼─ * ─────────┼─ \ ─────────┼─ _ ─────────┤          ├─ ~ ─────────┼─ $ ─────────┼─ [ ─────────┼─ ] ─────────┼─ # ─────────┼─────────────┤
-    &kp LCTRL     &spaced LBKT  &ls N3        &ls N8        &ralt GRAVE   &ls MINUS                &ralt SEMI    &ls N4        &ralt LBKT    &ralt RBKT    &kp GRAVE     &kp LALT
+    XXX           &spaced LBKT  &ls N3        &ls N8        &ralt GRAVE   &ls MINUS                &ralt SEMI    &ls N4        &ralt LBKT    &ralt RBKT    &kp GRAVE     XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               XXX           XXX           XXX                      XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )
 
+// TODO Disable Shift when no other modifier is pressed.
 ZMK_LAYER(Numbers,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     XXX           XXX           &kp N7        &kp N8        &kp N9        XXX                      XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp N4        &kp N5        &kp N6        XXX                      XXX           XXX           &kp LCTRL     &kp LALT      XXX           XXX
+    XXX           XXX           &kp N4        &kp N5        &kp N6        XXX                      XXX           &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI      XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp N1        &kp N2        &kp N3        &kp N0                   XXX           XXX           XXX           XXX           XXX           XXX
+    XXX           XXX           &kp N1        &kp N2        &kp N3        XXX                      XXX           XXX           XXX           XXX           XXX           XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &kp COMMA     &kp DOT       XXX                      XXX           XXX           XXX
+                                              &kp COMMA     &kp DOT       &kp N0                   XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )
 
 ZMK_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    XXX           &kp F14       &kp F7        &kp F8        &kp F9        &kp F12                  XXX           XXX           XXX           XXX           XXX           XXX
+    XXX           &kp F12       &kp F7        &kp F8        &kp F9        &kp F14                  XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           &kp F13       &kp F4        &kp F5        &kp F6        &kp F11                  XXX           XXX           XXX           XXX           XXX           XXX
+    XXX           &kp F11       &kp F4        &kp F5        &kp F6        &kp F13                  XXX           XXX           XXX           XXX           XXX           XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp F1        &kp F2        &kp F3        &kp F10                  &bt_sel_0     &bt_sel_1     &bt_sel_2     &bt_sel_3     &bt_sel_4     XXX
+    XXX           &kp F10       &kp F1        &kp F2        &kp F3        XXX                      &bt_0         &bt_1         &bt_2         &bt_3         &bt_4         XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               XXX           XXX           XXX                      XXX           XXX           &tog GAMING
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
@@ -136,7 +149,7 @@ ZMK_LAYER(Misc,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─ ¨ ─────────┬─ ` ─────────┬─ é ─────────┬─ ^ ─────────┬─ ¸ ─────────┬─────────────╮
     XXX           XXX           XXX           XXX           XXX           XXX                      &ls RBKT      &kp SQT       &kp FSLH      &kp LBKT      &kp RBKT      XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           &kp LALT      &kp LCTRL     &kp LSHFT     XXX                      XXX           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX
+    XXX           &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     XXX                      XXX           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           XXX           XXX           XXX           XXX           XXX                      XXX           XXX           XXX           XXX           XXX           XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -148,9 +161,9 @@ ZMK_LAYER(Gaming,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp ESC       &kp TAB       &kp Q         &kp W         &kp E         &kp R                    &kp Y         &kp U         &kp I         &kp O         &kp P         XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp N2        &kp LSHFT     &kp A         &kp S         &kp D         &kp F                    &kp H         &kp J         &kp K         &kp L         &kp SEMI      XXX
+    XXX           &kp LSHFT     &kp A         &kp S         &kp D         &kp F                    &kp H         &kp J         &kp K         &kp L         &kp SEMI      XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─ é ─────────┼─────────────┤
-    &kp N1        &kp LCTRL     &kp Z         &kp X         &kp C         &kp V                    &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      XXX
+    &kp LALT      &kp LCTRL     &kp Z         &kp X         &kp C         &kp V                    &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &mo THIRD     &mo SECOND    &kp SPACE                &kp ENTER     &kp BSPC      &kp DEL
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
@@ -158,11 +171,11 @@ ZMK_LAYER(Gaming,
 
 ZMK_LAYER(Second,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp N5        &kp N8        ___           ___           ___           &kp T                    ___           ___           ___           ___           ___           ___
+    &kp N7        &kp N0        &kp N1        ___           &kp N2        &kp T                    ___           ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp N4        &kp N7        ___           ___           ___           &kp G                    ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___
+    &kp N6        &kp N9        &kp N3        ___           &kp N4        &kp G                    ___           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp N3        &kp N6        ___           ___           ___           &kp B                    ___           ___           ___           ___           ___           ___
+    &kp N5        &kp N8        ___           ___           ___           &kp B                    ___           ___           ___           ___           ___           ___
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                               ___           ___           ___                      ___           ___           ___
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
@@ -170,12 +183,12 @@ ZMK_LAYER(Second,
 
 ZMK_LAYER(Third,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp LGUI      &kp F14       &kp F7        &kp F8        &kp F9        &kp F12                  ___           ___           ___           ___           ___           ___
+    &kp LGUI      &kp F12       &kp F7        &kp F8        &kp F9        &kp F14                  ___           ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp N0        &kp F13       &kp F4        &kp F5        &kp F6        &kp F11                  ___           ___           ___           ___           ___           ___
+    ___           &kp F11       &kp F4        &kp F5        &kp F6        &kp F13                  ___           ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp N9        ___           &kp F1        &kp F2        &kp F3        &kp F10                  ___           ___           ___           ___           ___           ___
+    ___           &kp F10       &kp F1        &kp F2        &kp F3        ___                      ___           ___           ___           ___           ___           ___
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              ___           &kp LALT      ___                      ___           ___           &tog GAMING
+                                              ___           ___           ___                      ___           ___           &tog GAMING
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
 )

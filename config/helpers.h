@@ -9,17 +9,27 @@
 #define ___ &trans
 
 /**
- * Press a key, or press another one when Shift is held.
+ * Press a key, or execute a macro when Shift is held.
  *
  * @example
  * ```cpp
- * ZMK_SHIFT_FUNCTION(todo, &kp TODO, &kp TODO)
+ * ZMK_SHIFTED(punc, &kp QUESTION, &kp EXCLAMATION)
  * ```
  */
-#define ZMK_SHIFT_FUNCTION(NAME, BINDING, SHIFT_BINDING) \
+#define ZMK_SHIFTED(NAME, BINDING, SHIFTED_BINDING) \
+    ZMK_BEHAVIOR(NAME ## _macro_0, macro, \
+        wait-ms = <0>; \
+        bindings = <BINDING>; \
+    ) \
+    ZMK_BEHAVIOR(NAME ## _macro_1, macro, \
+        wait-ms = <0>; \
+        bindings = <SHIFTED_BINDING>; \
+    ) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
-        bindings = <BINDING>, <SHIFT_BINDING>; \
         mods = <(MOD_LSFT|MOD_RSFT)>; \
+        bindings = \
+            <&NAME ## _macro_0>, \
+            <&NAME ## _macro_1>; \
     )
 
 /**
@@ -27,22 +37,25 @@
  *
  * @example
  * ```cpp
- * ZMK_SHIFT_MACRO(bt_sel_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
+ * ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
  * ```
  */
-#define ZMK_SHIFT_MACRO(NAME, BINDING, SHIFT_BINDING) \
-    ZMK_BEHAVIOR(u_macro_ ## NAME, macro, \
+#define ZMK_HELD(NAME, BINDING, HELD_BINDING) \
+    ZMK_BEHAVIOR(NAME ## _macro_0, macro, \
         wait-ms = <0>; \
-        bindings = <SHIFT_BINDING>; \
+        bindings = <BINDING>; \
     ) \
-    ZMK_SHIFT_FUNCTION(NAME, BINDING, &u_macro_ ## NAME)
-
-// #define ZMK_HOLD_FUNCTION(NAME, BINDING, HOLD_BINDING) \
-//     ZMK_BEHAVIOR(## NAME, hold_tap, \
-//         flavor = "tap-preferred"; \
-//         tapping-term-ms = <5000>; \
-//         bindings = <&kp>, <&kp>; \
-//     )
+    ZMK_BEHAVIOR(NAME ## _macro_1, macro, \
+        wait-ms = <0>; \
+        bindings = <HELD_BINDING>; \
+    ) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "tap-preferred"; \
+        tapping-term-ms = <5000>; \
+        bindings = \
+            <&NAME ## _macro_0>, \
+            <&NAME ## _macro_1>; \
+    )
 
 /**
  * Create a timer-less home row mods behaviour.
