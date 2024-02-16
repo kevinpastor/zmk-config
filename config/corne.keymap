@@ -6,7 +6,7 @@
 #include "./zmk-nodefree-config/helper.h"
 
 #include "./helpers.h"
-#include "./keys"
+#include "./keys.h"
 
 /* Layers */
 
