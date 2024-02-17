@@ -47,22 +47,6 @@ ZMK_BEHAVIOR(ralt, macro_one_param, \
         <&macro_release &kp LCTRL>; \
 )
 
-ZMK_BEHAVIOR(ls2, macro_one_param, \
-    bindings = \
-        <&macro_press &kp LSHFT>, \
-        <&macro_param_1to1>, \
-        <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_release &kp LSHFT>; \
-)
-
-ZMK_BEHAVIOR(ralt2, macro_one_param, \
-    bindings = \
-        <&macro_press &kp RALT>, \
-        <&macro_param_1to1>, \
-        <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_release &kp RALT>; \
-)
-
 /* Home Row Mods */
 
 // Left-hand side home row mod. The prefix `hl` somewhat stands for "home row mod on the left side".
@@ -94,6 +78,10 @@ ZMK_HELD(bt_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
 ZMK_HELD(bt_3, &bt BT_SEL 3, &bt BT_SEL 3 &bt BT_CLR)
 ZMK_HELD(bt_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
 
+/* Misc */
+
+ZMK_SHIFTED(parentheses, &ls N9, &ls N0)
+
 /* Layers */
 
 ZMK_LAYER(Alpha,
@@ -101,8 +89,8 @@ ZMK_LAYER(Alpha,
     &kp ESC       &kp Q         &kp W         &kp F         &kp P         &kp B                    &kp J         &kp L         &kp U         &kp Y         &kp MINUS     &ls N6
 //├─ « ─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼ ; ──────────┤
     &kp NUBS      &hl LGUI A    &hl LALT R    &hl LCTRL S   &hl LSHFT T   &kp G                    &kp M         &hr RSHFT N   &hr RCTRL E   &hr LALT I    &hr RGUI O    &kp SEMI
-//├─ ( ─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─ , ─────────┼─ . ─────────┼─ " ─────────┼─ ! ─────────┤
-    &ls N9        &kp Z         &kp X         &kp C         &kp D         &kp V                    &kp K         &kp H         &kp COMMA     &kp DOT       &ls N2        &ls N1
+//├─ () ────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─ , ─────────┼─ . ─────────┼─ " ─────────┼─ ! ─────────┤
+    &parentheses  &kp Z         &kp X         &kp C         &kp D         &kp V                    &kp K         &kp H         &kp COMMA     &kp DOT       &ls N2        &ls N1
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &mo FUN       &lt MISC TAB  &lt SYM SPACE            &lt SYM ENTER &lt NUM BSPC  &lt FUN DEL
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
@@ -110,11 +98,11 @@ ZMK_LAYER(Alpha,
 
 ZMK_LAYER(Symbols,
 //╭─────────────┬─ ' ─────────┬─ < ─────────┬─ > ─────────┬─ " ─────────┬─ ` ─────────╮          ╭─ & ─────────┬─ : ─────────┬─ ( ─────────┬─ ) ─────────┬─ % ─────────┬─────────────╮
-    XXX           &ls LT        &kp BSLH      &ls BSLH      &ls N2        &spaced SQT              &kp LS(N7)    &ls2 SEMI      &ls N9        &ls N0        &ls N5        XXX
+    XXX           &ls LT        &kp BSLH      &ls BSLH      &ls N2        &spaced SQT              &ls N7        &ls SEMI      &ls N9        &ls N0        &ls N5        XXX
 //├─────────────┼─ ! ─────────┼─ - ─────────┼─ + ─────────┼─ = ─────────┼─ @ ─────────┤          ├─ | ─────────┼─ ; ─────────┼─ { ─────────┼─ } ─────────┼─ ? ─────────┼─────────────┤
     XXX           &hls LGUI N1  &hl LALT MINUS&hls LCTRL EQUAL&hl LSHFT EQUAL&ralt N2              &ls GRAVE     &hr LSHFT SEMI&hra LCTRL SQT&hra LALT BSLH&hrs LGUI N6  XXX
 //├─────────────┼─ ^ ─────────┼─ / ─────────┼─ * ─────────┼─ \ ─────────┼─ _ ─────────┤          ├─ ~ ─────────┼─ $ ─────────┼─ [ ─────────┼─ ] ─────────┼─ # ─────────┼─────────────┤
-    XXX           &spaced LBKT  &ls N3        &ls N8        &ralt GRAVE   &ls MINUS                &ralt SEMI    &ls N4        &ralt LBKT    &ralt2 RBKT    &kp GRAVE     XXX
+    XXX           &spaced LBKT  &ls N3        &ls N8        &ralt GRAVE   &ls MINUS                &ralt SEMI    &ls N4        &ralt LBKT    &ralt RBKT    &kp GRAVE     XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               XXX           XXX           XXX                      XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
