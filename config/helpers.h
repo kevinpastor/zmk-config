@@ -13,30 +13,6 @@
  *
  * @example
  * ```cpp
- * ZMK_SHIFTED(punc, &kp QUESTION, &kp EXCLAMATION)
- * ```
- */
-#define ZMK_SHIFTED(NAME, BINDING, SHIFTED_BINDING) \
-    ZMK_BEHAVIOR(NAME ## _macro_0, macro, \
-        wait-ms = <0>; \
-        bindings = <BINDING>; \
-    ) \
-    ZMK_BEHAVIOR(NAME ## _macro_1, macro, \
-        wait-ms = <0>; \
-        bindings = <SHIFTED_BINDING>; \
-    ) \
-    ZMK_BEHAVIOR(NAME, mod_morph, \
-        mods = <(MOD_LSFT|MOD_RSFT)>; \
-        bindings = \
-            <&NAME ## _macro_0>, \
-            <&NAME ## _macro_1>; \
-    )
-
-/**
- * Press a key, or execute a macro when Shift is held.
- *
- * @example
- * ```cpp
  * ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
  * ```
  */

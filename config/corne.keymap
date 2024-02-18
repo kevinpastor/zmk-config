@@ -80,7 +80,13 @@ ZMK_HELD(bt_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
 
 /* Misc */
 
-ZMK_SHIFTED(parentheses, &ls N9, &ls N0)
+ZMK_BEHAVIOR(parentheses, mod_morph, \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+    keep-mods = <(MOD_LSFT|MOD_RSFT)>; \
+    bindings = \
+        <&ls N9>, \
+        <&kp N0>; \
+)
 
 /* Layers */
 
