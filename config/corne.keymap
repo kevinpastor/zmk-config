@@ -117,7 +117,7 @@ ZMK_LAYER(Symbols,
 ZMK_BEHAVIOR(moded_shift, mod_morph, \
     mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
     keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
-    bindings = XXX, <&kp LSHFT>; \
+    bindings = <XXX>, <&kp LSHFT>; \
 )
 
 ZMK_LAYER(Numbers,
