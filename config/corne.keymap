@@ -88,6 +88,12 @@ ZMK_BEHAVIOR(parentheses, mod_morph, \
         <&kp N0>; \
 )
 
+ZMK_BEHAVIOR(moded_shift, mod_morph, \
+    mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
+    keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
+    bindings = <XXX>, <&kp LSHFT>; \
+)
+
 /* Layers */
 
 ZMK_LAYER(Alpha,
@@ -112,12 +118,6 @@ ZMK_LAYER(Symbols,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤          ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               XXX           XXX           XXX                      XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯          ╰─────────────┴─────────────┴─────────────╯
-)
-
-ZMK_BEHAVIOR(moded_shift, mod_morph, \
-    mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
-    keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
-    bindings = <XXX>, <&kp LSHFT>; \
 )
 
 ZMK_LAYER(Numbers,
