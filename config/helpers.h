@@ -33,6 +33,8 @@
             <&NAME ## _macro_1>; \
     )
 
+#define HRM_TAPPING_TERM 450 // 280 in urob's config, but found that "s" and "t" caused too often CTRL + T.
+
 /**
  * Create a timer-less home row mods behaviour.
  *
@@ -46,7 +48,7 @@
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
         flavor = "balanced"; \
-        tapping-term-ms = <280>; \
+        tapping-term-ms = <HRM_TAPPING_TERM>; \
         quick-tap-ms = <175>; \
         require-prior-idle-ms = <150>; \
         bindings = <HOLD>, <TAP>; \
