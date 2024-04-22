@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#include "./zmk-nodefree-config/helper.h"
+#include "zmk-helpers/helper.h"
 
 #include "./helpers.h"
 #include "./keys.h"
@@ -22,7 +22,7 @@
 /* RDP Compatible Modifiers */
 
 // Hold left Shift, hold right Shift, press a key, and then release all modifiers.
-ZMK_BEHAVIOR(ls, macro_one_param, \
+ZMK_MACRO_ONE_PARAM(ls, \
     bindings = \
         <&macro_press &kp LSHFT>, \
         <&macro_press &kp RSHFT>, \
@@ -34,7 +34,7 @@ ZMK_BEHAVIOR(ls, macro_one_param, \
 )
 
 // Hold left Control, hold right Alt, hold left Alt, press a key, and then release all modifiers.
-ZMK_BEHAVIOR(ralt, macro_one_param, \
+ZMK_MACRO_ONE_PARAM(ralt, \
     bindings = \
         <&macro_press &kp LCTRL>, \
         <&macro_press &kp RALT>, \
@@ -62,7 +62,7 @@ MAKE_HRM(hra, &kp, &ralt, LEFT_SIDE_KEYS THUMB_KEYS) // With Alt Gr
 /* Utilities */
 
 // Press a key and then press the spacebar.
-ZMK_BEHAVIOR(spaced, macro_one_param, \
+ZMK_MACRO_ONE_PARAM(spaced, \
     bindings = \
         <&macro_param_1to1>, \
         <&macro_tap &kp MACRO_PLACEHOLDER>, \
@@ -80,7 +80,7 @@ ZMK_HELD(bt_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
 
 /* Misc */
 
-ZMK_BEHAVIOR(parentheses, mod_morph, \
+ZMK_MOD_MORPH(parentheses, \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
     keep-mods = <(MOD_LSFT|MOD_RSFT)>; \
     bindings = \
@@ -88,7 +88,7 @@ ZMK_BEHAVIOR(parentheses, mod_morph, \
         <&kp N0>; \
 )
 
-ZMK_BEHAVIOR(moded_shift, mod_morph, \
+ZMK_MOD_MORPH(moded_shift, \
     mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
     keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
     bindings = <XXX>, <&kp LSHFT>; \

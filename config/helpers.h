@@ -17,15 +17,15 @@
  * ```
  */
 #define ZMK_HELD(NAME, BINDING, HELD_BINDING) \
-    ZMK_BEHAVIOR(NAME ## _macro_0, macro, \
+    ZMK_MACRO(NAME ## _macro_0, \
         wait-ms = <0>; \
         bindings = <BINDING>; \
     ) \
-    ZMK_BEHAVIOR(NAME ## _macro_1, macro, \
+    ZMK_MACRO(NAME ## _macro_1, \
         wait-ms = <0>; \
         bindings = <HELD_BINDING>; \
     ) \
-    ZMK_BEHAVIOR(NAME, hold_tap, \
+    ZMK_HOLD_TAP(NAME, \
         flavor = "tap-preferred"; \
         tapping-term-ms = <5000>; \
         bindings = \
@@ -46,7 +46,7 @@
  * ```
  */
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    ZMK_BEHAVIOR(NAME, hold_tap, \
+    ZMK_HOLD_TAP(NAME, \
         flavor = "balanced"; \
         tapping-term-ms = <HRM_TAPPING_TERM>; \
         quick-tap-ms = <175>; \
