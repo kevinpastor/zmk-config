@@ -27,7 +27,7 @@ Some macros have been used for symbols because of an issue when using Windows RD
 ### Gaming Layers
 
 ![Gaming layers preview](img/gaming-keymap.png)
-*Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/a5d4f2d4acfef0bab9bb97ac0ff3e05e)*
+*Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/9b497751bc9a9fc18a86e876f723288d)*
 
 To avoid having to remap every game because of Colemak-DH layout, the gaming layers are setup with QWERTY. The catch: the lefthand side is shifted right by one key to center the navigation keys (WASD) on the home row keys. This leads to better ergonomy at the expense of key compromises: some alpha keys are repositioned on another layer.
 
