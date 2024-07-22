@@ -17,12 +17,37 @@ This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configur
 ![Standard layers preview](img/standard-keymap.png)
 *Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/14c5c6b4de6c618dfc265b5b77a0cff0)*
 
-The Colemak-DH layout is used on the alpha layer. The position of the symbols on that layer has been influenced by their usage frequency in both French and English according to [an article from Wikipedia](https://en.wikipedia.org/wiki/English_punctuation) and [an article from bépo](https://bepo.fr/wiki/Fr%C3%A9quence_des_caract%C3%A8res).
-
-Apart from that, the overall design of the standard layers has been greatly influenced by the gaming layers. The reasoning behind this is to keep the same muscle memory across both groups of layers.
+The overall design of the standard layers has been greatly influenced by the gaming layers. The reasoning behind this is to keep the same muscle memory across both groups of layers.
 
 Some macros have been used for symbols because of an issue when using Windows RDP with the keyboard over Bluetooth.
 
+#### Alpha Layer
+
+The alpha layer is based on the Colemak-DH layout. The position of symbols on that layer has been influenced by their usage frequency in both French and English according to [an article from Wikipedia](https://en.wikipedia.org/wiki/English_punctuation) and [an article from bépo](https://bepo.fr/wiki/Fr%C3%A9quence_des_caract%C3%A8res). Controls and whitespace keys have been placed according to their usage and their usual position on a standard keyboard.
+
+Homerow mods are active for that layer.
+
+#### Symbols Layer
+
+The symbols layer as been greatly inspired by [an article by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html). The main difference is the mirroring of its layer to ensure inward rolls are possible for the `{`, `}`, `(`, `)`, `[`, and `]` keys.
+
+Homerow mods are always active for that layer.
+
+#### Numbers Layer
+
+The numbers layer has been designed to simply mimic the numpad on a standard keyboard. A comma was added to support French decimal numbering notation.
+
+Homerow mods are always active for that layer to support key combination as `CTRL + 1`.
+
+#### Miscellaneous Layer
+
+The miscellaneous layer has been designed to provide extra keys like arrows and French accents. The arrows have been placed like the navigation keys on VIM since they do not require hand movement. Accents have been placed on the same line according to their frequency in French.
+
+#### Functions Layer
+
+The functions layer has been designed to resemble the numbers layer as close as possible. Numbers past 9 were placed in regards to ergonomics.
+
+The `F13` and `F14` keys have been made available to use as dedicated mute and deafen shortcuts on Discord. They are position and accessed exactly the same on the gaming layers.
 
 ### Gaming Layers
 
@@ -32,3 +57,12 @@ Some macros have been used for symbols because of an issue when using Windows RD
 To avoid having to remap every game because of Colemak-DH layout, the gaming layers are setup with QWERTY. The catch: the lefthand side is shifted right by one key to center the navigation keys (WASD) on the home row keys. This leads to better ergonomy at the expense of key compromises: some alpha keys are repositioned on another layer.
 
 To go to the gaming layers (G) from the standard layers, hold the leftmost thumb key and then tap the rightmost thumb key. To go back to the standard layers (S), hold the leftmost thumb key and then tap the rightmost thumb key, same as the other way around.
+
+### References
+
+- [Colemak Mod-DH](https://colemakmods.github.io/mod-dh/)
+- [Designing a Symbol Layer by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
+- [ShelZuuz's symbol layer](https://www.reddit.com/r/ErgoMechKeyboards/comments/1ch1ubl/comment/l20p2e2/)
+- [DreymaR's Big Bag of Kbd Tricks](https://dreymar.colemak.org/)
+- [Miryoku](https://github.com/manna-harbour/miryoku)
+- [urob's configuration](https://github.com/urob/zmk-config)
