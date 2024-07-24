@@ -112,7 +112,7 @@ ZMK_LAYER(Symbols,
 //╭───────────────┬─ % ───────────┬─ ( ───────────┬─ ) ───────────┬─ : ───────────┬─ & ───────────╮        ╭─ ` ───────────┬─ " ───────────┬─ < ───────────┬─ > ───────────┬─ ' ───────────┬───────────────╮
     XXX             &ls N5          &ls N9          &ls N0          &ls SEMI        &ls N7                   &spaced SQT     &ls N2          &kp BSLH        &ls BSLH        &ls LT          XXX
 //├───────────────┼─ ? ───────────┼─ { ───────────┼─ } ───────────┼─ ; ───────────┼─ | ───────────┤        ├─ @ ───────────┼─ = ───────────┼─ + ───────────┼─ - ───────────┼─ ! ───────────┼───────────────┤
-    XXX             &hls LGUI N6    &hla LALT SQT   &hla LCTRL BSLH &hl LSHFT SEMI  &ls GRAVE                &ralt N2        &hr LSHFT EQUAL &hra LSHFT EQUAL&hr LALT MINUS  &hrs LGUI N1    XXX
+    XXX             &hls LGUI N6    &hla LALT SQT   &hla LCTRL BSLH &hl LSHFT SEMI  &ls GRAVE                &ralt N2        &hr LSHFT EQUAL &hrs LCTRL EQUAL&hr LALT MINUS  &hrs LGUI N1    XXX
 //├───────────────┼─ # ───────────┼─ [ ───────────┼─ ] ───────────┼─ $ ───────────┼─ ~ ───────────┤        ├─ _ ───────────┼─ / ───────────┼─ * ───────────┼─ \ ───────────┼─ ^ ───────────┼───────────────┤
     XXX             &kp GRAVE       &ralt LBKT      &ralt RBKT      &ls N4          &ralt SEMI               &ls MINUS       &ls N3          &ls N8          &ralt GRAVE     &spaced LBKT    XXX
 //╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤        ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────┴───────────────╯
