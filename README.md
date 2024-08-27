@@ -41,7 +41,7 @@ Homerow mods are always active for that layer to support key combination as `CTR
 
 #### Miscellaneous Layer
 
-The miscellaneous layer has been designed to provide extra keys like arrows and French accents. The arrows have been placed on the home row to avoid hand movement. Since the left hand is often used for movement in games using WASD, the position of the up arrow has been decided according to the usual finger on the W key (i.e. the middle finger). Accents have been placed on a row according to their frequency in French.
+The miscellaneous layer has been designed to provide extra keys like arrows and French accents. The arrows have been placed on the home row to avoid hand movement. Since the left hand is often used for movement in games using WASD, the position of the up arrow has been decided according to the usual finger on the W key (i.e. the middle finger). Home row mods have been disabled on the left hand for that layer in order to be able to long press arrow keys. Accents have been placed on a row according to their frequency in French.
 
 #### Functions Layer
 
