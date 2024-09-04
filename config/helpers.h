@@ -9,7 +9,7 @@
 #define ___ &trans
 
 /**
- * Press a key, or execute a macro when Shift is held.
+ * Tap or long press a key.
  *
  * @example
  * ```cpp
@@ -18,19 +18,17 @@
  */
 #define ZMK_HELD(NAME, BINDING, HELD_BINDING) \
     ZMK_MACRO(NAME ## _macro_0, \
-        wait-ms = <0>; \
         bindings = <BINDING>; \
     ) \
     ZMK_MACRO(NAME ## _macro_1, \
-        wait-ms = <0>; \
         bindings = <HELD_BINDING>; \
     ) \
     ZMK_HOLD_TAP(NAME, \
         flavor = "tap-preferred"; \
         tapping-term-ms = <5000>; \
         bindings = \
-            <&NAME ## _macro_0>, \
-            <&NAME ## _macro_1>; \
+            <&NAME ## _macro_1>, \
+            <&NAME ## _macro_0>; \
     )
 
 #define HRM_TAPPING_TERM 450 // 280 in urob's config, but found that "s" and "t" caused too often CTRL + T.

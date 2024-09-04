@@ -14,9 +14,10 @@
 #define SYM 1
 #define MISC 2
 #define FUN 3
-#define GAMING 4
-#define SECOND 5
-#define THIRD 6
+#define CONFIG 4
+#define GAMING 5
+#define SECOND 6
+#define THIRD 7
 
 /* RDP Compatible Modifiers */
 
@@ -58,26 +59,15 @@ MAKE_HRM(hr, &kp, &kp, LEFT_SIDE_KEYS THUMB_KEYS)
 MAKE_HRM(hrs, &kp, &ls, LEFT_SIDE_KEYS THUMB_KEYS) // With Shift
 MAKE_HRM(hra, &kp, &ralt, LEFT_SIDE_KEYS THUMB_KEYS) // With Alt Gr
 
-/* Utilities */
-
-// Press a key and then press the spacebar.
-ZMK_MACRO_ONE_PARAM(spaced, \
-    bindings = \
-        <&macro_param_1to1>, \
-        <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_tap &kp SPACE>; \
-)
-
-/* Bluetooth */
-
-// Select a Bluetooth profile, or clear it when held.
-ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
-ZMK_HELD(bt_1, &bt BT_SEL 1, &bt BT_SEL 1 &bt BT_CLR)
-ZMK_HELD(bt_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
-ZMK_HELD(bt_3, &bt BT_SEL 3, &bt BT_SEL 3 &bt BT_CLR)
-ZMK_HELD(bt_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
-
 /* Misc */
+
+ZMK_COMBO(caps_word, \
+    &caps_word, \
+    LM1 RM1, \
+    ALPHA, \
+    COMBO_TERM, \
+    HRM_TAPPING_TERM \
+)
 
 ZMK_MOD_MORPH(parentheses, \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
@@ -87,19 +77,18 @@ ZMK_MOD_MORPH(parentheses, \
         <&kp N0>; \
 )
 
-ZMK_MOD_MORPH(moded_shift, \
-    mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
-    keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>; \
-    bindings = <XXX>, <&kp LSHFT>; \
+// Press a key and then press the spacebar.
+ZMK_MACRO_ONE_PARAM(spaced, \
+    bindings = \
+        <&macro_param_1to1>, \
+        <&macro_tap &kp MACRO_PLACEHOLDER>, \
+        <&macro_tap &kp SPACE>; \
 )
 
-ZMK_COMBO(caps_word, \
-    &caps_word, \
-    LM1 RM1, \
-    ALPHA, \
-    COMBO_TERM, \
-    HRM_TAPPING_TERM \
-)
+// Select a Bluetooth profile, or clear it when held.
+ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
+ZMK_HELD(bt_1, &bt BT_SEL 1, &bt BT_SEL 1 &bt BT_CLR)
+ZMK_HELD(bt_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
 
 /* Layers */
 
@@ -141,13 +130,25 @@ ZMK_LAYER(Misc,
 
 ZMK_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp F14       XXX           XXX           XXX           XXX           XXX                    XXX           &kp F7        &kp F8        &kp F9        &kp F12       XXX
+    &kp F14       XXX           XXX           XXX           XXX           XXX                    XXX           &kp F7        &kp F8        &kp F9        &kp F12       &sl CONFIG
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp F13       XXX           &kp LALT      &kp LCTRL     &kp LSHFT     XXX                    XXX           &kp F4        &kp F5        &kp F6        &kp F11       XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LGUI      XXX           XXX           XXX           XXX           XXX                    XXX           &kp F1        &kp F2        &kp F3        &kp F10       XXX
+    &kp LGUI      XXX           XXX           XXX           XXX           XXX                    XXX           &kp F1        &kp F2        &kp F3        &kp F10       &tog GAMING
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              XXX           XXX           XXX                    XXX           XXX           &tog GAMING
+                                              XXX           XXX           XXX                    XXX           XXX           XXX
+//                                          ╰─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(Config,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    XXX           XXX           XXX           XXX           XXX           XXX                    XXX           XXX           XXX           XXX           XXX           XXX
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    XXX           XXX           XXX           XXX           XXX           XXX                    XXX           XXX           XXX           XXX           XXX           XXX
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    XXX           XXX           XXX           XXX           XXX           XXX                    XXX           &bt_0         &bt_1         &bt_2         XXX           XXX
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              XXX           XXX           XXX                    XXX           XXX           XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -181,8 +182,8 @@ ZMK_LAYER(Third,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp F13       ___           ___           ___           &kp N5        ___                    ___           &kp F4        &kp F5        &kp F6        &kp F11       ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LGUI      ___           ___           ___           &kp N6        ___                    ___           &kp F1        &kp F2        &kp F3        &kp F10       ___
+    &kp LGUI      ___           ___           ___           &kp N6        ___                    ___           &kp F1        &kp F2        &kp F3        &kp F10       &tog GAMING
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤        ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              ___           ___           ___                    ___           ___           &tog GAMING
+                                              ___           ___           ___                    ___           ___           ___
 //                                          ╰─────────────┴─────────────┴─────────────╯        ╰─────────────┴─────────────┴─────────────╯
 )
