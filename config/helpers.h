@@ -8,29 +8,6 @@
  */
 #define ___ &trans
 
-/**
- * Tap or long press a key.
- *
- * @example
- * ```cpp
- * ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
- * ```
- */
-#define ZMK_HELD(NAME, HELD_BINDING, BINDING) \
-    ZMK_MACRO(NAME ## _macro_0, \
-        bindings = <HELD_BINDING>; \
-    ) \
-    ZMK_MACRO(NAME ## _macro_1, \
-        bindings = <BINDING>; \
-    ) \
-    ZMK_HOLD_TAP(NAME, \
-        flavor = "tap-preferred"; \
-        tapping-term-ms = <5000>; \
-        bindings = \
-            <&NAME ## _macro_0>, \
-            <&NAME ## _macro_1>; \
-    )
-
 #define HRM_TAPPING_TERM 400 // 280 in urob's config, but found that "s" and "t" caused too often CTRL + T.
 
 /**
