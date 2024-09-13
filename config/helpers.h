@@ -16,22 +16,22 @@
  * ZMK_HELD(bt_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
  * ```
  */
-#define ZMK_HELD(NAME, BINDING, HELD_BINDING) \
+#define ZMK_HELD(NAME, HELD_BINDING, BINDING) \
     ZMK_MACRO(NAME ## _macro_0, \
-        bindings = <BINDING>; \
+        bindings = <HELD_BINDING>; \
     ) \
     ZMK_MACRO(NAME ## _macro_1, \
-        bindings = <HELD_BINDING>; \
+        bindings = <BINDING>; \
     ) \
     ZMK_HOLD_TAP(NAME, \
         flavor = "tap-preferred"; \
         tapping-term-ms = <5000>; \
         bindings = \
-            <&NAME ## _macro_1>, \
-            <&NAME ## _macro_0>; \
+            <&NAME ## _macro_0>, \
+            <&NAME ## _macro_1>; \
     )
 
-#define HRM_TAPPING_TERM 450 // 280 in urob's config, but found that "s" and "t" caused too often CTRL + T.
+#define HRM_TAPPING_TERM 400 // 280 in urob's config, but found that "s" and "t" caused too often CTRL + T.
 
 /**
  * Create a timer-less home row mods behaviour.
