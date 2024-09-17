@@ -20,43 +20,13 @@
 
 /* RDP Compatible Modifiers */
 
-// Hold left Shift, hold right Shift, press a key, and then release all modifiers.
-ZMK_MACRO_ONE_PARAM(ls, \
-    bindings = \
-        <&macro_press &kp LSHFT>, \
-        <&macro_press &kp RSHFT>, \
-        <&macro_param_1to1>, \
-        <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_wait_time 0>, \
-        <&macro_release &kp RSHFT>, \
-        <&macro_release &kp LSHFT>; \
-)
-
-// Hold left Control, hold right Alt, hold left Alt, press a key, and then release all modifiers.
-ZMK_MACRO_ONE_PARAM(ralt, \
-    bindings = \
-        <&macro_press &kp LCTRL>, \
-        <&macro_press &kp RALT>, \
-        <&macro_press &kp LALT>, \
-        <&macro_param_1to1>, \
-        <&macro_tap &kp MACRO_PLACEHOLDER>, \
-        <&macro_wait_time 0>, \
-        <&macro_release &kp LALT>, \
-        <&macro_release &kp RALT>, \
-        <&macro_release &kp LCTRL>; \
-)
-
 /* Home Row Mods */
 
 // Left-hand side home row mod. The prefix `hl` somewhat stands for "home row mod on the left side".
 MAKE_HRM(hl, &kp, &kp, RIGHT_SIDE_KEYS THUMB_KEYS)
-MAKE_HRM(hls, &kp, &ls, RIGHT_SIDE_KEYS THUMB_KEYS) // With Shift
-MAKE_HRM(hla, &kp, &ralt, RIGHT_SIDE_KEYS THUMB_KEYS) // With Alt Gr
 
 // Right-hand side home row mod. The prefix `hr` somewhat stands for "home row mod on the right side".
 MAKE_HRM(hr, &kp, &kp, LEFT_SIDE_KEYS THUMB_KEYS)
-MAKE_HRM(hrs, &kp, &ls, LEFT_SIDE_KEYS THUMB_KEYS) // With Shift
-MAKE_HRM(hra, &kp, &ralt, LEFT_SIDE_KEYS THUMB_KEYS) // With Alt Gr
 
 /* Misc */
 
@@ -72,7 +42,7 @@ ZMK_MOD_MORPH(parentheses, \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
     keep-mods = <(MOD_LSFT|MOD_RSFT)>; \
     bindings = \
-        <&ls N9>, \
+        <&kp LS(N9)>, \
         <&kp N0>; \
 )
 
@@ -88,11 +58,11 @@ ZMK_MACRO_ONE_PARAM(spaced, \
 
 ZMK_LAYER(Alpha,
 //╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮        ╭────────────────┬────────────────┬────────────────┬────────────────┬─ - ────────────┬─ ? ────────────╮
-    &kp ESC          &kp Q            &kp W            &kp F            &kp P            &kp B                     &kp J            &kp L            &kp U            &kp Y            &kp MINUS        &ls N6
+    &kp ESC          &kp Q            &kp W            &kp F            &kp P            &kp B                     &kp J            &kp L            &kp U            &kp Y            &kp MINUS        &kp LS(N6)
 //├─ « ────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼ ; ─────────────┤
     &kp NUBS         &hl LGUI A       &hl LALT R       &hl LCTRL S      &hl LSHFT T      &kp G                     &kp M            &hr RSHFT N      &hr RCTRL E      &hr LALT I       &hr RGUI O       &kp SEMI
 //├─ () ───────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼─ , ────────────┼─ . ────────────┼─ " ────────────┼─ ! ────────────┤
-    &parentheses     &kp Z            &kp X            &kp C            &kp D            &kp V                     &kp K            &kp H            &kp COMMA        &kp DOT          &ls N2           &ls N1
+    &parentheses     &kp Z            &kp X            &kp C            &kp D            &kp V                     &kp K            &kp H            &kp COMMA        &kp DOT          &kp LS(N2)       &kp LS(N1)
 //╰────────────────┴────────────────┴────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┴────────────────┴────────────────╯
                                                        &mo FUN          &lt MISC TAB     &lt SYM SPACE             &lt SYM ENTER    &lt MISC BSPC    &lt FUN DEL
 //                                                   ╰────────────────┴────────────────┴────────────────╯        ╰────────────────┴────────────────┴────────────────╯
@@ -100,11 +70,11 @@ ZMK_LAYER(Alpha,
 
 ZMK_LAYER(Symbols,
 //╭────────────────┬─ % ────────────┬─ ( ────────────┬─ ) ────────────┬─ : ────────────┬─ & ────────────╮        ╭─ ` ────────────┬─ " ────────────┬─ < ────────────┬─ > ────────────┬─ ' ────────────┬────────────────╮
-    XXX              &ls N5           &ls N9           &ls N0           &ls SEMI         &ls N7                    &spaced SQT      &ls N2           &kp BSLH         &ls BSLH         &ls LT           XXX
+    XXX              &kp LS(N5)       &kp LS(N9)       &kp LS(N0)       &kp LS(SEMI)     &kp LS(N7)                &spaced SQT      &kp LS(N2)       &kp BSLH         &kp LS(BSLH)     &kp LS(LT)       XXX
 //├────────────────┼─ ? ────────────┼─ { ────────────┼─ } ────────────┼─ ; ────────────┼─ | ────────────┤        ├─ @ ────────────┼─ = ────────────┼─ + ────────────┼─ - ────────────┼─ ! ────────────┼────────────────┤
-    XXX              &hls LGUI N6     &hla LALT SQT    &hla LCTRL BSLH  &hl LSHFT SEMI   &ls GRAVE                 &kp RA(N2)       &hr RSHFT EQUAL  &hrs RCTRL EQUAL &hr LALT MINUS   &hrs RGUI N1     XXX
+    XXX              &hl LGUI LS(N6)  &hl LALT RA(SQT) &hl LCTRL RA(BSLH)&hl LSHFT SEMI  &kp LS(GRAVE)             &kp RA(N2)       &hr RSHFT EQUAL  &hr RCTRL LS(EQUAL)&hr LALT MINUS &hr RGUI LS(N1)  XXX
 //├────────────────┼─ # ────────────┼─ [ ────────────┼─ ] ────────────┼─ $ ────────────┼─ ~ ────────────┤        ├─ _ ────────────┼─ / ────────────┼─ * ────────────┼─ \ ────────────┼─ ^ ────────────┼────────────────┤
-    XXX              &kp GRAVE        &ralt LBKT       &ralt RBKT       &ls N4           &ralt SEMI                &ls MINUS        &ls N3           &ls N8           &ralt GRAVE      &spaced LBKT     XXX
+    XXX              &kp GRAVE        &kp RA(LBKT)     &kp RA(RBKT)     &kp LS(N4)       &kp RA(SEMI)              &kp LS(MINUS)    &kp LS(N3)       &kp LS(N8)       &kp RA(GRAVE)    &spaced LBKT     XXX
 //╰────────────────┴────────────────┴────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┴────────────────┴────────────────╯
                                                        XXX              &kp TAB          &kp SPACE                 &kp ENTER        &kp BSPC         &kp DEL
 //                                                   ╰────────────────┴────────────────┴────────────────╯        ╰────────────────┴────────────────┴────────────────╯
@@ -112,7 +82,7 @@ ZMK_LAYER(Symbols,
 
 ZMK_LAYER(Misc,
 //╭────────────────┬─ ¸ ────────────┬─ ^ ────────────┬─ é ────────────┬─ ` ────────────┬─ ¨ ────────────╮        ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
-    XXX              &kp RBKT         &kp LBKT         &kp FSLH         &kp SQT          &ls RBKT                  XXX              &kp N7           &kp N8           &kp N9           XXX              XXX
+    XXX              &kp RBKT         &kp LBKT         &kp FSLH         &kp SQT          &LS (RBKT)                XXX              &kp N7           &kp N8           &kp N9           XXX              XXX
 //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
     XXX              &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        XXX                       XXX              &hr RSHFT N4     &hr RCTRL N5     &hr LALT N6      &kp RGUI         XXX
 //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
