@@ -1,0 +1,8 @@
+file_format: "1"
+id: kevinpastor_custom_nice_view
+name: kevinpastor custom nice!view
+type: shield
+url: https://github.com/kevinpastor/zmk-config
+requires: [nice_view_header]
+features:
+  - display
