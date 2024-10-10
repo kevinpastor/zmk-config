@@ -1,4 +1,4 @@
-#include "./usb_logo.h"
+#include "../../include/images/usb_logo.h"
 
 #ifndef LV_ATTRIBUTE_MEM_ALIGN
 #define LV_ATTRIBUTE_MEM_ALIGN

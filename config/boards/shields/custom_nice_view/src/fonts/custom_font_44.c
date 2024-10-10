@@ -4,7 +4,7 @@
  * Opts: --bpp 1 --size 44 --no-compress --font LoRes22OTSerif-Bold.woff --range 32-127 --format lvgl -o custom_font_44.c
  ******************************************************************************/
 
-#include "./custom_font_44.h"
+#include "../../include/fonts/custom_font_44.h"
 
 #ifndef CUSTOM_FONT_44
 #define CUSTOM_FONT_44 1

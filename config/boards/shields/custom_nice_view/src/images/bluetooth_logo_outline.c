@@ -1,4 +1,4 @@
-#include "./bluetooth_logo_outline.h"
+#include "../../include/images/bluetooth_logo_outline.h"
 
 #ifndef LV_ATTRIBUTE_MEM_ALIGN
 #define LV_ATTRIBUTE_MEM_ALIGN

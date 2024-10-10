@@ -1,4 +1,4 @@
-#include "./background_1.h"
+#include "../../include/images/background_1.h"
 
 
 #ifndef LV_ATTRIBUTE_MEM_ALIGN
