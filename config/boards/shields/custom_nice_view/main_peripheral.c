@@ -46,15 +46,7 @@ lv_obj_t* main_canvas;
 lv_color_t main_canvas_buffer[LV_CANVAS_BUF_SIZE_TRUE_COLOR(MAIN_CANVAS_WIDTH, MAIN_CANVAS_HEIGHT)];
 
 struct connectivity_state {
-    struct zmk_endpoint_instance selected_endpoint;
-    int active_profile_index;
-    bool active_profile_connected;
-    bool active_profile_bonded;
-};
-
-struct layer_state {
-    zmk_keymap_layer_index_t index;
-    const char* name;
+    bool connected;
 };
 
 struct battery_state {
@@ -64,7 +56,6 @@ struct battery_state {
 
 struct states {
     struct connectivity_state connectivity;
-    struct layer_state layer;
     struct battery_state battery;
     uint8_t background_index;
 };
@@ -75,55 +66,19 @@ static void render_bluetooth_logo() {
     lv_draw_img_dsc_t img_dsc;
     lv_draw_img_dsc_init(&img_dsc);
     
-    if (states.connectivity.active_profile_bonded) {
-        if (states.connectivity.active_profile_connected) {
-            lv_canvas_draw_img(info_canvas, 52, 4, &bluetooth_logo, &img_dsc);
-        } else {
-            lv_canvas_draw_img(info_canvas, 52, 4, &bluetooth_logo_outlined, &img_dsc);
-        }
+    if (states.connectivity.connected) {
+        lv_canvas_draw_img(info_canvas, 52, 4, &bluetooth_logo, &img_dsc);
     } else {
-        lv_canvas_draw_img(info_canvas, 52, 4, &bluetooth_logo_outline, &img_dsc);
+        lv_canvas_draw_img(info_canvas, 52, 4, &bluetooth_logo_outlined, &img_dsc);
     }
 }
 
 static void render_bluetooth_connectivity() {
-    lv_draw_label_dsc_t label_dsc;
-    lv_draw_label_dsc_init(&label_dsc);
-    label_dsc.color = FOREGROUND_COLOR;
-    label_dsc.font = &custom_font_22;
-    label_dsc.align = LV_TEXT_ALIGN_RIGHT;
-
-    const int custom_font_22_height = 19;
-    const int padding_y = (INFO_CANVAS_HEIGHT - custom_font_22_height) / 2;
-    char label[2];
-    snprintf(label, sizeof(label), "%d", states.connectivity.active_profile_index + 1);
-    lv_canvas_draw_text(info_canvas, INFO_CANVAS_WIDTH / 2, padding_y, INFO_CANVAS_WIDTH / 2 - 18, &label_dsc, label);
-
     render_bluetooth_logo();
 }
 
-static void render_usb_logo() {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
-
-    lv_canvas_draw_img(info_canvas, 45, 8, &usb_logo, &img_dsc);
-}
-
-static void render_usb_connectivity() {
-    render_usb_logo();
-}
-
 static void render_connectivity() {
-    switch (states.connectivity.selected_endpoint.transport) {
-        case ZMK_TRANSPORT_BLE: {
-            render_bluetooth_connectivity();
-            break;
-        }
-        case ZMK_TRANSPORT_USB: {
-            render_usb_connectivity();
-            break;
-        }
-    }
+    render_bluetooth_connectivity();
 }
 
 static void render_battery_outline() {
@@ -183,7 +138,7 @@ static void render_battery() {
     render_battery_outline();
 
     // Draw the main part of the battery
-    const int width = 19 / (states.battery.level / 100.0);
+    const int width = 19 * (states.battery.level / 100.0);
     lv_draw_rect_dsc_t rect_dsc;
     lv_draw_rect_dsc_init(&rect_dsc);
     rect_dsc.bg_color = FOREGROUND_COLOR;
@@ -246,7 +201,7 @@ static void render_info() {
 
 #include <zephyr/random/random.h>
 
-static void render_noise() {
+static void render_background() {
     lv_draw_img_dsc_t img_dsc;
     lv_draw_img_dsc_init(&img_dsc);
 
@@ -278,22 +233,7 @@ static void render_main() {
     background_dsc.bg_color = BACKGROUND_COLOR;
     lv_canvas_draw_rect(main_canvas, 0, 0, MAIN_CANVAS_WIDTH, MAIN_CANVAS_HEIGHT, &background_dsc);
 
-    render_noise();
-    
-    // Debug
-    // lv_canvas_set_px_color(main_canvas, 0, 0, FOREGROUND_COLOR);
-    // lv_canvas_set_px_color(main_canvas, MAIN_CANVAS_WIDTH - 1, 0, FOREGROUND_COLOR);
-    // lv_canvas_set_px_color(main_canvas, 0, MAIN_CANVAS_HEIGHT - 1, FOREGROUND_COLOR);
-    // lv_canvas_set_px_color(main_canvas, MAIN_CANVAS_WIDTH - 1, MAIN_CANVAS_HEIGHT - 1, FOREGROUND_COLOR);
-
-    lv_draw_label_dsc_t layer_name_dsc;
-    lv_draw_label_dsc_init(&layer_name_dsc);
-    layer_name_dsc.color = FOREGROUND_COLOR;
-    layer_name_dsc.font = &custom_font_44;
-    layer_name_dsc.align = LV_TEXT_ALIGN_CENTER;
-    const int actual_font_height = 38;
-    int padding = (MAIN_CANVAS_HEIGHT - actual_font_height) / 2;
-    lv_canvas_draw_text(main_canvas, 0, padding, MAIN_CANVAS_WIDTH, &layer_name_dsc, states.layer.name);
+    render_background();
 }
 
 static void render() {
@@ -308,16 +248,10 @@ static void connectivity_state_update_callback(struct connectivity_state state) 
 }
 
 static struct connectivity_state get_connectivity_state(const zmk_event_t *_eh) {
-    const struct zmk_endpoint_instance selected_endpoint = zmk_endpoints_selected();
-    const int active_profile_index = zmk_ble_active_profile_index();
-    const bool active_profile_connected = zmk_ble_active_profile_is_connected();
-    const bool active_profile_bonded = !zmk_ble_active_profile_is_open();
+    const bool connected = zmk_split_bt_peripheral_is_connected();
 
     struct connectivity_state state = {
-        .selected_endpoint = selected_endpoint,
-        .active_profile_index = active_profile_index,
-        .active_profile_connected = active_profile_connected,
-        .active_profile_bonded = active_profile_bonded,
+        .connected = connected,
     };
 
     return state;
@@ -330,51 +264,10 @@ ZMK_DISPLAY_WIDGET_LISTENER(
     get_connectivity_state
 )
 
+#include <zmk/events/split_peripheral_status_changed.h>
 ZMK_SUBSCRIPTION(
     widget_connectivity_state_update,
-    zmk_endpoint_changed
-);
-
-ZMK_SUBSCRIPTION(
-    widget_connectivity_state_update,
-    zmk_usb_conn_state_changed
-);
-
-ZMK_SUBSCRIPTION(
-    widget_connectivity_state_update,
-    zmk_ble_active_profile_changed
-);
-
-static void layer_state_update_callback(struct layer_state state) {
-    states.layer = state;
-
-    render();
-}
-
-// Retrieve the data we want from the event
-static struct layer_state get_layer_state(const zmk_event_t *eh) {
-    const zmk_keymap_layer_index_t index = zmk_keymap_highest_layer_active();
-    const char* name = zmk_keymap_layer_name(zmk_keymap_layer_index_to_id(index));
-
-    struct layer_state state = {
-        .index = index,
-        .name = name
-    };
-
-    return state;
-}
-
-// Creates widget_layer_state_update_init
-ZMK_DISPLAY_WIDGET_LISTENER(
-    widget_layer_state_update,
-    struct layer_state,
-    layer_state_update_callback,
-    get_layer_state
-)
-
-ZMK_SUBSCRIPTION(
-    widget_layer_state_update,
-    zmk_layer_state_changed
+    zmk_split_peripheral_status_changed
 );
 
 static void battery_state_update_callback(struct battery_state state) {
@@ -433,7 +326,6 @@ lv_obj_t* zmk_display_status_screen() {
     lv_canvas_set_buffer(main_canvas, main_canvas_buffer, MAIN_CANVAS_WIDTH, MAIN_CANVAS_HEIGHT, LV_IMG_CF_TRUE_COLOR);
 
     // Initialize listeners
-    widget_layer_state_update_init();
     widget_connectivity_state_update_init();
     widget_battery_state_update_init();
 
