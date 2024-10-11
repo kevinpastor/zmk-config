@@ -1,7 +1,6 @@
 #include "../../include/utils/draw_battery.h"
 
-#define FOREGROUND_COLOR lv_color_black()
-#define BACKGROUND_COLOR lv_color_white()
+#include "../../include/colors.h"
 
 static void draw_battery_outline(lv_obj_t* canvas, lv_coord_t x, lv_coord_t y) {
     lv_draw_rect_dsc_t rect_dsc;
@@ -72,7 +71,7 @@ void draw_battery(lv_obj_t* canvas, lv_coord_t x, lv_coord_t y, struct battery_s
     lv_canvas_set_px_color(canvas, x + 20, y + 8, BACKGROUND_COLOR); // Bottom right
     lv_canvas_set_px_color(canvas, x + 2, y + 8, BACKGROUND_COLOR); // Bottom left
 
-    if (state.usb_present) {
+    if (state.is_charging) {
         draw_battery_lightning_bolt(canvas, x, y);
     }
 }
