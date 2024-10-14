@@ -1,5 +1,6 @@
 #include "../../include/utils/rotate_info_canvas.h"
 
+#include <lvgl.h>
 #include "../../include/main.h"
 #include "../../include/colors.h"
 

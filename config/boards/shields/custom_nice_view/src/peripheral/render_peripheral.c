@@ -1,13 +1,14 @@
-#include "../include/render_peripheral.h"
+#include "../../include/peripheral/render_peripheral.h"
 
-#include "../include/initialize_peripheral_listeners.h"
-#include "../include/colors.h"
-#include "../include/main.h"
-#include "../include/utils/draw_battery.h"
-#include "../include/utils/draw_background.h"
-#include "../include/utils/draw_bluetooth_logo_outlined.h"
-#include "../include/utils/draw_bluetooth_logo.h"
-#include "../include/utils/rotate_info_canvas.h"
+#include <lvgl.h>
+#include "../../include/colors.h"
+#include "../../include/main.h"
+#include "../../include/peripheral/initialize_listeners.h"
+#include "../../include/utils/draw_battery.h"
+#include "../../include/utils/draw_background.h"
+#include "../../include/utils/draw_bluetooth_logo_outlined.h"
+#include "../../include/utils/draw_bluetooth_logo.h"
+#include "../../include/utils/rotate_info_canvas.h"
 
 static void render_connectivity() {
     if (states.connectivity.connected) {
@@ -33,7 +34,6 @@ static void render_main() {
     lv_canvas_draw_rect(main_canvas, 0, 0, MAIN_CANVAS_WIDTH, MAIN_CANVAS_HEIGHT, &background_dsc);
 
     draw_background(main_canvas, states.background_index);
-    states.background_index = states.background_index + 1;
 }
 
 void render_peripheral() {

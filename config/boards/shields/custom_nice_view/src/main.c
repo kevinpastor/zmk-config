@@ -1,9 +1,6 @@
 #include "../include/main.h"
 
-// TODO Investigate use.
-// #include <zephyr/logging/log.h>
-// LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
-
+#include <lvgl.h>
 #include "../include/initialize_listeners.h"
 
 lv_obj_t* info_canvas;

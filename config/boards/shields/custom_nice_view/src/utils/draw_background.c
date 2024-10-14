@@ -1,12 +1,15 @@
 #include "../../include/utils/draw_background.h"
 
+#include <lvgl.h>
 #include "../../include/images/background_0.h"
 #include "../../include/images/background_1.h"
 #include "../../include/images/background_2.h"
 #include "../../include/images/background_3.h"
 #include "../../include/images/background_4.h"
+#include "../../include/images/background_5.h"
+#include "../../include/images/background_6.h"
 
-void draw_background(lv_obj_t* canvas, uint8_t index) {
+void draw_background(lv_obj_t* canvas, unsigned index) {
     lv_draw_img_dsc_t img_dsc;
     lv_draw_img_dsc_init(&img_dsc);
 
@@ -29,6 +32,14 @@ void draw_background(lv_obj_t* canvas, uint8_t index) {
         }
         case 4: {
             lv_canvas_draw_img(canvas, 0, 0, &background_4, &img_dsc);
+            break;
+        }
+        case 5: {
+            lv_canvas_draw_img(canvas, 0, 0, &background_5, &img_dsc);
+            break;
+        }
+        case 6: {
+            lv_canvas_draw_img(canvas, 0, 0, &background_6, &img_dsc);
             break;
         }
     }

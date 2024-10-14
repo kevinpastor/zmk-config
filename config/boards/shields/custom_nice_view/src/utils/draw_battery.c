@@ -1,5 +1,6 @@
 #include "../../include/utils/draw_battery.h"
 
+#include <lvgl.h>
 #include "../../include/colors.h"
 
 static void draw_battery_outline(lv_obj_t* canvas, lv_coord_t x, lv_coord_t y) {

@@ -1,17 +1,21 @@
-#include "../include/render_central.h"
+#include "../../include/central/render_central.h"
 
-#include "../include/colors.h"
-#include "../include/initialize_central_listeners.h"
-#include "../include/main.h"
-#include "../include/fonts/custom_font_22.h"
-#include "../include/fonts/custom_font_44.h"
-#include "../include/utils/draw_battery.h"
-#include "../include/utils/draw_background.h"
-#include "../include/utils/draw_bluetooth_logo_outline.h"
-#include "../include/utils/draw_bluetooth_logo_outlined.h"
-#include "../include/utils/draw_bluetooth_logo.h"
-#include "../include/utils/draw_usb_logo.h"
-#include "../include/utils/rotate_info_canvas.h"
+#include <ctype.h>
+#include <lvgl.h>
+#include <stdlib.h>
+#include <string.h>
+#include "../../include/colors.h"
+#include "../../include/central/initialize_listeners.h"
+#include "../../include/fonts/custom_font_22.h"
+#include "../../include/fonts/custom_font_44.h"
+#include "../../include/main.h"
+#include "../../include/utils/draw_battery.h"
+#include "../../include/utils/draw_background.h"
+#include "../../include/utils/draw_bluetooth_logo_outline.h"
+#include "../../include/utils/draw_bluetooth_logo_outlined.h"
+#include "../../include/utils/draw_bluetooth_logo.h"
+#include "../../include/utils/draw_usb_logo.h"
+#include "../../include/utils/rotate_info_canvas.h"
 
 static void render_bluetooth_logo() {
     if (states.connectivity.active_profile_bonded) {
@@ -81,12 +85,18 @@ static void draw_layer_name() {
     const int actual_font_height = 38;
     int padding = (MAIN_CANVAS_HEIGHT - actual_font_height) / 2;
 
-    lv_canvas_draw_text(main_canvas, 0, padding, MAIN_CANVAS_WIDTH, &layer_name_dsc, states.layer.name);
+    char* upperCasedName = malloc((strlen(states.layer.name) + 1) * sizeof(char));
+    for (int i = 0; states.layer.name[i] != '\0'; i++) {
+        upperCasedName[i] = toupper(states.layer.name[i]);
+    }
+    upperCasedName[strlen(states.layer.name)] = '\0';
+
+    lv_canvas_draw_text(main_canvas, 0, padding, MAIN_CANVAS_WIDTH, &layer_name_dsc, upperCasedName);
+    free(upperCasedName);
 }
 
 static void render_main() {
     draw_background(main_canvas, states.background_index);
-    states.background_index = states.background_index + 1;
     
     draw_layer_name();
 }

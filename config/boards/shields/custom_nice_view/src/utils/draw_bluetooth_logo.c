@@ -1,5 +1,6 @@
 #include "../../include/utils/draw_bluetooth_logo.h"
 
+#include <lvgl.h>
 #include "../../include/images/bluetooth_logo.h"
 
 void draw_bluetooth_logo(lv_obj_t* canvas, lv_coord_t x, lv_coord_t y) {

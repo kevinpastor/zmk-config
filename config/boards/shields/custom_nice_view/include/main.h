@@ -1,5 +1,7 @@
 #pragma once
 
+#include <zmk/display/status_screen.h>
+
 #include <lvgl.h>
 
 #define SCREEN_WIDTH 160

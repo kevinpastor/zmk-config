@@ -1,14 +1,15 @@
-#include "../include/initialize_peripheral_listeners.h"
+#include "../../include/peripheral/initialize_listeners.h"
 
 #include <zmk/battery.h>
+#include <zmk/ble.h>
+#include <zmk/split/bluetooth/peripheral.h>
 #include <zmk/display.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/battery_state_changed.h>
 #include <zmk/events/split_peripheral_status_changed.h>
 #include <zmk/events/usb_conn_state_changed.h>
 #include <zmk/usb.h>
-#include <zmk/ble.h>
-#include "../include/render_peripheral.h"
+#include "../../include/peripheral/render_peripheral.h"
 
 struct states states;
 
@@ -93,7 +94,16 @@ ZMK_SUBSCRIPTION(
     zmk_usb_conn_state_changed
 );
 
+void background_update_timer(lv_timer_t * timer)
+{
+    states.background_index = (states.background_index + 1) % UINT_MAX;
+
+    render_peripheral();
+}
+
 void initialize_listeners() {
     widget_peripheral_connectivity_state_update_init();
     widget_battery_state_update_init();
+
+    // lv_timer_create(background_update_timer, 200, NULL);
 }

@@ -1,5 +1,9 @@
-#include "../include/initialize_central_listeners.h"
+#include "../../include/central/initialize_listeners.h"
 
+#include <limits.h>
+#include <lvgl.h>
+#include <stdint.h>
+#include <zmk/battery.h>
 #include <zmk/ble.h>
 #include <zmk/display.h>
 #include <zmk/endpoints.h>
@@ -9,11 +13,9 @@
 #include <zmk/events/endpoint_changed.h>
 #include <zmk/events/layer_state_changed.h>
 #include <zmk/events/usb_conn_state_changed.h>
-#include <zmk/events/wpm_state_changed.h>
 #include <zmk/keymap.h>
 #include <zmk/usb.h>
-#include <zmk/wpm.h>
-#include "../include/render_central.h"
+#include "../../include/central/render_central.h"
 
 struct states states;
 
@@ -155,8 +157,17 @@ ZMK_SUBSCRIPTION(
     zmk_usb_conn_state_changed
 );
 
+void background_update_timer(lv_timer_t * timer)
+{
+    states.background_index = (states.background_index + 1) % UINT_MAX;
+
+    render_central();
+}
+
 void initialize_listeners() {
     widget_layer_state_update_init();
     widget_central_connectivity_state_update_init();
     widget_battery_state_update_init();
+
+    // lv_timer_create(background_update_timer, 200, NULL);
 }

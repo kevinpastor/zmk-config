@@ -1,11 +1,11 @@
 #pragma once
 
-#include "./initialize_listeners.h"
+#include "../initialize_listeners.h"
 
-#include <lvgl.h>
+#include <stdbool.h>
 #include <zmk/endpoints.h>
 #include <zmk/keymap.h>
-#include "./utils/draw_battery.h"
+#include "../utils/draw_battery.h"
 
 struct central_connectivity_state {
     struct zmk_endpoint_instance selected_endpoint;
@@ -23,7 +23,9 @@ struct states {
     struct central_connectivity_state connectivity;
     struct layer_state layer;
     struct battery_state battery;
-    uint8_t background_index;
+    unsigned background_index;
 };
 
 extern struct states states;
+
+void initialize_listeners();

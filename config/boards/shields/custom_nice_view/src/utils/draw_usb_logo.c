@@ -1,5 +1,6 @@
 #include "../../include/utils/draw_usb_logo.h"
 
+#include <lvgl.h>
 #include "../../include/images/usb_logo.h"
 
 void draw_usb_logo(lv_obj_t* canvas, lv_coord_t x, lv_coord_t y) {
