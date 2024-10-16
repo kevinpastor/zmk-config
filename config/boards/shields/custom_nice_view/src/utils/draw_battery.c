@@ -26,7 +26,7 @@ static void draw_battery_lightning_bolt(lv_obj_t* canvas, lv_coord_t x, lv_coord
     lv_canvas_set_px_color(canvas, x + 8, y + 11, BACKGROUND_COLOR);
     lv_canvas_set_px_color(canvas, x + 8, y + 12, FOREGROUND_COLOR);
     lv_canvas_set_px_color(canvas, x + 8, y + 13, BACKGROUND_COLOR);
-    
+   
     lv_canvas_set_px_color(canvas, x + 7, y + 10, BACKGROUND_COLOR);
     lv_canvas_set_px_color(canvas, x + 7, y + 11, FOREGROUND_COLOR);
     lv_canvas_set_px_color(canvas, x + 7, y + 12, BACKGROUND_COLOR);

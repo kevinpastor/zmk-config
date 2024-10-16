@@ -47,7 +47,7 @@ static void render_bluetooth_profile_index() {
     static const unsigned width = CONNECTIVITY_CANVAS_WIDTH - 18;
     static const char bluetooth_profile_label[5][2] = {"1", "2", "3", "4", "5"};
     const char* label = bluetooth_profile_label[states.connectivity.active_profile_index];
-    
+   
     lv_canvas_draw_text(info_canvas, 0, padding_y, width, &label_dsc, label);
 }
 
