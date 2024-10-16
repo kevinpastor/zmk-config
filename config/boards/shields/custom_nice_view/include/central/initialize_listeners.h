@@ -7,7 +7,7 @@
 #include <zmk/keymap.h>
 #include "../utils/draw_battery.h"
 
-struct central_connectivity_state {
+struct connectivity_state {
     struct zmk_endpoint_instance selected_endpoint;
     int active_profile_index;
     bool active_profile_connected;
@@ -20,10 +20,10 @@ struct layer_state {
 };
 
 struct states {
-    struct central_connectivity_state connectivity;
-    struct layer_state layer;
-    struct battery_state battery;
     unsigned background_index;
+    struct battery_state battery;
+    struct connectivity_state connectivity;
+    struct layer_state layer;
 };
 
 extern struct states states;

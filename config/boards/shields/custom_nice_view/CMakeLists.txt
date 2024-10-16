@@ -28,12 +28,12 @@ if(CONFIG_ZMK_DISPLAY AND CONFIG_NICE_VIEW_WIDGET_STATUS)
   if(NOT CONFIG_ZMK_SPLIT OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
     zephyr_library_sources(
       ./src/central/initialize_listeners.c
-      ./src/central/render_central.c
+      ./src/central/render.c
     )
   else()
     zephyr_library_sources(
       ./src/peripheral/initialize_listeners.c
-      ./src/peripheral/render_peripheral.c
+      ./src/peripheral/render.c
     )
   endif()
 endif()
