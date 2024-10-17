@@ -52,27 +52,27 @@ ZMK_MACRO_ONE_PARAM(spaced, \
         <&macro_tap &kp SPACE>; \
 )
 
-ZMK_MACRO_ONE_PARAM(ccedille, \
+ZMK_MACRO(ccedille, \
     bindings = <&macro_tap &kp RBKT &kp C>; \
 )
 
-ZMK_MACRO_ONE_PARAM(copy, \
+ZMK_MACRO(copy, \
     bindings = <&macro_tap &kp LC(C)>; \
 )
 
-ZMK_MACRO_ONE_PARAM(paste, \
+ZMK_MACRO(paste, \
     bindings = <&macro_tap &kp LC(V)>; \
 )
 
-ZMK_MACRO_ONE_PARAM(cut, \
+ZMK_MACRO(cut, \
     bindings = <&macro_tap &kp LC(X)>; \
 )
 
-ZMK_MACRO_ONE_PARAM(undo, \
+ZMK_MACRO(undo, \
     bindings = <&macro_tap &kp LC(Z)>; \
 )
 
-ZMK_MACRO_ONE_PARAM(redo, \
+ZMK_MACRO(redo, \
     bindings = <&macro_tap &kp LC(Y)>; \
 )
 
