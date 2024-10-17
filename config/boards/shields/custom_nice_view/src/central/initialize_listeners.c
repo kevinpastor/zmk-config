@@ -8,6 +8,7 @@
 #include <zmk/display.h>
 #include <zmk/endpoints.h>
 #include <zmk/event_manager.h>
+#include <zmk/events/activity_state_changed.h>
 #include <zmk/events/battery_state_changed.h>
 #include <zmk/events/ble_active_profile_changed.h>
 #include <zmk/events/endpoint_changed.h>
@@ -157,18 +158,63 @@ ZMK_SUBSCRIPTION(
     zmk_usb_conn_state_changed
 );
 
-void background_update_timer(lv_timer_t* timer)
+static void background_update_timer(lv_timer_t* timer)
 {
     states.background_index = (states.background_index + 1) % UINT_MAX;
 
     render_main();
 }
 
+lv_timer_t * timer;
+
+static void start_timer() {
+    // Call the `background_update_timer` function every 250ms.
+    timer = lv_timer_create(background_update_timer, 250, NULL);
+}
+
+// We want to pause the animation when the keyboard is idling.
+int activity_update_callback(const zmk_event_t* eh) {
+    struct zmk_activity_state_changed* ev = as_zmk_activity_state_changed(eh);
+    if (ev == NULL) {
+        return -ENOTSUP;
+    }
+
+    switch (ev->state) {
+        case ZMK_ACTIVITY_ACTIVE: {
+            lv_timer_resume(timer);
+            break;
+        }
+        case ZMK_ACTIVITY_IDLE:
+        case ZMK_ACTIVITY_SLEEP: {
+            lv_timer_pause(timer);
+            break;
+        }
+        default: {
+            return -EINVAL;
+        }
+    }
+
+    return 0;
+}
+
+// Create a listener named `activity_update`. This name is then used to create a
+// subscription. When subscribed, `activity_update_callback` will be called.
+ZMK_LISTENER(
+    activity_update,
+    activity_update_callback
+);
+
+// Subscribe the `activity_update` listener to the `zmk_activity_state_changed`
+// event dispatched by ZMK.
+ZMK_SUBSCRIPTION(
+    activity_update,
+    zmk_activity_state_changed
+);
+
 void initialize_listeners() {
     widget_layer_state_update_init();
     widget_connectivity_state_update_init();
     widget_battery_state_update_init();
 
-    // Call the `background_update_timer` function every 250ms.
-    lv_timer_create(background_update_timer, 250, NULL);
+    start_timer();
 }
