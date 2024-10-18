@@ -67,7 +67,7 @@ To avoid having to remap every game because of Colemak-DH layout, the gaming lay
 
 To go to the gaming layers (G) from the standard layers, hold the leftmost thumb key and then tap the rightmost thumb key. To go back to the standard layers (S), hold the leftmost thumb key and then tap the rightmost thumb key, same as the other way around.
 
-### References
+## References
 
 - [Colemak Mod-DH](https://colemakmods.github.io/mod-dh/)
 - [Designing a Symbol Layer by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
@@ -75,3 +75,17 @@ To go to the gaming layers (G) from the standard layers, hold the leftmost thumb
 - [DreymaR's Big Bag of Kbd Tricks](https://dreymar.colemak.org/)
 - [Miryoku](https://github.com/manna-harbour/miryoku)
 - [urob's configuration](https://github.com/urob/zmk-config)
+
+## Changelogs
+
+### 2024-10-17
+
+- Replace key presses on the thumb keys on layers with momentary layer behaviors.
+    - Nested taps could occur when two characters from different layers were pressed consecutively (e.g., a number followed by a symbol, where the first layer change overlapped the second layer change).
+
+### 2024-10-16
+
+- The gaming layers change key and the Bluetooth behaviors were moved a bit more out of the way 
+- Add macros for common use cases.
+    - The "cédille" accent in French is exclusively used on the letter c, which made sense to remove the dedicated accent key and replace it with a "c cédille" key.
+    - Undo and redo are shortcuts often used but a bit awkward to do with the homerow mods.
