@@ -4,7 +4,6 @@ if(CONFIG_ZMK_DISPLAY AND CONFIG_NICE_VIEW_WIDGET_STATUS)
   zephyr_library_sources(
     ./src/main.c
     ./src/fonts/custom_font_22.c
-    ./src/fonts/custom_font_44.c
     ./src/images/background_0.c
     ./src/images/background_1.c
     ./src/images/background_2.c
@@ -29,6 +28,11 @@ if(CONFIG_ZMK_DISPLAY AND CONFIG_NICE_VIEW_WIDGET_STATUS)
     zephyr_library_sources(
       ./src/central/initialize_listeners.c
       ./src/central/render.c
+      # These are not included on the peripheral since they are only used for
+      # displaying the layer name.
+      ./src/fonts/custom_font_44.c
+      ./src/fonts/custom_font_shadow.c
+      ./src/fonts/custom_font_outline.c
     )
   else()
     zephyr_library_sources(

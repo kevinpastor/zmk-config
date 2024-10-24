@@ -4,12 +4,19 @@ This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configur
 
 ## Highlights
 
+- Custom displays
 - Gaming layers crafted for FPS games
 - ["Timer-less" homerow mods](#timeless-homerow-mods)
 - Symbol layer based off [Pascal Getreuer's article](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
 - Keymap for Canadian French Windows layout
 - Helper macros from
   [zmk-nodefree-config](https://github.com/urob/zmk-nodefree-config)
+
+## Displays
+
+![Custom displays alpha layer preview](./custom_displays_alpha_layer.png)
+![Custom displays gaming layer preview](./custom_displays_gaming_layer.png)
+![Custom displays gaming layer preview](./custom_displays_misc_layer.png)
 
 ## Layers
 
