@@ -61,7 +61,7 @@ ZMK_MACRO(ccedillemajuscule, \
 )
 
 ZMK_MOD_MORPH(ccedille, \
-    bindings = <&ccedilleminuscule &ccedillemajuscule>; \
+    bindings = <&ccedilleminuscule>, <&ccedillemajuscule>; \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
 )
 
