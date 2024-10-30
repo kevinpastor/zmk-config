@@ -52,12 +52,17 @@ ZMK_MACRO_ONE_PARAM(spaced, \
         <&macro_tap &kp SPACE>; \
 )
 
-ZMK_MACRO(ccedille, \
+ZMK_MACRO(ccedilleminuscule, \
     bindings = <&macro_tap &kp RBKT &kp C>; \
 )
 
-ZMK_MACRO(copy, \
-    bindings = <&macro_tap &kp LC(C)>; \
+ZMK_MACRO(ccedillemajuscule, \
+    bindings = <&macro_tap &kp RBKT &kp LS(C)>; \
+)
+
+ZMK_MOD_MORPH(ccedille, \
+    bindings = <&ccedilleminuscule &ccedillemajuscule>; \
+    mods = <MOD_LSFT|MOD_RSFT>; \
 )
 
 ZMK_MACRO(paste, \
