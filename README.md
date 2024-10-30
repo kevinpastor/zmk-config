@@ -1,98 +1,92 @@
-# kevinpastor's zmk-config
+# nice!view Elemental
 
-This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configuration. It consists of a 42-keys base layout that I use for my Corne keyboard.
+![Banner](./assets/banner.png)
 
-## Highlights
+The nice!view Elemental is a ZMK module that delivers a bold while minimalistic interface for your keyboard's display.
 
-- Custom displays
-- Gaming layers crafted for FPS games
-- ["Timer-less" homerow mods](#timeless-homerow-mods)
-- Symbol layer based off [Pascal Getreuer's article](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
-- Keymap for Canadian French Windows layout
-- Helper macros from
-  [zmk-nodefree-config](https://github.com/urob/zmk-nodefree-config)
+- Makes critical information **easy to read**;
+- Uses **custom font and icons**;
+- Provides a **subtle animation**;
+- **Optimized** to render as little as possible.
 
-## Displays
+## Gallery
 
-![Custom displays alpha layer preview](./custom_displays_alpha_layer.png)
-![Custom displays gaming layer preview](./custom_displays_gaming_layer.png)
-![Custom displays gaming layer preview](./custom_displays_misc_layer.png)
+![Animation Preview](./assets/animation.gif)
+![Preview #1](./assets/preview_1.png)
+![Preview #2](./assets/preview_2.png)
+![Preview #3](./assets/preview_3.png)
 
-## Layers
+## Features
 
-### Standard Layers
+### Layer Name
 
-![Standard layers preview](img/standard-keymap.png)
-*Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/14c5c6b4de6c618dfc265b5b77a0cff0)*
+Displays the current layer name in full caps. By default, a shadow (the 4px innermost black outline) as well as an outline (the 1px outmost white outline) will be added to make it easily readable on the background. Can be configured.
 
-The overall design of the standard layers has been greatly influenced by the gaming layers described below. The reasoning behind this is to keep the same muscle memory across both groups of layers.
+### Background
 
-Home row mods is setup to use the right variant of the modifiers on the right hand side to allow to switch hand if the modifier on the wrong hand was pressed. The right hand side `Alt` is the exception to this to avoid having `AltGr` registered with the Canadian French Windows layout.
+Displays a noisy background animation that fades out to the border of the screens. Can be configured.
 
-The Canadian French Windows layout needs to be used in order for the symbols and some other characters to register properly.
+### Battery
 
-Some macro behaviors have been used for symbols because of an issue when using Windows RDP with the keyboard over Bluetooth.
+Displays the battery's remaining power and status.
 
-#### Alpha Layer
+| Pictogram                                         | Description                             |
+| ------------------------------------------------- | --------------------------------------- |
+| ![Battery](./assets/battery.png)                     | Displayed on normal battery use.        |
+| ![Battery - Charging](./assets/battery_charging.png) | Displayed when the battery is charging. |
 
-The alpha layer is based on the Colemak-DH layout. The position of symbols on that layer has been influenced by their usage frequency in both French and English according to [an article from Wikipedia](https://en.wikipedia.org/wiki/English_punctuation) and [an article from bépo](https://bepo.fr/wiki/Fr%C3%A9quence_des_caract%C3%A8res). Controls and whitespace keys have been placed according to their usage and their usual position on a standard keyboard.
+### Connectivity
 
-Homerow mods are active for that layer.
+Displays the connectivity status for both the central and peripheral halves.
 
-#### Symbols Layer
+#### Output
 
-The symbols layer as been greatly inspired by [an article by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html). The main difference is the mirroring of its layer to ensure inward rolls are possible for the `{`, `}`, `(`, `)`, `[`, and `]` keys.
+| Pictogram                                                     | Description                                                                                                                                                                            |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Connectivity - Bluetooth](./assets/connectivity_bluetooth.png) | Displayed when the keyboard output is sent via Bluetooth (e.g., when unplugged from USB). On the central half, a number will be displayed representing the selected Bluetooth profile. |
+| ![Connectivity - USB](./assets/connectivity_usb.png)             | Displayed when the keyboard output is sent to USB (e.g., when plugged via USB). Only displayed on the central half.                                                                    |
 
-Homerow mods are active for that layer.
+#### Bluetooth
 
-#### Miscellaneous Layer
+| Pictogram                                                     | Description                                                                                                                                                                       |
+| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Bluetooth - Connected](./assets/bluetooth_connected.png)       | On the central half, displayed when the currently selected profile is connected to the host.<br />On the peripheral half, displayed when connected to the central half.           |
+| ![Bluetooth - Disconnected](./assets/bluetooth_disconnected.png) | On the central half, displayed when the currently selected profile is disconnected from the host.<br />On the peripheral half, displayed when disconnected from the central half. |
+| ![Bluetooth - Searching](./assets/bluetooth_searching.png)           | Displayed when the currently selected profile is not bound to any host (e.g., when `&bt BT_CLR` was just called). Only displayed on the central half.                             |
 
-The miscellaneous layer has been designed to provide numbers as well as extra keys like arrows and French accents. 
+## Configuration
 
-On the right side, the numbers have been place to mimic the numpad on a standard keyboard. A comma was added to support French decimal numbering notation.
+| Config                                          | Type | Description                                                                                                       | Default |
+| ----------------------------------------------- | ---- | ----------------------------------------------------------------------------------------------------------------- | ------- |
+| `CONFIG_NICE_VIEW_ELEMENTAL_ANIMATION`          | bool | Enables the background animation.                                                                                 | y       |
+| `CONFIG_NICE_VIEW_ELEMENTAL_ANIMATION_FRAME_MS` | int  | Frame delay for the animation, in milliseconds.                                                                   | 250     |
+| `CONFIG_NICE_VIEW_ELEMENTAL_BACKGROUND`         | bool | Displays a background.                                                                                            | y       |
+| `CONFIG_NICE_VIEW_ELEMENTAL_OUTLINE`            | bool | Displays an outline around the shadow of the layer name. The outline is the 1px white line around the layer name. | y       |
+| `CONFIG_NICE_VIEW_ELEMENTAL_SHADOW`             | bool | Displays a shadow around the layer name. The shadow is the 4px black line around the layer name.                  | y       |
+<!--
+| `CONFIG_NICE_VIEW_ELEMENTAL_CAPITALIZATION`     | bool | Enables full capitalization for the layer name.                                                                   | y       | 
+-->
 
-The arrows have been placed on the home row to avoid hand movement. Since the left hand is often used for movement in games using WASD, the position of the up arrow has been decided according to the usual finger on the W key (i.e. the middle finger).
+## How It Works
 
-Accents have been placed on a row according to their frequency in French.
+> This implementation began with the nice!view shield source as a base. However, after numerous refactors, it has evolved into what could be considered a complete rewrite.
 
-Home row mods are only active on the right hand for that layer. This allows long press of the arrow keys. 
+When the `CONFIG_ZMK_DISPLAY` setting is enabled, ZMK calls the `lv_obj_t* zmk_display_status_screen()` function. This function serves as the entry point for display customization, and the `nice_view` module has a definition for it. In the nice!view Elemental module, another definition of the function exists in `src/main.c`.
 
-#### Functions Layer
+Because the firmware can be built for both the central and peripheral halves of the keyboard (which have slightly different display outputs), this module differentiates between them via the `void initialize_listeners()` function. For the central half, this function is defined in the `src/central/initialize_listeners.c` file, and for the peripheral half, it is in the `src/peripheral/initialize_listeners.c` file. The `CMakeList.txt` file manages the selection between these, determining which files to include in each build.
 
-The functions layer has been designed to resemble the numbers layer as close as possible. Function keys past `F9` were placed in regards to ergonomics.
+This module relies on both ZMK and LVGL for implementation. ZMK retrieves the current keyboard state, while LVGL, a graphics library, handles rendering.
 
-The `F13` and `F14` keys have been made available to use as dedicated mute and deafen shortcuts on Discord. They are position and accessed exactly the same on the gaming layers.
+> From this point forward, we'll use the central half as an example, but the same principles apply to the peripheral half.
 
-Home row mods are not active for that layer. Instead, the left hand side provides the modifier keys "as is" to be able to access them instantly without having to wait for the home row mods timeout. This is useful for side-scrolling with `Shift` and the scroll wheel or for zooming on a page with `Ctrl` and the scroll wheel.
+In the main function, various canvases are initialized to facilitate rendering. The `initialize_listeners` function is called here, where all the main setup occurs.
 
-### Gaming Layers
+As the name implies, the `initialize_listeners` function initializes all configured listeners. Each listener is set up to respond to one or multiple events dispatched by ZMK. For example, the `zmk_layer_state_changed` event is triggered whenever the active layer changes. When an event is dispatched, one function retrieves the state necessary to process it, followed by another function that processes the event based on that state. In listener setup, the state is stored in a global variable, and a rendering function is subsequently called. Multiple rendering functions are defined, each responsible for rendering a small display segment (e.g., the layer name).
 
-![Gaming layers preview](img/gaming-keymap.png)
-*Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/9b497751bc9a9fc18a86e876f723288d)*
+At this point, LVGL steps in to handle the actual rendering. Rendering is managed by using a canvas to draw elements on the display. Though the nice!view display is often used vertically, it's horizontally oriented with a resolution of 160x68 pixels. Because everything draws horizontally, the canvas must be rotated when needed to accommodate the vertical orientation.
 
-To avoid having to remap every game because of Colemak-DH layout, the gaming layers are setup with QWERTY. The catch: the lefthand side is shifted right by one key to center the navigation keys (WASD) on the home row keys. This leads to better ergonomy at the expense of key compromises: some alpha keys are repositioned on another layer.
+Although LVGL is a robust library, I ran into some issues with version 8.3, the version currently provided by ZMK, which is slightly outdated. Text should theoretically render transparently on a canvas, but I couldn't get this to work reliably. Transparent text rendering would have allowed layering for the background and the layer name separately, avoiding unnecessary re-renders.
 
-To go to the gaming layers (G) from the standard layers, hold the leftmost thumb key and then tap the rightmost thumb key. To go back to the standard layers (S), hold the leftmost thumb key and then tap the rightmost thumb key, same as the other way around.
+To add shadow and outline effects to the layer name, I initially considered using dilated convolution. However, due to the limitation mentioned above and due to the issue of the background somewhat corrupting the layer name canvas, I opted to manually create custom font variants. These variants were created with [PixelForge](https://sergilazaro.itch.io/pixelforge) and exported with [the Font Converter tool](https://lvgl.io/tools/fontconverter) provided by LVGL. In the end, the layer name is rendered in three steps: first with a 5px-dilated white font, then with a 4px-dilated black font, and finally with the standard custom font in white. This leaves only one pixel of white for the outline because of the overlap.
 
-## References
-
-- [Colemak Mod-DH](https://colemakmods.github.io/mod-dh/)
-- [Designing a Symbol Layer by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html)
-- [ShelZuuz's symbol layer](https://www.reddit.com/r/ErgoMechKeyboards/comments/1ch1ubl/comment/l20p2e2/)
-- [DreymaR's Big Bag of Kbd Tricks](https://dreymar.colemak.org/)
-- [Miryoku](https://github.com/manna-harbour/miryoku)
-- [urob's configuration](https://github.com/urob/zmk-config)
-
-## Changelogs
-
-### 2024-10-17
-
-- Replace key presses on the thumb keys on layers with momentary layer behaviors.
-    - Nested taps could occur when two characters from different layers were pressed consecutively (e.g., a number followed by a symbol, where the first layer change overlapped the second layer change).
-
-### 2024-10-16
-
-- The gaming layers change key and the Bluetooth behaviors were moved a bit more out of the way 
-- Add macros for common use cases.
-    - The "cédille" accent in French is exclusively used on the letter c, which made sense to remove the dedicated accent key and replace it with a "c cédille" key.
-    - Undo and redo are shortcuts often used but a bit awkward to do with the homerow mods.
+Some images were drawn pixel by pixel out of simplicity while other were drawn on [Photopea](https://www.photopea.com/) (a free web-based Photoshop alternative) and exported with [the Image Converter tool](https://lvgl.io/tools/imageconverter) provided again by LVGL.

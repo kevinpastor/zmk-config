@@ -1,0 +1,8 @@
+file_format: "1"
+id: nice_view_elemental
+name: nice!view Elemental
+type: shield
+url: https://github.com/kevinpastor/nice-view-elemental
+requires: [nice_view_header]
+features:
+  - display
