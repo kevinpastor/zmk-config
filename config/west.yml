@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
-    # - name: kevinpastor
-    #   url-base: https://github.com/kevinpastor
+    - name: kevinpastor
+      url-base: https://github.com/kevinpastor
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,8 +14,8 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
-    # - name: nice-view-elemental
-    #   remote: kevinpastor
-    #   revision: main
+    - name: nice-view-elemental
+      remote: kevinpastor
+      revision: main
   self:
     path: config
