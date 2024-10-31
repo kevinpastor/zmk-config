@@ -52,22 +52,24 @@ ZMK_MACRO_ONE_PARAM(spaced, \
         <&macro_tap &kp SPACE>; \
 )
 
-// ZMK_MACRO(ccedilleminuscule, \
-//     bindings = <&macro_tap &kp RBKT &kp C>; \
-// )
+ZMK_MACRO(ccedilleminuscule, \
+    bindings = <&macro_tap &kp RBKT &kp C>; \
+)
 
-// ZMK_MACRO(ccedillemajuscule, \
-//     bindings = \
-//         <&macro_tap &kp RBKT>, \
-//         <&macro_tap &kp LS(C)>; \
-// )
+ZMK_MACRO(ccedillemajuscule, \
+    bindings = <&macro_tap &kp RBKT &kp LS(C)>; \
+)
 
-// ZMK_MOD_MORPH(ccedille, \
-//     mods = <(MOD_LSFT|MOD_RSFT)>; \
-//     bindings = \
-//         <&ccedilleminuscule>, \
-//         <&ccedillemajuscule>; \
-// )
+ZMK_MOD_MORPH(ccedille, \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+    bindings = \
+        <&ccedilleminuscule>, \
+        <&ccedillemajuscule>; \
+)
+
+ZMK_MACRO(copy, \
+    bindings = <&macro_tap &kp LC(C)>; \
+)
 
 ZMK_MACRO(paste, \
     bindings = <&macro_tap &kp LC(V)>; \
@@ -113,7 +115,7 @@ ZMK_LAYER(Symbols,
 
 ZMK_LAYER(Misc,
 //╭────────────────┬─ ç ────────────┬─ ^ ────────────┬─ é ────────────┬─ ` ────────────┬─ ¨ ────────────╮        ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
-    &bt BT_SEL 1     &kp RBKT         &kp LBKT         &kp FSLH         &kp SQT          &kp LS(RBKT)              &kp COMMA        &kp N7           &kp N8           &kp N9           XXX              XXX
+    &bt BT_SEL 1     &ccedille        &kp LBKT         &kp FSLH         &kp SQT          &kp LS(RBKT)              &kp COMMA        &kp N7           &kp N8           &kp N9           XXX              XXX
 //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
     &bt BT_SEL 0     &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        XXX                       &kp DOT          &hr RSHFT N4     &hr RCTRL N5     &hr LALT N6      &kp RGUI         XXX
 //├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤        ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
