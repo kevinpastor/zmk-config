@@ -56,15 +56,15 @@ ZMK_MACRO(ccedilleminuscule, \
     bindings = <&macro_tap &kp RBKT &kp C>; \
 )
 
-ZMK_MACRO(ccedillemajuscule, \
-    bindings = <&macro_tap &kp RBKT &kp LS(C)>; \
-)
+// ZMK_MACRO(ccedillemajuscule, \
+//     bindings = <&macro_tap &kp RBKT &kp LS(C)>; \
+// )
 
 ZMK_MOD_MORPH(ccedille, \
     mods = <(MOD_LSFT|MOD_RSFT)>; \
     bindings = \
         <&ccedilleminuscule>, \
-        <&ccedillemajuscule>; \
+        <&ccedilleminuscule>; \
 )
 
 ZMK_MACRO(paste, \
