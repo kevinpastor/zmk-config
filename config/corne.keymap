@@ -30,7 +30,7 @@ MAKE_HRM(hr, &kp, &kp, LEFT_SIDE_KEYS THUMB_KEYS)
 
 ZMK_COMBO(caps_word, \
     &caps_word, \
-    LM1 RM1, \
+    LM0 RM0, \
     ALPHA, \
     COMBO_TERM, \
     HRM_TAPPING_TERM \
