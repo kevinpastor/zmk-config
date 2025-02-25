@@ -78,6 +78,11 @@ To go to the gaming layers (G) from the standard layers, hold the leftmost thumb
 
 ## Changelog
 
+### 2025-02-25
+
+- Create a mirrored alpha layer
+    - Having the right-hand side keys available on the left-hand side is useful when doing operations that requires the mouse (e.g. moving the mouse cursor and then pressing Enter).
+
 ### 2024-10-31
 
 - Move the gaming layer toggle key as well as the Bluetooth profile selection keys on the other hand.
