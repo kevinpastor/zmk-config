@@ -7,6 +7,7 @@ This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configur
 - Integrates [the nice!view Elemental module](https://github.com/kevinpastor/nice-view-elemental) for custom display;
 - Has gaming layers crafted for FPS games;
 - Implements [urob's "timer-less" homerow mods](https://github.com/urob/zmk-config);
+- Provides mirrored layers to complement mouse usage;
 - Built for the Canadian French Windows layout;
 - Uses helper macros from
   [zmk-nodefree-config](https://github.com/urob/zmk-nodefree-config).
@@ -82,6 +83,7 @@ To go to the gaming layers (G) from the standard layers, hold the leftmost thumb
 
 - Create a mirrored alpha layer
     - Having the right-hand side keys available on the left-hand side is useful when doing operations that requires the mouse (e.g. moving the mouse cursor and then pressing Enter).
+    - The position of the mirror key is reused on other layers so mirroring then entering a layer leads to the same as entering a layer then mirroring.
 
 ### 2024-10-31
 
