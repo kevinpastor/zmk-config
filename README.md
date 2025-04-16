@@ -6,7 +6,7 @@ This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configur
 
 - Integrates [the nice!view Elemental module](https://github.com/kevinpastor/nice-view-elemental) for custom display;
 - Has gaming layers crafted for FPS games;
-- Implements [urob's "timer-less" homerow mods](https://github.com/urob/zmk-config);
+- Implements [urob's "timer-less" home row mods](https://github.com/urob/zmk-config);
 - Provides mirrored layers to complement mouse usage;
 - Built for the Canadian French Windows layout;
 - Uses helper macros from
@@ -21,41 +21,43 @@ This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/) configur
 
 The overall design of the standard layers has been greatly influenced by the gaming layers described below. The reasoning behind this is to keep the same muscle memory across both groups of layers.
 
-Home row mods is setup to use the right variant of the modifiers on the right hand side to allow to switch hand if the modifier on the wrong hand was pressed. The right hand side `Alt` is the exception to this to avoid having `AltGr` registered with the Canadian French Windows layout.
+Home row mods are setup to use the right variant of the modifiers on the right hand side to allow to switch hand if the modifier was pressed using a finger on the wrong hand. The right hand side `Alt` is the exception to this to avoid having `AltGr` registered with the Canadian French Windows layout.
 
-The Canadian French Windows layout needs to be used in order for the symbols and some other characters to register properly.
-
-Some macro behaviors have been used for symbols because of an issue when using Windows RDP with the keyboard over Bluetooth.
+The Canadian French Windows layout must be used in order for the symbols and some other characters to register properly.
 
 #### Alpha Layer
 
-The alpha layer is based on the Colemak-DH layout. The position of symbols on that layer has been influenced by their usage frequency in both French and English according to [an article from Wikipedia](https://en.wikipedia.org/wiki/English_punctuation) and [an article from bépo](https://bepo.fr/wiki/Fr%C3%A9quence_des_caract%C3%A8res). Controls and whitespace keys have been placed according to their usage and their usual position on a standard keyboard.
+The alpha layer is based on the Colemak-DH layout. Controls and whitespace keys have been placed according to their usage and their usual position on a standard keyboard.
 
-Homerow mods are active for that layer.
+Extra punctuation keys where initially laid out on the outward columns, but this caused more hesitation than to use them from the symbols layer instead.
+
+Home row mods are active for that layer.
 
 #### Symbols Layer
 
-The symbols layer as been greatly inspired by [an article by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html). The main difference is the mirroring of its layer to ensure inward rolls are possible for the `{`, `}`, `(`, `)`, `[`, and `]` keys.
+The symbols layer has been greatly inspired by [an article by Pascal Getreuer](https://getreuer.info/posts/keyboards/symbol-layer/index.html). The main difference is the mirroring of its layer to ensure inward rolls are possible for the `{`, `}`, `(`, `)`, `[`, and `]` keys.
 
-Homerow mods are active for that layer.
+Home row mods are active for that layer.
 
 #### Miscellaneous Layer
 
-The miscellaneous layer has been designed to provide numbers as well as extra keys like arrows and French accents. 
+The miscellaneous layer is designed to provide numbers as well as extra keys like arrows and French accents. 
 
-On the right side, the numbers have been place to mimic the numpad on a standard keyboard. A comma was added to support French decimal numbering notation.
+On the right side, the numbers have been placed to mimic the numpad on a standard keyboard. A comma was added to support French decimal numbering notation. The `0` key was initially placed on the thumb but caused issues with combos, hence its current position.
 
-The arrows have been placed on the home row to avoid hand movement. Since the left hand is often used for movement in games using WASD, the position of the up arrow has been decided according to the usual finger on the W key (i.e. the middle finger).
+The arrows have been placed on the home row to avoid hand movement. Since the left hand is often used for movement in games using WASD, the position of the up arrow has been decided according to the usual finger on the W key (i.e. the middle finger). The `Home`, `Page Down`, `Page Up`, and `End` keys were placed following the same general idea, right underneath.
 
-Accents have been placed on a row according to their frequency in French.
+Accents are placed on a row according to their frequency in French.
 
 Home row mods are only active on the right hand for that layer. This allows long press of the arrow keys. 
 
 #### Functions Layer
 
-The functions layer has been designed to resemble the numbers layer as close as possible. Function keys past `F9` were placed in regards to ergonomics.
+The functions layer is designed to resemble the numbers layer as close as possible. Function keys past `F9` were placed in regards to ergonomics.
 
-The `F13` and `F14` keys have been made available to use as dedicated mute and deafen shortcuts on Discord. They are position and accessed exactly the same on the gaming layers.
+The `F13` and `F14` keys are available as dedicated mute and deafen shortcuts on Discord. They are positioned and accessed exactly the same on the gaming layers.
+
+A Bluetooth management key is made available on that layer to cycle through profiles or to clear the current one when the `Shift` key is held.
 
 Home row mods are not active for that layer. Instead, the left hand side provides the modifier keys "as is" to be able to access them instantly without having to wait for the home row mods timeout. This is useful for side-scrolling with `Shift` and the scroll wheel or for zooming on a page with `Ctrl` and the scroll wheel.
 
@@ -64,9 +66,9 @@ Home row mods are not active for that layer. Instead, the left hand side provide
 ![Gaming layers preview](./assets/gaming-keymap.png)
 *Layout preview generated on [keyboard-layout-editor.com](http://www.keyboard-layout-editor.com/#/gists/9b497751bc9a9fc18a86e876f723288d)*
 
-To avoid having to remap every game because of Colemak-DH layout, the gaming layers are setup with QWERTY. The catch: the lefthand side is shifted right by one key to center the navigation keys (WASD) on the home row keys. This leads to better ergonomy at the expense of key compromises: some alpha keys are repositioned on another layer.
+To avoid having to remap every game because of Colemak-DH layout, the gaming layers are set up with QWERTY. The catch: the left-hand side is shifted right by one key to center the navigation keys (WASD) on the home row keys. This leads to better ergonomics at the expense of key compromises: some alpha keys are repositioned on another layer.
 
-To go to the gaming layers (G) from the standard layers, hold the leftmost thumb key and then tap the rightmost thumb key. To go back to the standard layers (S), hold the leftmost thumb key and then tap the rightmost thumb key, same as the other way around.
+To switch to the gaming layers (G) from the standard layers, hold the leftmost thumb key and tap the rightmost thumb key. Repeat the same action to return to the standard layers (S).
 
 ## References
 
@@ -79,25 +81,31 @@ To go to the gaming layers (G) from the standard layers, hold the leftmost thumb
 
 ## Changelog
 
+### 2025-04-15
+
+- Replaced the dedicated Bluetooth profile keys by one that cycles through them.
+- Created all mirror layers.
+- Added the `#` key to the gaming layers.
+
 ### 2025-02-25
 
-- Create a mirrored alpha layer
-    - Having the right-hand side keys available on the left-hand side is useful when doing operations that requires the mouse (e.g. moving the mouse cursor and then pressing Enter).
-    - The position of the mirror key is reused on other layers so mirroring then entering a layer leads to the same as entering a layer then mirroring.
+- Created a mirrored alpha layer
+    - Having the right-hand side keys available on the left-hand side is useful when doing operations that require the mouse (e.g. moving the mouse cursor and then pressing Enter).
+    - The position of the mirror key is reused on other layers, so mirroring and then entering a layer leads to the same result as entering a layer and then mirroring.
 
 ### 2024-10-31
 
-- Move the gaming layer toggle key as well as the Bluetooth profile selection keys on the other hand.
+- Moved the gaming layer toggle key and the Bluetooth profile selection keys on the other hand.
     - Having the left pinky memorize 6 different actions became problematic in games when F13 was searched, but the key on the other layer was tried instead.
 
 ### 2024-10-17
 
-- Replace key presses on the thumb keys on layers with momentary layer behaviors.
+- Replaced key presses on the thumb keys on layers with momentary layer behaviors.
     - Nested taps could occur when two characters from different layers were pressed consecutively (e.g., a number followed by a symbol, where the first layer change overlapped the second layer change).
 
 ### 2024-10-16
 
 - The gaming layers change key and the Bluetooth behaviors were moved a bit more out of the way 
-- Add macros for common use cases.
+- Added macros for common use cases.
     - The "cédille" accent in French is exclusively used on the letter c, which made sense to remove the dedicated accent key and replace it with a "c cédille" key.
-    - Undo and redo are shortcuts often used but a bit awkward to do with the homerow mods.
+    - Undo and redo are shortcuts often used but a bit awkward to do with the home row mods.
