@@ -1,21 +1,21 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: urob
-      url-base: https://github.com/urob
-    - name: kevinpastor
-      url-base: https://github.com/kevinpastor
+    - url-base: https://github.com/zmkfirmware
+      name: zmkfirmware
+    - url-base: https://github.com/urob
+      name: urob
+    - url-base: https://github.com/kevinpastor
+      name: kevinpastor
   projects:
-    - name: zmk
-      remote: zmkfirmware
+    - remote: zmkfirmware
+      name: zmk
       revision: main
       import: app/west.yml
-    - name: zmk-helpers
-      remote: urob
+    - remote: urob
+      name: zmk-helpers
       revision: main
-    - name: nice-view-elemental
-      remote: kevinpastor
-      revision: main
+    - remote: kevinpastor
+      name: nice-view-elemental
+      revision: develop
   self:
     path: config
