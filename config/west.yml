@@ -9,7 +9,7 @@ manifest:
   projects:
     - remote: zmkfirmware
       name: zmk
-      revision: v0.3
+      revision: main
       import: app/west.yml
     - remote: urob
       name: zmk-helpers
