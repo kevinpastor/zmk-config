@@ -16,6 +16,6 @@ manifest:
       revision: main
     - remote: kevinpastor
       name: nice-view-elemental
-      revision: develop
+      revision: update-to-zmk-0.4
   self:
     path: config
